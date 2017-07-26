@@ -25,7 +25,7 @@ class CreatePerfilTable extends Migration
             $table->datetime('ini_pro');
             $table->datetime('end_pro');
             $table->integer('id_user')->unsigned();            
-            $table->foreign('id_user')->references('id')->on('users+');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }
