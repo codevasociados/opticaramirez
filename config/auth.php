@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Optica\User::class,
+            'model' => optica\User::class,
         ],
 
         // 'users' => [

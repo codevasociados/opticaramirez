@@ -1,8 +1,8 @@
 <?php
 
-namespace Optica\Http\Controllers\Auth;
+namespace optica\Http\Controllers\Auth;
 
-use Optica\Http\Controllers\Controller;
+use optica\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

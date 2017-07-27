@@ -1,6 +1,6 @@
 <?php
 
-namespace Optica\Providers;
+namespace optica\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

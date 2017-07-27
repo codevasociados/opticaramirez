@@ -1,9 +1,9 @@
 <?php
 
-namespace Optica\Http\Controllers\Auth;
+namespace optica\Http\Controllers\Auth;
 
-use Optica\User;
-use Optica\Http\Controllers\Controller;
+use optica\User;
+use optica\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -58,7 +58,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \Optica\User
+     * @return \optica\User
      */
     protected function create(array $data)
     {

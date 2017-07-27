@@ -1,6 +1,6 @@
 <?php
 
-namespace Optica\Http\Middleware;
+namespace optica\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

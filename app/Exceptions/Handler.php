@@ -1,6 +1,6 @@
 <?php
 
-namespace Optica\Exceptions;
+namespace optica\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

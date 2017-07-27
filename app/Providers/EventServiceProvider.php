@@ -1,6 +1,6 @@
 <?php
 
-namespace Optica\Providers;
+namespace optica\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Optica\Events\Event' => [
-            'Optica\Listeners\EventListener',
+        'optica\Events\Event' => [
+            'optica\Listeners\EventListener',
         ],
     ];
 

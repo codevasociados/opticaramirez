@@ -1,6 +1,6 @@
 <?php
 
-namespace Optica\Providers;
+namespace optica\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Optica\Model' => 'Optica\Policies\ModelPolicy',
+        'optica\Model' => 'optica\Policies\ModelPolicy',
     ];
 
     /**

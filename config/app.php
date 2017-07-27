@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Optica\Providers\AppServiceProvider::class,
-        Optica\Providers\AuthServiceProvider::class,
-        // Optica\Providers\BroadcastServiceProvider::class,
-        Optica\Providers\EventServiceProvider::class,
-        Optica\Providers\RouteServiceProvider::class,
+        optica\Providers\AppServiceProvider::class,
+        optica\Providers\AuthServiceProvider::class,
+        // optica\Providers\BroadcastServiceProvider::class,
+        optica\Providers\EventServiceProvider::class,
+        optica\Providers\RouteServiceProvider::class,
 
     ],
 

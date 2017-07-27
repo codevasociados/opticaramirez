@@ -1,6 +1,6 @@
 <?php
 
-namespace Optica\Http\Middleware;
+namespace optica\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 
