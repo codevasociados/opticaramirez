@@ -25,8 +25,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
+    /**Codigo en el cual se cambia el email por el campo del usuario*/
+    public function username()
+    {
+        return 'nic_user';
+    }
     /**
      * Create a new controller instance.
      *

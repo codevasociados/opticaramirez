@@ -1,10 +1,10 @@
 <?php
 
-/** 
-    Developer: Luis Quisbert
-    Date: 26/07/17
-    Hour: 18:44
-    Comment: Migration table perfil
+/**
+*    Developer: Luis Quisbert
+*    Date: 26/07/17
+*    Hour: 18:44
+*    Comment: Migration table perfil
  */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,11 +20,11 @@ class CreatePerfilTable extends Migration
     public function up()
     {
         Schema::create('profile', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('lvl_pro');
-            $table->datetime('ini_pro');
-            $table->datetime('end_pro');
-            $table->integer('id_user')->unsigned();            
+            $table->increments('id');     //id del perfil
+            $table->integer('lvl_pro');   //nivel de usuario
+            $table->datetime('ini_pro');  //Fecha de registro del perfil
+            $table->datetime('end_pro');  //fecha de caducidad del perfil
+            $table->integer('id_user')->unsigned();            //id del usuario al cual pertenece la cuenta
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });

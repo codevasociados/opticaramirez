@@ -1,0 +1,18 @@
+.login-container {
+  background-image: url('../imagen/fondo2.jpg');
+}
+.background-login{
+  background-image: url('../imagen/back.jpg');
+  background-size: 682px;
+}
+.imagen-login{
+  width: 80%;
+  height: 80%;
+}
+div#imgLOAD{
+  height: 1000px;
+  position: relative;
+  z-index: 100;
+  background-color: #ffffff;
+  padding-top: 250px;
+}

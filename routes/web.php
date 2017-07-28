@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-Route::get('login', function () {
-    return view('login');
-});
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login','Auth\LoginController@login');

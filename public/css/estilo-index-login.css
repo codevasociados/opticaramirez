@@ -20,12 +20,12 @@ header img{
 }
 
 main{
-   width: 100%; 
+   width: 100%;
 }
 .content-form{
     width: 90%;
     margin: auto;
-    opacity: 0;
+    opacity: 10;
     -webkit-transition: all 1000ms;
     transition: all 1000ms;
 }
@@ -91,7 +91,7 @@ main{
     margin-top: 40px;
     font-size: 20px;
 }
-/*parte de recuaerdame*/
+/*parte de recuerdame*/
 .content-recuerdame{
     margin-top: 40px;
 }
@@ -99,7 +99,7 @@ main{
 .content-recuerdame a{
     float: right;
     color: #0061ea;
-    
+
 }
 /*Boton de iniciar sesion*/
 

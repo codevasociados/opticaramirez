@@ -1,9 +1,9 @@
 <?php
-/** 
-    Developer: Luis Quisbert
-    Date: 27/07/17
-    Hour: 12:51
-    Comment: Migration table Client
+/**
+*    Developer: Luis Quisbert
+*    Date: 27/07/17
+*    Hour: 12:51
+*    Comment: Migration table Client
  */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -27,7 +27,7 @@ class CreateTableClient extends Migration
             $table->string('ci_cli');       //carnet de identidad del cliente
             $table->text('add_cli');        //direccion del cliente
             $table->integer('pho_cli');     //telefono del cliente
-            $table->integer('id_user')->unsigned();            
+            $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });

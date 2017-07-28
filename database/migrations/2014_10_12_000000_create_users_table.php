@@ -1,10 +1,10 @@
 
 <?php
- /** 
-    Developer: Luis Quisbert
-    Date: 26/07/17
-    Hour: 18:44
-    Comment: Migration table users
+ /**
+*    Developer: Luis Quisbert
+*    Date: 26/07/17
+*    Hour: 18:44
+*    Comment: Migration table users
  */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('lma_user');    //Apellido materno
             $table->string('ci_user');     //Carnet de identidad usuario
             $table->text('add_user');    //Direccion del usuario
-            $table->integer('pho_user',11);//Telefono de usuario
-            $table->string('nic_user')->unique();// Nick del usuario
+            $table->integer('pho_user');//Telefono de usuario
+            $table->string('nic_user',60)->unique();// Nick del usuario
             $table->string('password');    //Contraseña de usuario
             $table->rememberToken();
             $table->timestamps();
