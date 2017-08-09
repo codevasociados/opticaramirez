@@ -52,18 +52,18 @@
 			<legend>Iniciar sesion - Sistema Optica Ramirez</legend>
 		</center>
     <div class="form-group has-warning">
-			{{ csrf_field() }}
+			
 			<label class="col-md-2 control-label">Usuario</label>
 
       <div class="col-md-10" >
-        <input type="text" class="form-control" id="nic_user" placeholder="Nombre de usuario">
+        <input name="nic_user" type="text" class="form-control" id="nic_user" placeholder="Nombre de usuario">
       </div>
     </div>
     <div class="form-group has-warning">
       <label for="inputPassword" class="col-md-2 control-label">Contraseña</label>
 
       <div class="col-md-10">
-        <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
 
     <div class="form-group">
       <div class="col-md-10 col-md-offset-2">
@@ -75,7 +75,9 @@
 </form>
 				</div>
 	</div>
-	<!--Recursos de la animacion de carga de pagina!-->
+
+
+		<!--Recursos de la animacion de carga de pagina!-->
 	<script type='text/javascript'>
 			window.onload = detectarCarga;
 			function detectarCarga(){

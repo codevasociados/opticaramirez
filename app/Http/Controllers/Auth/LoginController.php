@@ -18,8 +18,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
-
+    use AuthenticatesUsers; 
     /**
      * Where to redirect users after login.
      *
@@ -28,10 +27,6 @@ class LoginController extends Controller
     protected $redirectTo = '/';
 
     /**Codigo en el cual se cambia el email por el campo del usuario*/
-    public function username()
-    {
-        return 'nic_user';
-    }
     /**
      * Create a new controller instance.
      *
