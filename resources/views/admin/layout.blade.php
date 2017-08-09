@@ -24,14 +24,16 @@
 </head>
 <body style="background-image: url('imagen/layout2.png'); background-size: 150px;">
 <!-- Animacion de cargar pagina, usar en los modulos que son necesarios!-->
-		<div id="imgLOAD" style="text-align:center;">
+
+		<div id="imgLOAD" style="text-align:center; position:absolute;">
 			<b>Cargando...</b>
 			<img src="{{ url('imagen/cargando.gif') }}" />
 		</div>
 		<!-- Fin del div de animacion !-->
 		<!-- Menu vertical !-->
 
-<div class="container col-lg-12">
+
+<div id="page" class="container col-lg-12"  style="position:relative; z-index:1; display: none;">
 	<div class="navbar navbar-warning">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -73,7 +75,8 @@
             <li><a href="javascript:void(0)">Cambiar contraseña</a></li>
             <li><a href="javascript:void(0)">Editar perfil</a></li>
             <li class="divider"></li>
-            <li><a href="javascript:void(0)">Cerrar sesion</a></li>
+
+            <li><a href="/logout">Cerrar sesion</a></li>
           </ul>
         </li>
       </ul>
@@ -81,10 +84,21 @@
   </div>
 </div>
 
-<div class="well col-lg-2">
 
+<div class="well col-lg-2" style="margin-right: 2%; width: 23%;">
+  <div class="list-group">
+  <div class="list-group-item">
+<center>
+    <div class="row-picture">
+      <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+    </div>
+    <div class="form-group"> ADMINISTRADOR</div>
+    <div class="form-group"> {{Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user }}</div>
+  </div>
 </div>
-<div class="panel panel-default col-lg-9 col-sm-offset-1">
+</center>
+</div>
+<div class="panel panel-default col-lg-9 ">
   <div class="panel-body">
     <ul class="breadcrumb">
   <li class="active">Inicio</li>
@@ -93,13 +107,14 @@
 
 <fieldset>
 <legend class="warning" style="height: 15px;">Clientes</legend>
-<button class="btn btn-success btn-raised"><i class="material-icons">edit</i> Registrar nuevo </button>
+
+<button class="btn btn-success btn-raised" data-toggle="modal" data-target="#miModal"><i class="material-icons">edit</i> Registrar nuevo </button>
 <table class="table table-striped table-hover ">
   <thead>
   <tr>
     <th>#</th>
     <th>Nombre del paciente</th>
-    <th width="40%">Datos personales</th>
+    <th width="30%">Datos personales</th>
     <th>Cantidad de fotografias</th>
     <th>Acciones</th>
   </tr>
@@ -160,6 +175,56 @@
   </div>
 </div>
 
+<!-- Modal !-->
+
+  <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Registrar nuevo paciente</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group has-primary">
+          <label class="col-md-4 control-label">Nombres</label>
+        <div class="col-md-8" >
+          <input type="text" name="" class="form-control">
+        </div></div>
+        <div class="form-group has-primary">
+          <label class="col-md-4 control-label">Apellido paterno</label>
+        <div class="col-md-8" >
+          <input type="text" name="" class="form-control">
+        </div></div>
+        <div class="form-group has-primary">
+          <label class="col-md-4 control-label">Apellido materno</label>
+        <div class="col-md-8" >
+          <input type="text" name="" class="form-control">
+        </div></div>
+        <div class="form-group has-primary">
+          <label class="col-md-4 control-label">Telefono</label>
+        <div class="col-md-8" >
+          <input type="text" name="" class="form-control">
+        </div></div>
+        <div class="form-group has-primary">
+          <label class="col-md-4 control-label">Direccion</label>
+        <div class="col-md-8" >
+          <input type="text" name="" class="form-control">
+        </div></div>
+        <div class="form-group has-primary">
+          <label class="col-md-4 control-label">Edad</label>
+        <div class="col-md-8" >
+          <input type="text" name="" class="form-control">
+        </div>
+
+        </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
+        <button type="button" class="btn btn-primary"><i class="material-icons">check</i>Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 </div>
 <!--Recursos de la animacion de carga de pagina!-->
@@ -167,6 +232,8 @@
 			window.onload = detectarCarga;
 			function detectarCarga(){
 				document.getElementById("imgLOAD").style.display="none";
+
+				document.getElementById("page").style.display="block";
 			}
 	</script>
     <!--  Elementos de javascript
