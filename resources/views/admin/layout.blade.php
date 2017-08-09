@@ -24,14 +24,22 @@
 </head>
 <body style="background-image: url('imagen/layout2.png'); background-size: 150px;">
 <!-- Animacion de cargar pagina, usar en los modulos que son necesarios!-->
+<<<<<<< HEAD
 		<div id="imgLOAD" style="text-align:center;">
+=======
+		<div id="imgLOAD" style="text-align:center; position:absolute;">
+>>>>>>> 330f61a4f703c360f4341fc88aa42c90d2b7776e
 			<b>Cargando...</b>
 			<img src="{{ url('imagen/cargando.gif') }}" />
 		</div>
 		<!-- Fin del div de animacion !-->
 		<!-- Menu vertical !-->
 
+<<<<<<< HEAD
 <div class="container col-lg-12">
+=======
+<div id="page" class="container col-lg-12"  style="position:relative; z-index:1; display: none;">
+>>>>>>> 330f61a4f703c360f4341fc88aa42c90d2b7776e
 	<div class="navbar navbar-warning">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -226,6 +234,10 @@
 			window.onload = detectarCarga;
 			function detectarCarga(){
 				document.getElementById("imgLOAD").style.display="none";
+<<<<<<< HEAD
+=======
+				document.getElementById("page").style.display="block";
+>>>>>>> 330f61a4f703c360f4341fc88aa42c90d2b7776e
 			}
 	</script>
     <!--  Elementos de javascript
@@ -241,4 +253,8 @@
       });
     </script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 330f61a4f703c360f4341fc88aa42c90d2b7776e
