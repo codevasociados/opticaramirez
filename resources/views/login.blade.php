@@ -10,7 +10,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-compatible" content="IE-edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optica Ramirez - Iniciar sesión</title>
+    <title>Optica Ramirez - Bienvenido</title>
 		<!-- Material Design fonts -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -32,9 +32,9 @@
 		<div id="imgLOAD" style="text-align:center;" >
 			<b>Cargando...</b>
 			<img src="imagen/cargando.gif" />
-		</div>
+		</div>\
 		<!-- Fin del div de animacion !-->
-		<div class="container" style="position:relative; z-index:1;">
+	<div id="page" class="container" style="position:relative; z-index:1; display: none;">
 				<div class="well col-md-6 col-md-offset-3 login-container" style="position:relative; z-index:0; ">
 	<form class="form-horizontal" method="POST" action="login">
   <fieldset>

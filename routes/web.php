@@ -13,7 +13,11 @@
 
 Route::get('/', function () {
     return view('admin.layout');
-});
- Route::get( 'login',  ['as' => 'login',     'uses' => 'Auth\LoginController@showLoginForm']);
+})->middleware('auth');
+
+/*
+*Route login and logout - Authentication view & methods
+*/
+  Route::get( 'login',  ['as' => 'login',     'uses' => 'Auth\LoginController@showLoginForm']);
   Route::post('/login',  ['as' => '/login',   'uses' => 'Auth\LoginController@login'        ]);
   Route::get('/logout',  ['as' => '/logout',   'uses' => 'Auth\LoginController@logout'        ]);
