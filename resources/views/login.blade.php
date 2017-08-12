@@ -19,10 +19,7 @@
 		*		Bootstrap, material-design
 		*/
 !-->
-		{{ Html::style('css/login.css') }}
-    {{ Html::style('bower_components/bootstrap/css/bootstrap.min.css') }}
-    {{ Html::style('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css') }}
-		{{ Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') }}
+	
 
 
 
@@ -52,6 +49,8 @@
 			<legend>Iniciar sesion - Sistema Optica Ramirez</legend>
 		</center>
     <div class="form-group has-warning">
+			
+			<label class="col-md-2 control-label">Usuario</label>
 
 			<label class="col-md-2 control-label">Usuario</label>
   		{{ csrf_field() }}
@@ -78,6 +77,13 @@
 
 
 		<!--Recursos de la animacion de carga de pagina!-->
+	<script type='text/javascript'>
+			window.onload = detectarCarga;
+			function detectarCarga(){
+				document.getElementById("imgLOAD").style.display="none";
+			}
+	</script>
+
 		<script type='text/javascript'>
 				window.onload = detectarCarga;
 				function detectarCarga(){
@@ -88,10 +94,7 @@
     <!--  Elementos de javascript
     *   Bootstrap, material-design
      -->
-    {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
-    {{ Html::script('bower_components/bootstrap/js/bootstrap.min.js') }}
-		{{ Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') }}
-    {{ Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') }}
+    
     <script type="text/javascript">
       $(document).on('ready', function(){
         $.material.init();
