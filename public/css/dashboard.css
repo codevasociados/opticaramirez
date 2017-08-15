@@ -3,8 +3,9 @@
   margin-left: 1%;
   margin-right: 3%;
   height: 20vw;
-  background-image: url('../imagen/botones_menu/register-large.jpg');
-  background-size: 1000px;
+  background-color: red;
+  background-image: url('../imagen/botones_menu/register.jpg');
+  background-size: contain;
   padding: 0px;
   transform: scale(1);
   -ms-transform: scale(1);
@@ -19,9 +20,8 @@
 .register .text {
   font-family: 'Roboto';
   font-size: 30px;
-  color: #6DB3F2;
-  font-weight: ;
   padding-top: 5px;
+  color: #D4E6F1;
   display: block;
   text-align: center;
   width: 100%;
@@ -33,16 +33,16 @@
   opacity: 0;
   transition: transfom opacity 1.5s;
 }
-.register:hover::before{
-  background: #6DB3F2;
-}
 .register:hover {
+  background-image: none;
+  background-color: red;
   transform: scale(0.9);
   -ms-transform: scale(0.9);
   -moz-transform: scale(0.9);
   -webkit-transform: scale(0.9);
   -o-transform: scale(0.9);
   cursor: pointer;
+
 
 }
 .register:hover .text {
@@ -53,6 +53,8 @@
   margin-right: 3%;
   height: 20vw;
   padding: 0px;
+  background-image: url('../imagen/botones_menu/sales.jpg');
+  background-size: cover;
   transform: scale(1);
   -ms-transform: scale(1);
   -moz-transform: scale(1);
@@ -67,6 +69,7 @@
   font-family: 'Roboto';
   font-size: 30px;
   padding-top: 5px;
+  color: #FDEBD0;
   display: block;
   text-align: center;
   width: 100%;
@@ -85,6 +88,7 @@
   -webkit-transform: scale(0.9);
   -o-transform: scale(0.9);
   cursor: pointer;
+  background-image: none;
 
 }
 .sales:hover .text {
@@ -94,6 +98,8 @@
 .admin{
   height: 20vw;
   padding: 0px;
+  background-image: url('../imagen/botones_menu/admin.jpg');
+  background-size: cover;
   transform: scale(1);
   -ms-transform: scale(1);
   -moz-transform: scale(1);
@@ -108,6 +114,7 @@
   font-family: 'Roboto';
   font-size: 30px;
   padding-top: 5px;
+  color: #D0ECE7;
   display: block;
   text-align: center;
   width: 100%;
@@ -126,6 +133,7 @@
   -webkit-transform: scale(0.9);
   -o-transform: scale(0.9);
   cursor: pointer;
+  background-image: none;
 
 }
 .admin:hover .text {
@@ -141,6 +149,8 @@
 .pendientes{
   height: 20vw;
   padding: 0px;
+  background-image: url('../imagen/botones_menu/pendiente.jpg');
+  background-size: cover;
   transform: scale(1);
   -ms-transform: scale(1);
   -moz-transform: scale(1);
@@ -155,6 +165,7 @@
   font-family: 'Roboto';
   font-size: 30px;
   padding-top: 5px;
+  color: #FADBD8;
   display: block;
   text-align: center;
   width: 100%;
@@ -173,6 +184,8 @@
   -webkit-transform: scale(0.9);
   -o-transform: scale(0.9);
   cursor: pointer;
+  background-image: none;
+
 
 }
 .pendientes:hover .text {
@@ -191,6 +204,8 @@
     .register{
       margin-right: 0px;
       margin-left: 0px;
+      background-image: url('../imagen/botones_menu/register-large.jpg');
+
     }
     .sales{
       margin-right: 0px;
