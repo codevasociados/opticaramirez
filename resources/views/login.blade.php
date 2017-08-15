@@ -19,9 +19,11 @@
 		*		Bootstrap, material-design
 		*/
 !-->
-	
-
-
+	{{ Html::style('css/login.css') }}
+	{{ Html::style('bower_components/bootstrap/css/bootstrap.min.css') }}
+	{{ Html::style('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css') }}
+	{{ Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') }}
+  @yield('css')
 
 	</head>
 	<body class="background-login">
@@ -29,7 +31,7 @@
 		<div id="imgLOAD" style="text-align:center;" >
 			<b>Cargando...</b>
 			<img src="imagen/cargando.gif" />
-		</div>\
+		</div>
 		<!-- Fin del div de animacion !-->
 	<div id="page" class="container" style="position:relative; z-index:1; display: none;">
 				<div class="well col-md-6 col-md-offset-3 login-container" style="position:relative; z-index:0; ">
@@ -49,9 +51,6 @@
 			<legend>Iniciar sesion - Sistema Optica Ramirez</legend>
 		</center>
     <div class="form-group has-warning">
-			
-			<label class="col-md-2 control-label">Usuario</label>
-
 			<label class="col-md-2 control-label">Usuario</label>
   		{{ csrf_field() }}
       <div class="col-md-10" >
@@ -74,8 +73,6 @@
 </form>
 				</div>
 	</div>
-
-
 		<!--Recursos de la animacion de carga de pagina!-->
 	<script type='text/javascript'>
 			window.onload = detectarCarga;
@@ -94,7 +91,10 @@
     <!--  Elementos de javascript
     *   Bootstrap, material-design
      -->
-    
+		  {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
+      {{ Html::script('bower_components/bootstrap/js/bootstrap.min.js') }}
+  		{{ Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') }}
+      {{ Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') }}
     <script type="text/javascript">
       $(document).on('ready', function(){
         $.material.init();

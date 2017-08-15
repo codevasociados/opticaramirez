@@ -15,13 +15,17 @@
 		*		Bootstrap, material-design
 		*/
 !-->
-
+{{ Html::style('css/login.css') }}
+{{ Html::style('bower_components/bootstrap/css/bootstrap.min.css') }}
+{{ Html::style('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css') }}
+{{ Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') }}
+	@yield('css')
 </head>
-<body style="background-image: url('imagen/layout2.png'); background-size: 120px;">
+<body style="background-image: url('imagen/layout2.png'); background-size: 110px;">
 <!-- Animacion de cargar pagina, usar en los modulos que son necesarios!-->
 
 
-		<div id="imgLOAD" style="text-align:center; position:absolute;">
+		<div id="imgLOAD" style="text-align:center; position:absolute; cursor: wait;">
 
 			<b>Cargando...</b>
 			<img src="{{ url('imagen/cargando.gif') }}" />
@@ -29,9 +33,9 @@
 		<!-- Fin del div de animacion !-->
 		<!-- Menu vertical !-->
 
-<div class="container col-lg-12">
+<div class="container-fuild">
 
-<div id="page" class="container col-lg-12"  style="position:relative; z-index:1; display: none;">
+<div id="page" class="container-fuild"  style="position:relative;  display: none;">
 
 	<div class="navbar navbar-warning">
   <div class="container-fluid">
@@ -41,7 +45,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="javascript:void(0)"><img src="{{ url('imagen/optica_ramirez.png') }}" height="48px;"></a>
+      <a class="navbar-brand" href="javascript:void(0)"><img src="{{ url('imagen/optica_ramirez.png') }}" height="30px;"></a>
     </div>
     <div class="navbar-collapse collapse navbar-warning-collapse">
       <ul class="nav navbar-nav">
@@ -61,24 +65,24 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-      	<li><a>Tipo de usuario: Administrador</a></li>
-        <li><a href="javascript:void(0)"><i class="material-icons">lock</i>Bloquear </a> </li>
+      	<li><a>Tipo de usuario: {{ $level }}</a></li>
+        <li><a href="javascript:void(0)" title="Bloquear pantalla"><i class="material-icons">lock</i></a> </li>
         <li class="dropdown">
-          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">settings</i>Configuraciones
+          <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown" title="Configuraciones generales"><i class="material-icons">settings</i>
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="javascript:void(0)">Cambiar contraseña</a></li>
             <li><a href="javascript:void(0)">Editar perfil</a></li>
-            <li class="divider"></li>
-            <li><a href="/logout">Cerrar sesion</a></li>
           </ul>
         </li>
+				<li><a href="logout" title="Cerrar sesion"><i class="material-icons">power_settings_new</i></a> </li>
       </ul>
     </div>
   </div>
 </div>
 @yield('content')
-
+</div>
+</div>
 <!--Recursos de la animacion de carga de pagina!-->
 	<script type='text/javascript'>
 			window.onload = detectarCarga;
@@ -93,7 +97,11 @@
     <!--  Elementos de javascript
     *   Bootstrap, material-design
      -->
-
+	 {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
+	 {{ Html::script('bower_components/bootstrap/js/bootstrap.min.js') }}
+	 {{ Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') }}
+	 {{ Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') }}
+	 @yield('scripts')
     <script type="text/javascript">
       $(document).on('ready', function(){
         $.material.init();

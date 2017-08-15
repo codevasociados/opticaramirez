@@ -35,7 +35,7 @@ class ClientesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
         User::create([
             'nam_user' => 'Luis',
             'lpa_user' => 'Quisbert',
@@ -48,7 +48,7 @@ class ClientesTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon:: now()
         ]);
-       
+
     }
 
 }
