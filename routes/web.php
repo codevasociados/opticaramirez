@@ -19,10 +19,12 @@
   Route::get( 'login',  ['as' => 'login','uses' => 'Auth\LoginController@showLoginForm']);
   Route::post('/login',  ['as' => '/login','uses' => 'Auth\LoginController@login']);
   Route::get('/logout',  ['as' => '/logout','uses' => 'Auth\LoginController@logout']);
+  Route::get('logouttemp',['as' => 'logouttemp','uses' => 'AccessController@logout']);
 
 /*
 *Route middleware all users
 */
   Route::group(['middleware' => 'auth'], function (){
     Route::resource('/','HomeController');
+    Route::resource('client','ClientController');
   });

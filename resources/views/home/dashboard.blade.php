@@ -1,4 +1,4 @@
-@extends('admin/layout')
+@extends('layout')
 
 @section('title')
 
@@ -13,9 +13,9 @@
 @endsection
 @section('content')
 <div class="row container-fluid">
-    <div class="well register col-md-3" style="background-color: #2471A3">
+    <a href="{{ route('client.index') }}"><div class="well register col-md-3" style="background-color: #2471A3">
       <div class="text">Registro de clientes</div>
-    </div>
+    </div></a>
     <div class="well sales col-md-5" style="background-color: #F39C12">
       <div class="text">Registro de ventas</div>
     </div>
@@ -25,10 +25,10 @@
 </div>
 <div class="container-fluid row">
   <div class="well eventos col-md-8" >
-    <div class="text">Registro de clientes</div>
+    <div class="text">Eventos</div>
   </div>
   <div class="well pendientes col-md-3" style="background-color: #C0392B">
-    <div class="text">Registrar pendientes</div>
+    <div class="text">Registro manual de boletas</div>
   </div>
 </div>
 @stop
