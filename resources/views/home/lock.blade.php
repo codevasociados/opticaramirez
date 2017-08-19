@@ -25,30 +25,31 @@
   <!-- Google Font -->
     {!! Html::style('css/fonts-google.css') !!}
 </head>
-<body class="hold-transition lockscreen">
+<body class="hold-transition lockscreen" style="background-color:  #ff9759">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
     <a><b>Optica</b>Ramirez</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">John Doe</div>
+  <div class="lockscreen-name">{{$datos->nam_user.' '.$datos->lpa_user.' '.$datos->lma_user}}</div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
     <!-- lockscreen image -->
-    <div class="lockscreen-image">
-      <img src="../../dist/img/user1-128x128.jpg" alt="{{ $datos->nombre }}">
+    <div class="lockscreen-image" style="background-color: #FF5800; ">
+      <img src="{{ url('imagen/optica_ramirez.png')}}" alt="{{ $datos->nam_user }}">
     </div>
     <!-- /.lockscreen-image -->
 
     <!-- lockscreen credentials (contains the form) -->
-    <form class="lockscreen-credentials">
+    <form class="lockscreen-credentials" method="POST" action="login">
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="password">
+        <input type="hidden" name="nam_user">
+        <input type="password" class="form-control" name="password" placeholder="Contraseña">
 
         <div class="input-group-btn">
-          <button type="button" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+          <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
         </div>
       </div>
     </form>
@@ -57,14 +58,14 @@
   </div>
   <!-- /.lockscreen-item -->
   <div class="help-block text-center">
-    Enter your password to retrieve your session
+    Ingrese su contraseña para volver a la sesion actual
   </div>
   <div class="text-center">
-    <a href="login.html">Or sign in as a different user</a>
+    <a href="login.html">O pruebe con otro usuario y contraseña</a>
   </div>
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2014-2016 <b><a href="https://adminlte.io" class="text-black">Almsaeed Studio</a></b><br>
-    All rights reserved
+    Copyright &copy; 2017 <b><a href="" class="text-black">CODEV</a></b><br>
+    
   </div>
 </div>
 <!-- /.center -->
