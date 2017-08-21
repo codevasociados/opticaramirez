@@ -21,16 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $id=Auth::user()->id;
-       $level= Profile::where('id_user','=',$id)->first();
-       if($level->lvl_pro==0)
-       {
-         $level='ADMINISTRADOR';
-       }
-       else
-       {
-         $level='USUARIO COMUN';
-       }
-        return view('home.dashboard')->with('level',$level);
+
+        return view('home.dashboard');
     }
 }

@@ -4,7 +4,8 @@
   margin-right: 3%;
   height: 20vw;
   background-color: red;
-  background-image: url('../imagen/botones_menu/register.jpg');
+  /*background-image: url('../imagen/botones_menu/register.jpg');*/
+  background-image: url('../imagen/botones_menu/register2.png');
   background-size: cover;
   padding: 0px;
   transform: scale(1);
