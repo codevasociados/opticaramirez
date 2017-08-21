@@ -65,7 +65,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li><a>Tipo de usuario:
-      <?php  
+      <?php
        $level= \optica\Profile::where('id_user','=',Auth::user()->id)->first();
        if($level->lvl_pro==0):
          $level='ADMINISTRADOR';
@@ -78,7 +78,7 @@
           <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown" title="Configuraciones generales"><i class="material-icons">settings</i>
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)">Cambiar contraseña</a></li>
+            <li><a href="{{ route('changepassword.index')}}">Cambiar contraseña</a></li>
             <li><a href="javascript:void(0)">Editar perfil</a></li>
           </ul>
         </li>

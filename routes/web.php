@@ -27,4 +27,8 @@
   Route::group(['middleware' => 'auth'], function (){
     Route::resource('/','HomeController');
     Route::resource('client','ClientController');
+    /*
+    route general settings
+    */
+    Route::resource('changepassword','GeneralSettingsController');
   });
