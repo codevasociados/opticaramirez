@@ -5,7 +5,7 @@
   height: 20vw;
   background-color: red;
   background-image: url('../imagen/botones_menu/register.jpg');
-  background-size: contain;
+  background-size: cover;
   padding: 0px;
   transform: scale(1);
   -ms-transform: scale(1);
