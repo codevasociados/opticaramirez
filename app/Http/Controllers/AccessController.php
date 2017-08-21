@@ -10,6 +10,7 @@ class AccessController extends Controller
     public function logout()
     {
     	$datos= Auth::user();
+      Auth::logout();
     	return view('home.lock')->with('datos',$datos);
     }
 }
