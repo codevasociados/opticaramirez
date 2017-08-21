@@ -64,7 +64,7 @@
     <a href="login.html">O pruebe con otro usuario y contraseña</a>
   </div>
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2017 <b><a href="" class="text-black">CODEV</a></b><br>
+    Copyright &copy; 2017 <b><a href="" class="text-black">CODEV - ASOCIADOS</a></b><br>
     
   </div>
 </div>
