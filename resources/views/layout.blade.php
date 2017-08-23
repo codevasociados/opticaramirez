@@ -49,8 +49,8 @@
     </div>
     <div class="navbar-collapse collapse navbar-warning-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="javascript:void(0)">Inicio</a></li>
-        <li><a href="javascript:void(0)">Pacientes</a></li>
+        <li class="active"><a href="{{route('index')}}">Inicio</a></li>
+        <li><a href="{{route('client.index')}}">Pacientes</a></li>
         <li class="dropdown">
           <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Historial
             <b class="caret"></b></a>
@@ -66,6 +66,9 @@
       <ul class="nav navbar-nav navbar-right">
       	<li><a>Tipo de usuario:
       <?php
+			/*
+				*CODIGO PHP PARA DETERMINAR EL TIPO DE USUARIO
+			*/
        $level= \optica\Profile::where('id_user','=',Auth::user()->id)->first();
        if($level->lvl_pro==0):
          $level='ADMINISTRADOR';
@@ -79,7 +82,7 @@
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="{{ route('changepassword.index')}}">Cambiar contraseña</a></li>
-            <li><a href="javascript:void(0)">Editar perfil</a></li>
+            <li><a class="" data-toggle="modal" data-target="#myModal" >Ver perfil</a></li>
           </ul>
         </li>
 				<li><a href="logout" title="Cerrar sesion"><i class="material-icons">power_settings_new</i></a> </li>
@@ -90,13 +93,83 @@
 @yield('content')
 </div>
 </div>
+<!--Ventanas modales de la pagina!-->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h6 class="modal-title">DATOS PERSONALES</h4>
+      </div>
+      <div class="modal-body">
+				<div class="form-group has-success">
+	  			<label class="col-md-2 control-label">Fecha de creacion de cuenta</label>
+	        <div class="col-md-10" >
+	          <input name="nic_user" type="text" class="form-control" id="created_at_user" value="{{Auth::user()->created_at}}" readonly>
+	        </div>
+	      </div>
+				<div class="form-group has-success">
+					<?php
+					$lvl_id=Auth::user()->id;
+					$level=\optica\Profile::where('id_user','=',$lvl_id)->first();
+					 ?>
+	  			<label class="col-md-2 control-label">Tipo de usuario</label>
+	        <div class="col-md-10" >
+	          <input name="nic_user" type="text" class="form-control" id="created_at_user" value="<?php
+						if($level->lvl_pro==0):
+							echo 'ADMINISTRADOR';
+					  else:
+							echo 'USUARIO COMUN';
+						endif;
+						?>" readonly>
+	        </div>
+	      </div>
+				<div class="form-group has-success">
+	  			<label class="col-md-2 control-label">Fecha de caducidad de la cuenta</label>
+	        <div class="col-md-10" >
+	          <input name="nic_user" type="text" class="form-control" id="created_at_user" value="{{$level->ini_pro}}" readonly>
+	        </div>
+	      </div>
+	      <div class="form-group has-success">
+	  			<label class="col-md-2 control-label">Nick de usuario</label>
+	        <div class="col-md-10">
+	          <input name="nic_user" type="text" class="form-control col-md-4" id="nic_user" value="{{Auth::user()->nic_user}}" readonly>
+	        </div>
+	      </div>
+	      <div class="form-group has-success">
+	  			<label class="col-md-2 control-label">Nombres:</label>
+	        <div class="col-md-10">
+	          <input name="nic_user" type="text" class="form-control col-md-4" id="nam_user" value="{{Auth::user()->nam_user}}" readonly>
+	        </div>
+	      </div>
+	      <div class="form-group has-success">
+	  			<label class="col-md-2 control-label">Apellido Paterno</label>
+	        <div class="col-md-10">
+	          <input name="nic_user" type="text" class="form-control col-md-4" id="lpa_user" value="{{Auth::user()->lpa_user}}" readonly>
+	        </div>
+	      </div>
+	      <div class="form-group has-success">
+	        <label class="col-md-2 control-label">Apellido Materno</label>
+	        <div class="col-md-10">
+	          <input name="nic_user" type="text" class="form-control col-md-4" id="lma_user" value="{{Auth::user()->lma_user}}" readonly>
+	        </div>
+	      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i>X</i> Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--Recursos de la animacion de carga de pagina!-->
 	<script type='text/javascript'>
 			window.onload = detectarCarga;
 			function detectarCarga(){
 				document.getElementById("imgLOAD").style.display="none";
-
-
 				document.getElementById("page").style.display="block";
 
 			}
