@@ -105,13 +105,13 @@
         <h6 class="modal-title">DATOS PERSONALES</h4>
       </div>
       <div class="modal-body">
-				<div class="form-group has-success">
+				<div class="form-group has-warning">
 	  			<label class="col-md-2 control-label">Fecha de creacion de cuenta</label>
 	        <div class="col-md-10" >
 	          <input name="nic_user" type="text" class="form-control" id="created_at_user" value="{{Auth::user()->created_at}}" readonly>
 	        </div>
 	      </div>
-				<div class="form-group has-success">
+				<div class="form-group has-warning">
 					<?php
 					$lvl_id=Auth::user()->id;
 					$level=\optica\Profile::where('id_user','=',$lvl_id)->first();
@@ -127,31 +127,31 @@
 						?>" readonly>
 	        </div>
 	      </div>
-				<div class="form-group has-success">
+				<div class="form-group has-warning">
 	  			<label class="col-md-2 control-label">Fecha de caducidad de la cuenta</label>
 	        <div class="col-md-10" >
 	          <input name="nic_user" type="text" class="form-control" id="created_at_user" value="{{$level->ini_pro}}" readonly>
+						<div class="form-group has-warning">
 	        </div>
 	      </div>
-	      <div class="form-group has-success">
 	  			<label class="col-md-2 control-label">Nick de usuario</label>
 	        <div class="col-md-10">
 	          <input name="nic_user" type="text" class="form-control col-md-4" id="nic_user" value="{{Auth::user()->nic_user}}" readonly>
 	        </div>
 	      </div>
-	      <div class="form-group has-success">
+	      <div class="form-group has-warning">
 	  			<label class="col-md-2 control-label">Nombres:</label>
 	        <div class="col-md-10">
 	          <input name="nic_user" type="text" class="form-control col-md-4" id="nam_user" value="{{Auth::user()->nam_user}}" readonly>
 	        </div>
 	      </div>
-	      <div class="form-group has-success">
+	      <div class="form-group has-warning">
 	  			<label class="col-md-2 control-label">Apellido Paterno</label>
 	        <div class="col-md-10">
 	          <input name="nic_user" type="text" class="form-control col-md-4" id="lpa_user" value="{{Auth::user()->lpa_user}}" readonly>
 	        </div>
 	      </div>
-	      <div class="form-group has-success">
+	      <div class="form-group has-warning">
 	        <label class="col-md-2 control-label">Apellido Materno</label>
 	        <div class="col-md-10">
 	          <input name="nic_user" type="text" class="form-control col-md-4" id="lma_user" value="{{Auth::user()->lma_user}}" readonly>
