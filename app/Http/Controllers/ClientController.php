@@ -5,7 +5,7 @@ namespace optica\Http\Controllers;
 use Illuminate\Http\Request;
 use optica\Client;
 use Illuminate\Support\Facades\Auth; //component of autentication data
-
+use DB;
 
 class ClientController extends Controller
 {

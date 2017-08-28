@@ -57,14 +57,20 @@
   <thead>
     <tr>
       <th data-dynatable-column="ci_cli">C.I.</th>
-      <th data-dynatable-column="nm_cli">Nombre</th>
+      <th data-dynatable-column="nam_cli">Nombre</th>
       <th data-dynatable-column="lpa_cli">Paterno</th>
       <th data-dynatable-column="lma_cli">Materno</th>
       <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
-
+		<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
   </tbody>
 </table>
 </div>
@@ -156,7 +162,10 @@
 			$('#client').dynatable({
 				dataset: {
     			records: clients
-  			}
+  			},
+				inputs: {
+    		 processingText: 'Loading <img src="{{ url('imagen/cargando.gif')}}" />'
+  	 		}
 			});
 		});
 	</script>

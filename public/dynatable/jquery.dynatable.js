@@ -64,7 +64,7 @@
       sorts: null,
       multisort: ['ctrlKey', 'shiftKey', 'metaKey'],
       page: null,
-      queryEvent: 'blur change',
+      queryEvent: 'keyup change',
       recordCountTarget: null,
       recordCountPlacement: 'after',
       paginationLinkTarget: null,
