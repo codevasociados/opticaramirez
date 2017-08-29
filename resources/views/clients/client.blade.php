@@ -69,7 +69,7 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		
+
 	</tr>
   </tbody>
 </table>
@@ -159,6 +159,10 @@
 		$(document).on('ready', function(){
 			var clients ={!! json_encode($clients->toArray()) !!};
 			console.log(clients);
+			for (var i=1; i<=client.lenght; i++)
+			{
+				
+			}
 			$('#client').dynatable({
 				dataset: {
     			records: clients
