@@ -25,24 +25,48 @@
 	</div>
 </fieldset>
 	<label for="" class="label label-danger">Datos de lentes - Boleta</label>
-	<div class="form-group label-floating">
-  <div class="input-group">
-    <span class="input-group-addon"></span>
-    <label class="control-label has-warning" for="addon3a">Montura</label>
-    <input type="text" id="addon3a" class="form-control">
-  </div>
+	<form class="form-horizontal" action="" method="post">
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Cristales</label>
+		<div class="col-lg-10">
+			<input type="text" name="" class="form-control" value="">
+		</div>
 	</div>
-	<div class="form-group has-warning">
-  <label class="control-label" for="inputWarning">A cuenta</label>
-  <input type="text" class="form-control" id="inputWarning">
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Armazon</label>
+		<div class="col-lg-10">
+			<input type="text" name="" class="form-control" value="">
+		</div>
 	</div>
-	<div class="form-group has-warning">
-  <label class="control-label" for="inputWarning">Saldo</label>
-  <input type="text" class="form-control" id="inputWarning">
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Medida</label>
+		<div class="col-lg-10">
+			<input type="text" name="" class="form-control" value="">
+		</div>
 	</div>
-	<div class="form-group has-warning">
-  <label class="control-label" for="inputWarning">Input warning</label>
-  <input type="text" class="form-control" id="inputWarning">
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Material</label>
+		<div class="col-lg-10">
+			<input type="text" name="" class="form-control" value="">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-3" style="color: #333; weight:bold">N° de boleta</label>
+		<div class="col-lg-9">
+			<input type="text" name="" class="form-control" value="">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-4" style="color: #333; weight:bold">Fecha de entrega</label>
+		<div class="col-lg-8">
+			<input type="date" name="" class="form-control" value="">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Hora:</label>
+		<div class="col-lg-10">
+			<input type="time" name="" class="form-control" value="">
+		</div>
 	</div>
 </form>
 	</div>
@@ -161,7 +185,7 @@
 			console.log(clients);
 			for (var i=1; i<=client.lenght; i++)
 			{
-				
+
 			}
 			$('#client').dynatable({
 				dataset: {

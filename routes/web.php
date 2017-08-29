@@ -27,6 +27,7 @@
   Route::group(['middleware' => 'auth'], function (){
     Route::resource('/','HomeController');
     Route::resource('client','ClientController');
+    Route::resource('sold','SoldController');
     /*
     route general settings
     */

@@ -8,13 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 	<title>@yield('title')</title>
-	    {!! Html::style('css/fonts-google.css') !!}
-
 <!--
 		/** Elementos de hojas de estilo
 		*		Bootstrap, material-design
 		*/
 !-->
+{!! Html::style('css/fonts-google.css') !!}
 {{ Html::style('css/login.css') }}
 {{ Html::style('bower_components/bootstrap/css/bootstrap.min.css') }}
 {{ Html::style('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css') }}
