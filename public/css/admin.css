@@ -145,7 +145,7 @@
 .pan1 .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 24%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -165,7 +165,7 @@
 .pan2 .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 35%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -185,7 +185,7 @@
 .pan3 .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 24%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -205,7 +205,7 @@
 .pan4 .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 24%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -225,7 +225,7 @@
 .pan5 .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 34%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -245,7 +245,7 @@
 .pan6 .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 24%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -265,23 +265,50 @@
 .row1{
   margin-right: 0%;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
   .pan1{
-
+    margin-right: 0%;
+    margin-left: 0%;
   }
   .pan2{
-
+    margin-left: 0%;
+    margin-right: 0%;
   }
   .pan3{
-
+    margin-right: 0%;
+    margin-left: 0%;
   }
   .pan4{
-
+    margin-right: 0%;
+    margin-left: 0%;
   }
   .pan5{
-
+    margin-right: 0%;
+    margin-left: 0%;
   }
   .pan6{
-
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+  .pan1 .text{
+    padding-top: 0%;
+  }
+  .pan2 .text{
+    padding-top: 0%;
+  }
+  .pan3 .text{
+    padding-top: 0%;
+  }
+  .pan4 .text{
+    padding-top: 0%;
+  }
+  .pan5 .text{
+    padding-top: 0%;
+  }
+  .pan6 .text{
+    padding-top: 0%;
+  }
+  .row1{
+    margin: 0%;
   }
 }

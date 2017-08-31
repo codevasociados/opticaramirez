@@ -9,35 +9,35 @@
 @section('content')
 <div class="row container-fluid row1">
 <a href="#">
-<div class="well pan1 col-lg-4">
-  <div class="text">
+<div class="well pan1 col-lg-4" style="background-color: #5C0003;">
+  <div class="text"> Personal
   </div>
 </div></a>
 <a href="#">
-<div class="well pan2 col-lg-3">
-  <div class="text">
+<div class="well pan2 col-lg-3" style="background-color: #00425C;">
+  <div class="text"> Control de deudas
   </div>
 </div></a>
 <a href="#">
-<div class="well pan3 col-lg-4">
-  <div class="text">
+<div class="well pan3 col-lg-4" style="background-color: #5C2000;">
+  <div class="text"> Calendario
   </div>
 </div></a>
 </div>
 <div class="row container-fluid row1">
   <a href="#">
-  <div class="well pan4 col-lg-4">
-    <div class="text">
+  <div class="well pan4 col-lg-4" style="background-color: #555C00;">
+    <div class="text"> Libro diario
     </div>
   </div></a>
   <a href="#">
-  <div class="well pan5 col-lg-3">
-    <div class="text">
+  <div class="well pan5 col-lg-3" style="background-color: #00195C;">
+    <div class="text"> Control de gastos
     </div>
   </div></a>
   <a href="#">
-  <div class="well pan6 col-lg-4">
-    <div class="text">
+  <div class="well pan6 col-lg-4" style="background-color: #5C0003;">
+    <div class="text"> Clientes
     </div>
   </div></a>
   </div>

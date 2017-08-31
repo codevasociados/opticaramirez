@@ -84,7 +84,7 @@
       <th data-dynatable-column="nam_cli">Nombre</th>
       <th data-dynatable-column="lpa_cli">Paterno</th>
       <th data-dynatable-column="lma_cli">Materno</th>
-      <th>Acciones</th>
+      <th data-dynatable-column="button">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -183,10 +183,13 @@
 		$(document).on('ready', function(){
 			var clients ={!! json_encode($clients->toArray()) !!};
 			console.log(clients);
-			for (var i=1; i<=client.lenght; i++)
+			for(var i=0; i<clients.length; i++)
 			{
-
+				clients[i].button='<a class="btn btn-raised btn-danger" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Asignar</a>';
+				JSON.stringify(clients);
+				console.log(clients);
 			}
+			console.log(clients);
 			$('#client').dynatable({
 				dataset: {
     			records: clients

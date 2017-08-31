@@ -3,6 +3,7 @@
 namespace optica\Http\Controllers;
 
 use Illuminate\Http\Request;
+use optica\Client;
 
 class SoldController extends Controller
 {
@@ -16,7 +17,8 @@ class SoldController extends Controller
       return view('solds.graphics');
     }
     public function inventory(){
-      return view('solds.inventory');
+      $client= Client::get();
+      return view('solds.inventory')->with('clients', $client);
     }
     public function smaller(){
       return view('solds.smaller');
