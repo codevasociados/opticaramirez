@@ -19,9 +19,9 @@
     <a href="{{ route('sold.index') }}"><div class="well sales col-md-5" style="background-color: #F39C12">
       <div class="text">Registro de ventas</div>
     </div></a>
-    <div class="well admin col-md-3" style="background-color: #138D75">
+    <a href="{{ route('admin.index') }}"><div class="well admin col-md-3" style="background-color: #138D75">
       <div class="text">Administracion</div>
-    </div>
+    </div></a>
 </div>
 <div class="container-fluid row">
   <div class="well eventos col-md-8" >

@@ -21,7 +21,7 @@
 {{ Html::style('dynatable/jquery.dynatable.css') }}
 	@yield('css')
 </head>
-<body style="background-image: url('imagen/layout2.png'); background-size: 110px;">
+<body style="background-image: url('{{ url('imagen/layout2.png') }}'); background-size: 110px;">
 <!-- Animacion de cargar pagina, usar en los modulos que son necesarios!-->
 
 

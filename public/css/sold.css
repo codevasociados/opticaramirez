@@ -227,5 +227,53 @@
   margin-right: 0%;
 }
 @media only screen and (max-width: 992px) {
-
+.minsold{
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.arraysold{
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.repsold{
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.aresold{
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.invsold .text{
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-top: 1%;
+}
+.minsold .text{
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-top: 1%;
+}
+.arraysold .text{
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-top: 1%;
+}
+.repsold .text{
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-top: 1%;
+}
+.aresold .text{
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-top: 1%;
+}
+.invsold{
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 100%;
+}
+.row1{
+  margin-left: 0%;
+}
 }
