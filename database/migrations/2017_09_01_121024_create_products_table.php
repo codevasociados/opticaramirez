@@ -13,7 +13,16 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('product', function (Blueprint $table) {
+          $table->increments('id');
+          $table->char('cod_pro',10);
+          $table->string('nam_pro',60);
+          $table->text('des_pro');
+          $table->integer('can_pro');
+          $table->integer('id_user')->unsigned();  //id del historial al cual pertenece esta fotografia
+          $table->foreign('id_user')->references('id')->on('users');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +32,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::dropIfExists('product');
     }
 }
