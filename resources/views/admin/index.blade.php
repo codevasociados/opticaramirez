@@ -18,7 +18,7 @@
   <div class="text"> Control de deudas
   </div>
 </div></a>
-<a href="#">
+<a href="{{ route('admin.calendar')}}">
 <div class="well pan3 col-lg-4" style="background-color: #5C2000;">
   <div class="text"> Calendario
   </div>

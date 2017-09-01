@@ -177,7 +177,9 @@
     <!--  Elementos de javascript
     *   Bootstrap, material-design
      -->
-	 {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
+		 {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
+		 {{ Html::script('bower_components/moment/min/moment.min.js') }}
+	 {{ Html::script('bower_components/fullcalendar/dist/fullcalendar.js') }}
 	 {{ Html::script('bower_components/bootstrap/js/bootstrap.min.js') }}
 	 {{ Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') }}
 	 {{ Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') }}

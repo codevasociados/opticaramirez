@@ -36,7 +36,7 @@
   <script type="text/javascript">
     $(document).on('ready', function(){
       var clients ={!! json_encode($clients->toArray()) !!};
-    
+
       $('#inventory').dynatable({
         dataset: {
           records:clients

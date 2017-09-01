@@ -27,9 +27,9 @@
   <div class="well eventos col-md-8" >
     <div class="text">Eventos</div>
   </div>
-  <div class="well pendientes col-md-3" style="background-color: #C0392B">
+  <a href="{{ route('ticket.index') }}"><div class="well pendientes col-md-3" style="background-color: #C0392B">
     <div class="text">Registro manual de boletas</div>
-  </div>
+  </div></a>
 </div>
 @stop
 
