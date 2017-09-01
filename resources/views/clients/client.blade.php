@@ -15,11 +15,25 @@
 	<label for="" class="label label-warning">Datos de cliente</label>
 </fieldset>
 <fieldset style="border: 1;">
+	<div class="col-lg-11 col-md-offset-1">
+	<a type="button" href="{{route('recipe.index')}}" class="btn btn-danger btn-raised bmd-btn-fab">
+  <i class="material-icons">grade</i>Receta
+</a>
+<button type="button" class="btn btn-warning btn-raised bmd-btn-fab">
+  <i class="material-icons">grade</i>Boleta
+</button>
+<button type="button" class="btn btn-primary btn-raised bmd-btn-fab">
+  <i class="material-icons">grade</i>Imprimir
+</button>
+</div>
+@php
+	$var='';
+@endphp
 	<div class="form-group">
 		<input type="hidden" name="" value="">
-		<p><b>Nombre del cliente:</b> {{Auth::user()->nam_user}}</p>
+		<p><b>Nombre del cliente:</b></p>
 		<p><b>Edad:</b> {{Auth::user()->id}} años	</p>
-		<p><b>Fecha: </b>{{\Carbon\Carbon::now()}}</p>
+		<p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()  }}</p>
 		<p><b>Direccion del cliente:</b> Calle Montaño #358</p>
 		<p><b>Telefono del cliente: </b></p>
 	</div>
@@ -103,6 +117,45 @@
 </div>
 <!-- Modal !-->
 
+  <div class="modal fade" id="miModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Registrar nuevo paciente</h4>
+      </div>
+      <div class="modal-body">
+				<div class="well col-lg-6" style="height:65vw">
+			      <p><b>Datos del cliente:</b></p>
+
+			    <div id='botonera' style="margin-left:7%;">
+			        <button id='botonIniciar' style="padding-left:15px;" class="btn btn-raised btn-success" type='button'><i class="material-icons">play_circle_filled</i> Iniciar</button>
+			        <button id='botonDetener' style="padding-left:15px;" class="btn btn-raised btn-danger" type='button'><i class="material-icons">stop</i> Detener</button>
+			        <button id='botonFoto' type='button' style="padding-left:15px;" class="btn btn-raised btn-primary"><i class="material-icons">camera</i> Foto</button>
+			        <button id='' type='button' style="padding-left:15px;" class="btn btn-raised btn-info"><i class="material-icons">check_circle</i> Guardar</button>
+			    </div>
+			    <div class="contenedor well">
+			        <div class="titulo">Cámara</div>
+			        <video id="camara" autoplay controls></video>
+			    </div>
+			    <div class="contenedor well">
+			        <div class="titulo">Foto</div>
+			        <canvas id="foto" ></canvas>
+			    </div>
+			  </div>
+        </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
+        <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Guardar</button>
+      </div>
+    </div>
+		{!! Form::close() !!}
+  </div>
+</div>
+
+</div>
+<!-- Modal !-->
+
   <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -174,7 +227,6 @@
   </div>
 </div>
 
-</div>
 </div>
 @endsection
 

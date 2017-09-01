@@ -13,7 +13,15 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('sale', function (Blueprint $table) {
+          $table->increments('id');
+          $table->date('fec_sale');
+          $table->integer('id_cli')->unsigned();  //id del historial al cual pertenece esta fotografia
+          $table->foreign('id_cli')->references('id')->on('client');
+          $table->integer('id_user')->unsigned();  //id del historial al cual pertenece esta fotografia
+          $table->foreign('id_user')->references('id')->on('users');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateSalesTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::dropIfExists('sale');
     }
 }
