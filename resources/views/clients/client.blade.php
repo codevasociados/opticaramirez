@@ -10,7 +10,7 @@
 	    .titulo{ font-size: 12pt; font-weight: bold;}
 	    #camara, #foto{
 	        width: 25vw;
-	        min-height: 28vw;
+	        min-height: 22vw;
 	    }
 	</style>
 @endsection
@@ -139,11 +139,11 @@
 				<div class="well col-lg-12" style="height:65vw">
 			      <p><b>Datos del cliente:</b></p>
 
-			    <div id='botonera' style="margin-left:1%;">
+			    <div id='botonera' style="margin-left:15%;">
 			        <button id='botonIniciar' style="padding-left:15px;" class="btn btn-raised btn-success" type='button'><i class="material-icons">play_circle_filled</i> Iniciar</button>
 			        <button id='botonDetener' style="padding-left:15px;" class="btn btn-raised btn-danger" type='button'><i class="material-icons">stop</i> Detener</button>
 			        <button id='botonFoto' type='button' style="padding-left:15px;" class="btn btn-raised btn-primary"><i class="material-icons">camera</i> Foto</button>
-			        <button id='' type='button' style="padding-left:15px;" class="btn btn-raised btn-info"><i class="material-icons">check_circle</i> Guardar</button>
+
 			    </div>
 			    <div class="contenedor well">
 			        <div class="titulo">Cámara</div>
