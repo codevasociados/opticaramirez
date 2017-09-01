@@ -35,9 +35,9 @@
     <div class="text"> Control de gastos
     </div>
   </div></a>
-  <a href="#">
+  <a href="{{route('admin.admin')}}">
   <div class="well pan6 col-lg-4" style="background-color: #5C0003;">
-    <div class="text"> Clientes
+    <div class="text"> Administrador
     </div>
   </div></a>
   </div>

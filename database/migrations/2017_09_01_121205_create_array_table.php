@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration
+class CreateArrayTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-      Schema::create('event', function (Blueprint $table) {
+      Schema::create('array', function (Blueprint $table) {
           $table->increments('id');
-          $table->text('title');
-          $table->text('body');
-          $table->text('url');
-          $table->text('class');
-          $table->text('start');
-          $table->text('end');
-          $table->text('color');
+          $table->datetime('dat_rec');
+          $table->datetime('dat_ent');
+          $table->text('des_array');
+          $table->integer('num_bol');
           $table->integer('id_user')->unsigned();  //id del historial al cual pertenece esta fotografia
           $table->foreign('id_user')->references('id')->on('users');
+          $table->integer('id_cli')->unsigned();  //id del cliente al cual pertenece este arreglo
+          $table->foreign('id_cli')->references('id')->on('client');
           $table->timestamps();
       });
     }
@@ -35,6 +34,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        Schema::dropIfExists('array');
     }
 }

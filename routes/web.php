@@ -31,6 +31,7 @@
     Route::name('sold.inventory')->get('sold/inventory','SoldController@inventory');
     Route::name('sold.smaller')->get('sold/smaller_sales','SoldController@smaller');
     Route::name('admin.calendar')->get('admin/calendar','AdminController@calendar');
+    Route::name('admin.admin')->get('admin/admin','AdminController@admin');
     //General routes of CRUD
     Route::resource('/','HomeController');
     Route::resource('client','ClientController');

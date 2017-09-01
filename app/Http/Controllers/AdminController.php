@@ -14,4 +14,7 @@ class AdminController extends Controller
       $events=Event::get();
       return view('admin.calendar')->with('events',$events);
     }
+    public function admin(){
+      return view('admin.admin');
+    }
 }
