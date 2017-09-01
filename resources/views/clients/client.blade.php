@@ -12,30 +12,33 @@
 		<fieldset>
 			<legend>Optica Ramirez - Centro Optico Especializado</legend>
 <form class="" action="index.html" method="post">
-	<label for="" class="label label-warning">Datos de cliente</label>
 </fieldset>
 <fieldset style="border: 1;">
-	<div class="col-lg-11 col-md-offset-1">
+	<div class="col-lg-12 ">
 	<a type="button" href="{{route('recipe.index')}}" class="btn btn-danger btn-raised bmd-btn-fab">
-  <i class="material-icons">grade</i>Receta
+  <i class="material-icons">note</i> Receta
 </a>
-<button type="button" class="btn btn-warning btn-raised bmd-btn-fab">
-  <i class="material-icons">grade</i>Boleta
+<button type="button" class="btn btn-warning btn-raised bmd-btn-fab" data-toggle="modal" data-target="#miModal2">
+  <i class="material-icons">photo_camera</i> Boleta
 </button>
 <button type="button" class="btn btn-primary btn-raised bmd-btn-fab">
-  <i class="material-icons">grade</i>Imprimir
+  <i class="material-icons">print</i>Imprimir
 </button>
-</div>
+<button type="button" class="btn btn-success btn-raised bmd-btn-fab">
+	<i class="material-icons">check</i> Guardar
+</button>
+</div><br/><br/><br/><br/>
+<label for="" class="label label-warning">Datos de cliente</label>
 @php
 	$var='';
 @endphp
 	<div class="form-group">
 		<input type="hidden" name="" value="">
-		<p><b>Nombre del cliente:</b></p>
-		<p><b>Edad:</b> {{Auth::user()->id}} años	</p>
+		<p><b>Nombre del cliente: </b><span id="nam"></span></p>
+		<p><b>Edad: </b> <span id="old"></span> años	</p>
 		<p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()  }}</p>
-		<p><b>Direccion del cliente:</b> Calle Montaño #358</p>
-		<p><b>Telefono del cliente: </b></p>
+		<p><b>Direccion del cliente: </b><span id="add"></span></p>
+		<p><b>Telefono del cliente: </b><span id="pho"></span></p>
 	</div>
 </fieldset>
 	<label for="" class="label label-danger">Datos de lentes - Boleta</label>
@@ -125,10 +128,10 @@
         <h4 class="modal-title">Registrar nuevo paciente</h4>
       </div>
       <div class="modal-body">
-				<div class="well col-lg-6" style="height:65vw">
+				<div class="well col-lg-12" style="height:65vw">
 			      <p><b>Datos del cliente:</b></p>
 
-			    <div id='botonera' style="margin-left:7%;">
+			    <div id='botonera' style="margin-left:1%;">
 			        <button id='botonIniciar' style="padding-left:15px;" class="btn btn-raised btn-success" type='button'><i class="material-icons">play_circle_filled</i> Iniciar</button>
 			        <button id='botonDetener' style="padding-left:15px;" class="btn btn-raised btn-danger" type='button'><i class="material-icons">stop</i> Detener</button>
 			        <button id='botonFoto' type='button' style="padding-left:15px;" class="btn btn-raised btn-primary"><i class="material-icons">camera</i> Foto</button>
@@ -228,6 +231,7 @@
 </div>
 
 </div>
+<!-- Modal !-->
 @endsection
 
 @section('scripts')
@@ -237,7 +241,8 @@
 			console.log(clients);
 			for(var i=0; i<clients.length; i++)
 			{
-				clients[i].button='<a class="btn btn-raised btn-danger" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Asignar</a>';
+				var click="javascript:pasar('"+ clients[i].nam_cli+"','"+ clients[i].lpa_cli+"','"+clients[i].lma_cli +"','"+clients[i].add_cli +"','"+clients[i].pho_cli +"','"+clients[i].ci_cli+"','"+clients[i].old_cli +"');";
+				clients[i].button='<a class="btn btn-raised btn-danger" onclick="'+click+'"  href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Asignar</a>';
 				JSON.stringify(clients);
 				console.log(clients);
 			}
@@ -251,5 +256,60 @@
   	 		}
 			});
 		});
+		function pasar(nam,lpa,lma,add,pho,ci,old)
+		{
+			document.getElementById("nam").innerHTML = nam+' '+lpa+' '+lma;
+			document.getElementById("old").innerHTML = old;
+			document.getElementById("add").innerHTML = add;
+			document.getElementById("pho").innerHTML = pho;
+		}
+	</script>
+
+	<script type="text/javascript">
+			//Nos aseguramos que estén definidas
+//algunas funciones básicas
+window.URL = window.URL || window.webkitURL;
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || function(){alert('Su navegador no soporta navigator.getUserMedia().');};
+jQuery(document).ready(function(){
+	//Este objeto guardará algunos datos sobre la cámara
+	window.datosVideo = {
+			'StreamVideo': null,
+			'url' : null
+	};
+
+	jQuery('#botonIniciar').on('click', function(e){
+			//Pedimos al navegador que nos de acceso a
+			//algún dispositivo de video (la webcam)
+			navigator.getUserMedia({'audio':false, 'video':true}, function(streamVideo){
+					datosVideo.StreamVideo = streamVideo;
+					datosVideo.url = window.URL.createObjectURL(streamVideo);
+					jQuery('#camara').attr('src', datosVideo.url);
+			}, function(){
+					alert('No fue posible obtener acceso a la cámara.');
+			});
+	});
+	jQuery('#botonDetener').on('click', function(e){
+			if(datosVideo.StreamVideo){
+					datosVideo.StreamVideo.stop();
+					window.URL.revokeObjectURL(datosVideo.url);
+			};
+	});
+
+	jQuery('#botonFoto').on('click', function(e){
+			var oCamara,
+					oFoto,
+					oContexto,
+					w, h;
+
+			oCamara = jQuery('#camara');
+			oFoto = jQuery('#foto');
+			w = oCamara.width();
+			h = oCamara.height();
+			oFoto.attr({'width': w, 'height': h});
+			oContexto = oFoto[0].getContext('2d');
+			oContexto.drawImage(oCamara[0], 0, 0, w, h);
+
+	});
+});
 	</script>
 @endsection
