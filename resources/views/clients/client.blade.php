@@ -5,6 +5,14 @@
 @endsection
 @section('css')
 	{!! Html::style('css/client.css')!!}
+	<style type="text/css">
+	    .contenedor{ margin-left: 6%;float: left;}
+	    .titulo{ font-size: 12pt; font-weight: bold;}
+	    #camara, #foto{
+	        width: 25vw;
+	        min-height: 28vw;
+	    }
+	</style>
 @endsection
 @section('content')
 <div class="container-fluid">
