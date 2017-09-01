@@ -4,7 +4,7 @@ namespace optica;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Array extends Model
+class Arrays extends Model
 {
   protected $table='array';
 

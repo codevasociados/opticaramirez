@@ -40,6 +40,7 @@
     Route::resource('admin','AdminController');
     Route::resource('calendar','CalendarController');
     Route::resource('ticket','TicketsController');
+    Route::resource('recipe','RecipeController');
     /*
     route general settings
     */
