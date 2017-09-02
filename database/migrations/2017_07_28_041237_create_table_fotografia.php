@@ -21,8 +21,6 @@ class CreateTableFotografia extends Migration
         $table->increments('id');
         $table->text('url_pho');    //url de la ubicacion de la fotografia
         $table->text('des_pho');    //breve observacion del estado de las fotografias
-        $table->integer('id_hist')->unsigned();  //id del historial al cual pertenece esta fotografia
-        $table->foreign('id_hist')->references('id')->on('history');
         $table->timestamps();
     });
 }

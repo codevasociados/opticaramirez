@@ -4,9 +4,9 @@ namespace optica;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sale extends Model
+class Debt extends Model
 {
-  protected $table='sale';
+  protected $table='debts';
 
   /**
    * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class Sale extends Model
    * @var array
    */
   protected $fillable = [
-      'fec_sale'
+      'nom_deb','con_deb', 'mon_deb','fec_deb','fin_deb'
   ];
 
   /**
@@ -23,6 +23,6 @@ class Sale extends Model
    * @var array
    */
   protected $hidden = [
-
+      
   ];
 }

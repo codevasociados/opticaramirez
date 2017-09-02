@@ -15,3 +15,11 @@ div#imgLOAD{
   background-color: #ffffff;
   padding-top: 260px;
 }
+.alerta{
+  position:fixed;
+  z-index:2;
+  top: 1vw;
+  right: 1vw;
+  background: #2EFE2E;
+
+}

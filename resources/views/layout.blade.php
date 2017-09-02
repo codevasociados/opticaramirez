@@ -31,8 +31,28 @@
 			<img src="{{ url('imagen/cargando.gif') }}" />
 		</div>
 		<!-- Fin del div de animacion !-->
-		<!-- Menu vertical !-->
+		@php
+			if(Session::has('mensaje')):
+		@endphp
+		<div class="alert alert-success alerta" id="good" style="background-color:#3DC129; border-radius: 7px; ">
+			<button type="button" class="close" data-dismiss="alert">x</button>
+			<strong>Exito! </strong>
+			{{ Session::get('mensaje')}}
+		</div>
+		@php
+			endif;
+			if(Session::has('mensaje2')):
+		@endphp
+		<div class="alert alert-danger alerta" id="wrong" style=" border-radius: 7px; ">
+			<button type="button" class="close" data-dismiss="alert">x</button>
+			<strong>Error! </strong>
+			{{ Session::get('mensaje2')}}
+		</div>
+		@php
+			endif;
+		@endphp
 
+		<!-- Menu vertical !-->
 <div class="container-fuild">
 
 <div id="page" class="container-fuild"  style="position:relative;  display: none;">
@@ -93,6 +113,7 @@
 @yield('content')
 </div>
 </div>
+
 <!--Ventanas modales de la pagina!-->
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -190,6 +211,16 @@
         $.material.init();
       });
     </script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout(function(){
+				$(".alerta").fadeIn(2500); },0000);
+			});
+		$(document).ready(function() {
+			setTimeout(function(){
+				$(".alerta").fadeOut(2500); },5000);
+			});
+		</script>
 </body>
 
 </html>

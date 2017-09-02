@@ -7,8 +7,9 @@
 	{!! Html::style('css/client.css')!!}
 	<style type="text/css">
 	    .contenedor{ margin-left: 6%;float: left;}
+	    .contenedor2{ margin-left: 6%;}
 	    .titulo{ font-size: 12pt; font-weight: bold;}
-	    #camara, #foto{
+	    #camara, #foto,#foto2{
 	        width: 25vw;
 	        min-height: 22vw;
 	    }
@@ -16,86 +17,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-	<div class="col-md-5 well form">
-		<fieldset>
-			<legend>Optica Ramirez - Centro Optico Especializado</legend>
-<form class="" action="index.html" method="post">
-</fieldset>
-<fieldset style="border: 1;">
-	<div class="col-lg-12 ">
-	<a type="button" href="{{route('recipe.index')}}" class="btn btn-danger btn-raised bmd-btn-fab">
-  <i class="material-icons">note</i> Receta
-</a>
-<button type="button" class="btn btn-warning btn-raised bmd-btn-fab" data-toggle="modal" data-target="#miModal2">
-  <i class="material-icons">photo_camera</i> Boleta
-</button>
-<button type="button" class="btn btn-primary btn-raised bmd-btn-fab">
-  <i class="material-icons">print</i>Imprimir
-</button>
-<button type="button" class="btn btn-success btn-raised bmd-btn-fab">
-	<i class="material-icons">check</i> Guardar
-</button>
-</div><br/><br/><br/><br/>
-<label for="" class="label label-warning">Datos de cliente</label>
-@php
-	$var='';
-@endphp
-	<div class="form-group">
-		<input type="hidden" name="" value="">
-		<p><b>Nombre del cliente: </b><span id="nam"></span></p>
-		<p><b>Edad: </b> <span id="old"></span> años	</p>
-		<p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()  }}</p>
-		<p><b>Direccion del cliente: </b><span id="add"></span></p>
-		<p><b>Telefono del cliente: </b><span id="pho"></span></p>
-	</div>
-</fieldset>
-	<label for="" class="label label-danger">Datos de lentes - Boleta</label>
-	<form class="form-horizontal" action="" method="post">
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Cristales</label>
-		<div class="col-lg-10">
-			<input type="text" name="" class="form-control" value="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Armazon</label>
-		<div class="col-lg-10">
-			<input type="text" name="" class="form-control" value="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Medida</label>
-		<div class="col-lg-10">
-			<input type="text" name="" class="form-control" value="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Material</label>
-		<div class="col-lg-10">
-			<input type="text" name="" class="form-control" value="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-3" style="color: #333; weight:bold">N° de boleta</label>
-		<div class="col-lg-9">
-			<input type="text" name="" class="form-control" value="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-4" style="color: #333; weight:bold">Fecha de entrega</label>
-		<div class="col-lg-8">
-			<input type="date" name="" class="form-control" value="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Hora:</label>
-		<div class="col-lg-10">
-			<input type="time" name="" class="form-control" value="">
-		</div>
-	</div>
-</form>
-	</div>
-	<div class="col-md-6 well">
+	<div class="col-md-6 well form">
 		<fieldset>
 			<legend>Listado de clientes</legend>
 			<button type="button" class="btn btn-danger btn-raised" data-toggle="modal" data-target="#miModal" name="button"><i class="material-icons"></i> Registrar nuevo cliente</button>
@@ -113,17 +35,112 @@
     </tr>
   </thead>
   <tbody>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
 
 	</tr>
   </tbody>
 </table>
 </div>
 		</fieldset>
+	</div>
+
+<div class="col-md-5 well">
+		<fieldset>
+			<legend>Optica Ramirez - Centro Optico Especializado</legend>
+			{!! Form::open(['route' => 'ticket.store']) !!}
+
+</fieldset>
+<fieldset >
+	<div class="col-lg-12 ">
+	<a type="button" href="{{route('recipe.index')}}" style="padding-left:10px;padding-right:10px;" class="btn btn-danger btn-raised bmd-btn-fab">
+  <i class="material-icons">note</i> Receta
+</a>
+<button type="button" class="btn btn-warning btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;" data-toggle="modal" data-target="#miModal2">
+  <i class="material-icons">photo_camera</i> Boleta
+</button>
+<button type="button" class="btn btn-primary btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
+  <i class="material-icons">print</i> Imprimir
+</button>
+<button type="submit" class="btn btn-success btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
+	<i class="material-icons">check</i> Guardar
+</button>
+</div><br/><br/><br/><br/>
+<label for="" class="label label-warning">Datos de cliente</label>
+	<div class="form-group">
+		<input type="hidden" id="cli" name="cliente" value="">
+		<input type="hidden" id="img" name="img" value="">
+		<p><b>Nombre del cliente: </b><span id="nam"></span></p>
+		<p><b>Edad: </b> <span id="old"></span> años	</p>
+		<p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()  }}</p>
+		<p><b>Direccion del cliente: </b><span id="add"></span></p>
+		<p><b>Telefono del cliente: </b><span id="pho"></span></p>
+	</div>
+</fieldset>
+	<label for="" class="label label-danger">Datos de lentes - Boleta</label>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Cristales</label>
+		<div class="col-lg-10">
+			<input type="text" name="cri_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Armazon</label>
+		<div class="col-lg-10">
+			<input type="text" name="arm_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Medida</label>
+		<div class="col-lg-10">
+			<input type="text" name="med_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Material</label>
+		<div class="col-lg-10">
+			<input type="text" name="mat_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Saldo</label>
+		<div class="col-lg-10">
+			<input type="number" name="sal_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Total</label>
+		<div class="col-lg-10">
+			<input type="number" name="tot_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-3" style="color: #333; weight:bold">N° de boleta</label>
+		<div class="col-lg-9">
+			<input type="number" name="nro_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-4" style="color: #333; weight:bold">Fecha de entrega</label>
+		<div class="col-lg-8">
+			<input type="date" name="fec_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Hora:</label>
+		<div class="col-lg-10">
+			<input type="time" name="hor_tic" class="form-control" value="" required>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="contenedor2 well">
+			<div class="titulo">Foto</div>
+			<canvas id="foto2" ></canvas>
+	</div>
+	{!! Form::close() !!}
 	</div>
 </div>
 <!-- Modal !-->
@@ -156,11 +173,9 @@
 			  </div>
         </div>
      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
-        <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Guardar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal"><i class="material-icons">check</i>Listo</button>
       </div>
     </div>
-		{!! Form::close() !!}
   </div>
 </div>
 
@@ -249,7 +264,7 @@
 			console.log(clients);
 			for(var i=0; i<clients.length; i++)
 			{
-				var click="javascript:pasar('"+ clients[i].nam_cli+"','"+ clients[i].lpa_cli+"','"+clients[i].lma_cli +"','"+clients[i].add_cli +"','"+clients[i].pho_cli +"','"+clients[i].ci_cli+"','"+clients[i].old_cli +"');";
+				var click="javascript:pasar('"+ clients[i].nam_cli+"','"+ clients[i].lpa_cli+"','"+clients[i].lma_cli +"','"+clients[i].add_cli +"','"+clients[i].pho_cli +"','"+clients[i].id+"','"+clients[i].old_cli +"');";
 				clients[i].button='<a class="btn btn-raised btn-danger" onclick="'+click+'"  href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Asignar</a>';
 				JSON.stringify(clients);
 				console.log(clients);
@@ -264,12 +279,13 @@
   	 		}
 			});
 		});
-		function pasar(nam,lpa,lma,add,pho,ci,old)
+		function pasar(nam,lpa,lma,add,pho,id,old)
 		{
 			document.getElementById("nam").innerHTML = nam+' '+lpa+' '+lma;
 			document.getElementById("old").innerHTML = old;
 			document.getElementById("add").innerHTML = add;
 			document.getElementById("pho").innerHTML = pho;
+			$('#cli').val(id);
 		}
 	</script>
 
@@ -311,11 +327,18 @@ jQuery(document).ready(function(){
 
 			oCamara = jQuery('#camara');
 			oFoto = jQuery('#foto');
+			oFoto2 = jQuery('#foto2');
 			w = oCamara.width();
 			h = oCamara.height();
 			oFoto.attr({'width': w, 'height': h});
+			oFoto2.attr({'width': w, 'height': h});
 			oContexto = oFoto[0].getContext('2d');
+			oContexto2 = oFoto2[0].getContext('2d');
 			oContexto.drawImage(oCamara[0], 0, 0, w, h);
+			oContexto2.drawImage(oCamara[0], 0, 0, w, h);
+			foto= document.getElementById('foto2')
+			img=foto.toDataURL();
+			$('#img').val(img);
 
 	});
 });

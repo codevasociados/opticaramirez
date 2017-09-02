@@ -27,7 +27,7 @@
 <div class="row container-fluid row1">
   <a href="#">
   <div class="well pan4 col-lg-4" style="background-color: #555C00;">
-    <div class="text"> Libro diario
+    <div class="text">Boletas/Libro diario
     </div>
   </div></a>
   <a href="#">

@@ -27,7 +27,7 @@ class ClientController extends Controller
      $client->old_cli= $request->old_cli;
      $client->id_user= Auth::user()->id;
      $client->save();
-     $clients= Client::get();
-   	 return view('clients.client')->with('clients',$clients);
+     $mensaje=" Cliente registrado exitosamente!";
+   	 return redirect()->route('client.index')->with('mensaje',$mensaje);
    }
 }
