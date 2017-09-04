@@ -13,7 +13,7 @@
   <div class="text"> Personal
   </div>
 </div></a>
-<a href="#">
+<a href="{{ route('admin.debts')}}">
 <div class="well pan2 col-lg-3" style="background-color: #00425C;">
   <div class="text"> Control de deudas
   </div>
@@ -30,7 +30,7 @@
     <div class="text">Boletas/Libro diario
     </div>
   </div></a>
-  <a href="#">
+  <a href="{{ route('admin.expenses')}}">
   <div class="well pan5 col-lg-3" style="background-color: #00195C;">
     <div class="text"> Control de gastos
     </div>

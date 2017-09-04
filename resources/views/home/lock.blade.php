@@ -62,7 +62,7 @@
     Ingrese su contraseña para volver a la sesion actual
   </div>
   <div class="text-center">
-    <a href="login.html">O pruebe con otro usuario y contraseña</a>
+    <a href="{{route('login')}}">O pruebe con otro usuario y contraseña</a>
   </div>
   <div class="lockscreen-footer text-center">
     Copyright &copy; 2017 <b><a href="" class="text-black">CODEV - ASOCIADOS</a></b><br>

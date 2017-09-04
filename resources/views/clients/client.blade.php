@@ -46,20 +46,23 @@
 <div class="col-md-5 well">
 		<fieldset>
 			<legend>Optica Ramirez - Centro Optico Especializado</legend>
-			{!! Form::open(['route' => 'ticket.store']) !!}
 
 </fieldset>
 <fieldset >
 	<div class="col-lg-12 ">
-	<a type="button" href="{{route('recipe.index')}}" style="padding-left:10px;padding-right:10px;" class="btn btn-danger btn-raised bmd-btn-fab">
+{!! Form::open(['route' => 'recipe.getter']) !!}
+	<input type="hidden" id="cli2" name="cliente" value="">
+	<button type="submit"  style="padding-left:10px;padding-right:10px;" class="btn btn-danger btn-raised bmd-btn-fab">
   <i class="material-icons">note</i> Receta
-</a>
+	</button>
+{!! Form::close() !!}
+{!! Form::open(['route' => 'ticket.store']) !!}
 <button type="button" class="btn btn-warning btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;" data-toggle="modal" data-target="#miModal2">
   <i class="material-icons">photo_camera</i> Boleta
 </button>
-<button type="button" class="btn btn-primary btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
+<a type="button" href="{{ route('pdf')}}" target="_blank" class="btn btn-primary btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
   <i class="material-icons">print</i> Imprimir
-</button>
+</a>
 <button type="submit" class="btn btn-success btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
 	<i class="material-icons">check</i> Guardar
 </button>
@@ -286,6 +289,7 @@
 			document.getElementById("add").innerHTML = add;
 			document.getElementById("pho").innerHTML = pho;
 			$('#cli').val(id);
+			$('#cli2').val(id);
 		}
 	</script>
 

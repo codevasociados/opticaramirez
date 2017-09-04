@@ -79,7 +79,11 @@
                 <div class="mg_zone"></div>
               </div>
               <div class = "element_to_magnify">
-                <img src="{{url('imagen/ejemplo.jpg')}}"/>
+                @if (count($photo)>=1)
+                  <img src="{{url($photo[0]->url_pho)}}"/>
+                @else
+                  <img src="{{url('storage/null.jpg')}}"/>
+                @endif
               </div>
             </div>
           </div>
@@ -92,8 +96,11 @@
                     <div class="mg_zone"></div>
                   </div>
                   <div class = "element_to_magnify">
-
-                    <img src="{{url('imagen/ejemplo2.jpg')}}"/>
+                    @if (count($photo)>=2)
+                      <img src="{{url($photo[1]->url_pho)}}"/>
+                    @else
+                      <img src="{{url('storage/null.jpg')}}"/>
+                    @endif
                   </div>
                 </div>
           </div>
@@ -106,8 +113,11 @@
                     <div class="mg_zone"></div>
                   </div>
                   <div class = "element_to_magnify">
-
-                    <img src="{{url('imagen/ejemplo3.jpg')}}"/>
+                    @if (count($photo)==3)
+                      <img src="{{url($photo[2]->url_pho)}}"/>
+                    @else
+                      <img src="{{url('storage/null.jpg')}}"/>
+                    @endif
                   </div>
                 </div>
           </div>
@@ -119,12 +129,13 @@
           <h3>DATOS DEL PACIENTE</h3>
         </div>
         <div class="panel-body">
-          <form class="form-horizontal" role="form">
+          {!! Form::open(['route' => 'recipe.store']) !!}
                     <h4><label for="" class="label label-danger">Datos personales</label></h4>
-                    <p><b>Nombre del paciente: </b></p>
-                    <p><b>Edad del paciente: </b></p>
-                    <p><b>Telefono: </b></p>
-                    <p><b>Fecha: </b></p>
+                    <input type="hidden" name="clie" value="{{$client->id}}">
+                    <p><b>Nombre del paciente: </b>{{$client->nam_cli.' '.$client->lpa_cli.' '.$client->lma_cli}}</p>
+                    <p><b>Edad del paciente: </b>{{$client->old_cli}}</p>
+                    <p><b>Telefono: </b>{{$client->pho_cli}}</p>
+                    <p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()}}</p>
                 <h4><label for="" class="label label-warning">PARA VISION DE LEJOS</label></h4>
                 <table class="table table-bordered">
                   <tr>
@@ -136,30 +147,30 @@
                   </tr>
                   <tr>
                   <th class="success">OD</th>
-                  <td width="10%"><input type="text" class="input-lejos" placeholder=""></td>
-                  <td width="10%"><input type="text" class="input-lejos" placeholder=""></td>
-                  <td width="10%"><input type="text" class="input-lejos" placeholder=""></td>
-                  <td width="10%"><input type="text" class="input-lejos" placeholder=""></td>
+                  <td width="10%"><input type="text" name="lde_rec" class="input-lejos" placeholder=""></td>
+                  <td width="10%"><input type="text" name="ldc_rec" class="input-lejos" placeholder=""></td>
+                  <td width="10%"><input type="text" name="ldj_rec" class="input-lejos" placeholder=""></td>
+                  <td width="10%"><input type="text" name="lda_rec" class="input-lejos" placeholder=""></td>
                   </tr>
                   <tr>
                   <th class="danger">OI</th>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
+                  <td><input type="text" name="lie_rec" class="input-lejos" placeholder=""></td>
+                  <td><input type="text" name="lic_rec"class="input-lejos" placeholder=""></td>
+                  <td><input type="text" name="lij_rec" class="input-lejos" placeholder=""></td>
+                  <td><input type="text" name="lia_rec" class="input-lejos" placeholder=""></td>
                   </tr>
                 </table>
                 <div class="col-xs-1">
                   <label for="ejemplo_email_3" class="col-lg-2" style="color:#333">DIP :</label>
                   </div>
                   <div class="col-xs-5">
-                  <input type="text" class="input-lejos" placeholder="">
+                  <input type="text" class="input-lejos" name="dip_rec" placeholder="">
                   </div>
                   <div class="col-xs-1">
                    <label for="ejemplo_email_3" class="" style="color:#333">ADDA:</label>
                   </div>
                   <div class="col-xs-5">
-                 <input type="text" class="input-lejos" placeholder="">
+                 <input type="text" class="input-lejos" name="add_rec" placeholder="">
                   </div>
 <br><br><br>
                   <h4><label for="" class="label label-success">PARA VISION DE CERCA</label></h4>
@@ -173,71 +184,63 @@
                   </tr>
                   <tr>
                   <th class="success">OD</th>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cde_rec" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cdc_rec" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cdj_rec" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cda_rec" placeholder=""></td>
                   </tr>
                   <tr>
                   <th class="danger">OI</th>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
-                  <td><input type="text" class="input-lejos" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cie_rec" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cic_rec" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cij_rec" placeholder=""></td>
+                  <td><input type="text" class="input-lejos" name="cia_rec" placeholder=""></td>
                   </tr>
                </table>
                <!--inicio de los labels e inputs-->
                <div class="form-group grupo">
-                 <div class="col-lg-4">
+                 <div class="col-md-4">
                    <label for="ejemplo_email_5" class="" style="color:#333">TIPO DE LENTE:</label>
                  </div>
-                      <div class="col-lg-8">
-                        <input type="text" class="input-lejos2" placeholder="">
+                      <div class="col-md-8">
+                        <input type="text" class="input-lejos2" name="tip_rec" placeholder="">
                       </div>
                 </div>
+                <br>
                <div class="form-group grupo">
-                 <div class="col-lg-4">
+                 <div class="col-md-4">
                    <label for="ejemplo_email_5" class="" style="color:#333">USO:</label>
                  </div>
-                      <div class="col-lg-7">
-                        <input type="text" class="input-lejos2" placeholder="">
+                      <div class="col-md-8">
+                        <input type="text" class="input-lejos2" name="use_rec" placeholder="">
                       </div>
-                </div>
+                </div><br>
                 <div class="form-group grupo">
-                  <div class="col-lg-4">
+                  <div class="col-md-4">
 
                     <label for="ejemplo_email_5" class="" style="color:#333">CONTROL:</label>
                   </div>
-                      <div class="col-lg-8">
-                        <input type="text" class="input-lejos2" placeholder="">
+                      <div class="col-md-8">
+                        <input type="text" class="input-lejos2" name="con_rec" placeholder="">
                       </div>
-                </div>
+                </div><br>
                  <div class="form-group grupo">
-                   <div class="col-lg-4">
+                   <div class="col-md-4">
 
                      <label for="ejemplo_email_5" class="" style="color:#333">OBSERVACIONES:</label>
                    </div>
-                      <div class="col-lg-8">
-                        <input type="text" class="input-lejos2" placeholder="">
+                      <div class="col-md-8">
+                        <input type="text" class="input-lejos2" name="obs_rec" placeholder="">
                       </div>
                 </div>
-                 <div class="form-group grupo">
-                   <div class="col-lg-4">
-
-                     <label for="ejemplo_email_5" class="" style="color:#333">ESPECIALISTA:</label>
-                   </div>
-                      <div class="col-lg-8">
-                        <input type="text" class="input-lejos2" placeholder="">
-                      </div>
-                </div>
-                <br><br>
+                <br>
                 <!--fin de los labels e inputs-->
-                  <div class="col-lg-12 container-fluid" style="padding-left: 10vw">
+                  <div class="col-lg-12 container-fluid" style="padding-left: 2vw">
                    <button type="button" class="btn btn-danger btn-raised active"><i class="material-icons">delete</i> LIMPIAR</button>
-                    <a href="javascript:void(0)" class="btn btn-raised btn-primary"><i class="material-icons">done</i> GUARDAR</a>
-                    <button type="button" class="btn btn-info btn-raised active"><i class="material-icons">print</i> IMPRIMIR</button>
+                   <button type="submit" class="btn btn-success btn-raised active"><i class="material-icons">delete</i> GUARDAR E IMPRIMIR</button>
+                    <button type="button" class="btn btn-info btn-raised active"><i class="material-icons">done</i> FINALIZAR</button>
                  </div>
-               </form>
+                 {!! Form::close() !!}
         </div>
       </div>
   </div>
