@@ -19,8 +19,8 @@
 <div class="container-fluid">
 	<div class="col-md-6 well form">
 		<fieldset>
-			<legend>Listado de clientes</legend>
-			<button type="button" class="btn btn-danger btn-raised" data-toggle="modal" data-target="#miModal" name="button"><i class="material-icons"></i> Registrar nuevo cliente</button>
+			<legend>Fotografia pendiente</legend>
+			<a href="{{ route('ticket.index') }}" class="btn btn-danger btn-raised" name="button"><i class="material-icons">fast_forward</i> Registro rapido</a>
 			<br/>
 			<br/>
 			<div class="table-responsive">
@@ -43,109 +43,7 @@
 		</fieldset>
 	</div>
 
-<div class="col-md-5 well">
-		<fieldset>
-			<legend>Optica Ramirez - Centro Optico Especializado</legend>
 
-</fieldset>
-<fieldset >
-	<div class="col-lg-12 ">
-{!! Form::open(['route' => 'recipe.getter']) !!}
-	<input type="hidden" id="cli2" name="cliente" value="">
-	<button type="submit"  style="padding-left:10px;padding-right:10px;" class="btn btn-danger btn-raised bmd-btn-fab">
-  <i class="material-icons">note</i> Receta
-	</button>
-{!! Form::close() !!}
-{!! Form::open(['route' => 'ticket.store']) !!}
-<button type="button" class="btn btn-warning btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;" data-toggle="modal" data-target="#miModal2">
-  <i class="material-icons">photo_camera</i> Boleta
-</button>
-<a type="button" href="{{ route('pdf')}}" target="_blank" class="btn btn-primary btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
-  <i class="material-icons">print</i> Imprimir
-</a>
-<button type="submit" class="btn btn-success btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
-	<i class="material-icons">check</i> Guardar
-</button>
-</div><br/><br/><br/><br/>
-<label for="" class="label label-warning">Datos de cliente</label>
-	<div class="form-group">
-		<input type="hidden" id="cli" name="cliente" value="">
-		<input type="hidden" id="img" name="img" value="">
-		<p><b>Nombre del cliente: </b><span id="nam"></span></p>
-		<p><b>Edad: </b> <span id="old"></span> años	</p>
-		<p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()  }}</p>
-		<p><b>Direccion del cliente: </b><span id="add"></span></p>
-		<p><b>Telefono del cliente: </b><span id="pho"></span></p>
-	</div>
-</fieldset>
-	<label for="" class="label label-danger">Datos de lentes - Boleta</label>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Cristales</label>
-		<div class="col-lg-10">
-			<input type="text" name="cri_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Armazon</label>
-		<div class="col-lg-10">
-			<input type="text" name="arm_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Medida</label>
-		<div class="col-lg-10">
-			<input type="text" name="med_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Material</label>
-		<div class="col-lg-10">
-			<input type="text" name="mat_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Saldo</label>
-		<div class="col-lg-10">
-			<input type="number" name="sal_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Total</label>
-		<div class="col-lg-10">
-			<input type="number" name="tot_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-3" style="color: #333; weight:bold">N° de boleta</label>
-		<div class="col-lg-9">
-			<input type="number" name="nro_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-4" style="color: #333; weight:bold">Fecha de entrega</label>
-		<div class="col-lg-8">
-			<input type="date" name="fec_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Hora:</label>
-		<div class="col-lg-10">
-			<input type="time" name="hor_tic" class="form-control" value="" required>
-		</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="contenedor2 well">
-			<div class="titulo">Foto</div>
-			<canvas id="foto2" ></canvas>
-	</div>
-	{!! Form::close() !!}
-	</div>
-</div>
 <!-- Modal !-->
 
   <div class="modal fade" id="miModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -245,8 +143,146 @@
         <div class="col-md-8" >
           <input type="number" step="1" min="1" name="old_cli" class="form-control" required>
         </div>
+				<div class="col-md-5 well">
+						<fieldset>
+							<legend>Optica Ramirez - Centro Optico Especializado</legend>
 
+				</fieldset>
+				<fieldset >
+
+
+				{!! Form::open(['route' => 'ticket.store']) !!}
+				<label for="" class="label label-warning">Datos de cliente</label>
+					<div class="form-group">
+						<input type="hidden" id="cli" name="cliente" value="">
+						<input type="hidden" id="img" name="img" value="">
+						<p><b>Nombre del cliente: </b><span id="nam"></span></p>
+						<p><b>Edad: </b> <span id="old"></span> años	</p>
+						<p><b>Fecha: </b>{{\Carbon\Carbon::now()->toDateString()  }}</p>
+						<p><b>Direccion del cliente: </b><span id="add"></span></p>
+						<p><b>Telefono del cliente: </b><span id="pho"></span></p>
+					</div>
+				</fieldset>
+					<label for="" class="label label-danger">Datos de lentes - Boleta</label>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Cristales</label>
+						<div class="col-lg-10">
+							<input type="text" name="cri_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Armazon</label>
+						<div class="col-lg-10">
+							<input type="text" name="arm_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Medida</label>
+						<div class="col-lg-10">
+							<input type="text" name="med_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Material</label>
+						<div class="col-lg-10">
+							<input type="text" name="mat_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Saldo</label>
+						<div class="col-lg-10">
+							<input type="number" name="sal_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Total</label>
+						<div class="col-lg-10">
+							<input type="number" name="tot_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-3" style="color: #333; weight:bold">N° de boleta</label>
+						<div class="col-lg-9">
+							<input type="number" name="nro_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-4" style="color: #333; weight:bold">Fecha de entrega</label>
+						<div class="col-lg-8">
+							<input type="date" name="fec_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="" class="lbl col-lg-2" style="color: #333; weight:bold">Hora:</label>
+						<div class="col-lg-10">
+							<input type="time" name="hor_tic" class="form-control" value="" required>
+						</div>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="contenedor2 well">
+							<div class="titulo">Foto</div>
+							<canvas id="foto2" ></canvas>
+					</div>
+					<div class="col-lg-12 ">
+
+				<button type="button" class="btn btn-warning btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;" data-toggle="modal" data-target="#miModal2">
+					<i class="material-icons">photo_camera</i> Boleta
+				</button>
+				<a type="button" href="{{ route('pdf')}}" target="_blank" class="btn btn-primary btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
+					<i class="material-icons">print</i> Imprimir
+				</a>
+				<button type="submit" class="btn btn-success btn-raised bmd-btn-fab" style="padding-left:10px;padding-right:10px;">
+					<i class="material-icons">check</i> Guardar
+				</button>
+				</div><br/><br/><br/><br/>
+
+					{!! Form::close() !!}
+					{!! Form::open(['route' => 'recipe.getter']) !!}
+						<input type="hidden" id="cli2" name="cliente" value="">
+						<button type="submit"  style="padding-left:10px;padding-right:10px;" class="btn btn-danger btn-raised bmd-btn-fab">
+					  <i class="material-icons">note</i> Receta
+						</button>
+					{!! Form::close() !!}
+					</div>
+				</div>
         </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
+        <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Guardar</button>
+      </div>
+    </div>
+		{!! Form::close() !!}
+  </div>
+</div>
+
+</div>
+<!-- Modal !-->
+
+
+<!-- Modal !-->
+
+  <div class="modal fade" id="miModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Fotografia Boleta - Optica Ramirez </h4>
+      </div>
+      <div class="modal-body">
+				<div class="contenedor well">
+						<div class="titulo">Cámara</div>
+						<video id="camara" autoplay controls></video>
+				</div>
+				<div class="contenedor well">
+						<div class="titulo">Foto</div>
+						<canvas id="foto" ></canvas>
+				</div>
+     </div>
      <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
         <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Guardar</button>
@@ -268,7 +304,7 @@
 			for(var i=0; i<clients.length; i++)
 			{
 				var click="javascript:pasar('"+ clients[i].nam_cli+"','"+ clients[i].lpa_cli+"','"+clients[i].lma_cli +"','"+clients[i].add_cli +"','"+clients[i].pho_cli +"','"+clients[i].id+"','"+clients[i].old_cli +"');";
-				clients[i].button='<a class="btn btn-raised btn-danger" onclick="'+click+'"  href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Asignar</a>';
+				clients[i].button='<button class="btn btn-raised btn-primary" data-toggle="modal" data-target="#miModal4" onclick="'+click+'"  type="button" style="margin-top:0px; padding: 8px;"><i class="material-icons">camera_alt</i></button>';
 				JSON.stringify(clients);
 				console.log(clients);
 			}
