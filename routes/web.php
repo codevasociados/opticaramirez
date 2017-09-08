@@ -36,6 +36,14 @@
     Route::name('admin.debts')->get('admin/debt','AdminController@debt');
     Route::name('recipe.getter')->post('recipe/get','RecipeController@getter');
     Route::name('pdf')->get('pdf','PdfController@pdf');
+    Route::name('admin.storeclient')->post('admin/storeclient','AdminController@storeclient');
+    Route::name('admin.adminsale')->post('admin/adminsale','AdminController@adminsale');
+    Route::name('admin.storesale')->post('admin/storesale','AdminController@storesale');
+    Route::name('admin.storearray')->post('admin/storearray','AdminController@storearray');
+    Route::name('admin.storeuser')->post('admin/storeuser','AdminController@storeauser');
+    Route::name('admin.storeexpense')->post('admin/storeexpense','AdminController@storeexpense');
+    Route::name('admin.storedebt')->post('admin/storedebt','AdminController@storedebt');
+    Route::name('admin.storeevent')->post('admin/storeevent','AdminController@storeevent');
     //General routes of CRUD
     Route::resource('/','HomeController');
     Route::resource('client','ClientController');

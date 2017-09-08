@@ -16,9 +16,9 @@
 {!! Html::style('css/fonts-google.css') !!}
 {{ Html::style('css/login.css') }}
 {{ Html::style('bower_components/bootstrap/css/bootstrap.min.css') }}
+{{ Html::style('dynatable/jquery.dynatable.css') }}
 {{ Html::style('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css') }}
 {{ Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') }}
-{{ Html::style('dynatable/jquery.dynatable.css') }}
 	@yield('css')
 </head>
 <body style="background-image: url('{{ url('imagen/layout2.png') }}'); background-size: 110px;">
