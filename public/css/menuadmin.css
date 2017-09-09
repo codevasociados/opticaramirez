@@ -49,6 +49,9 @@ p.narrow{
   /* background-color: #ffffff; */
   border: 0;
   border-bottom-color: transparent;
+  -webkit-transform: scale(2);
+-ms-transform: scale(0.4);
+transform: scale(1.4);
 }
 
 span.round-tabs{

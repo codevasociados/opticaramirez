@@ -45,7 +45,7 @@
 		@endphp
 		<div class="alert alert-danger alerta" id="wrong" style=" border-radius: 7px; ">
 			<button type="button" class="close" data-dismiss="alert">x</button>
-			<strong>Error! </strong>
+			<strong>Cuidado! </strong>
 			{{ Session::get('mensaje2')}}
 		</div>
 		@php
