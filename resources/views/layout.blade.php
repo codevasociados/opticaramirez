@@ -53,9 +53,9 @@
 		@endphp
 
 		<!-- Menu vertical !-->
-<div class="container-fuild">
+<div class="container-fluid">
 
-<div id="page" class="container-fuild"  style="position:relative;  display: none;">
+<div id="page" class="container-fluid"  style="position:relative;  display: none;">
 
 	<div class="navbar navbar-warning">
   <div class="container-fluid">
