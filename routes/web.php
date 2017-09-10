@@ -36,6 +36,29 @@
     Route::name('admin.debts')->get('admin/debt','AdminController@debt');
     Route::name('recipe.getter')->post('recipe/get','RecipeController@getter');
     Route::name('pdf')->get('pdf','PdfController@pdf');
+    Route::name('admin.storeclient')->post('admin/storeclient','AdminController@storeclient');
+    Route::name('admin.adminsale')->post('admin/adminsale','AdminController@adminsale');
+    Route::name('admin.storesale')->post('admin/storesale','AdminController@storesale');
+    Route::name('admin.storearray')->post('admin/storearray','AdminController@storearray');
+    Route::name('admin.storeuser')->post('admin/storeuser','AdminController@storeuser');
+    Route::name('admin.storeexpense')->post('admin/storeexpense','AdminController@storeexpense');
+    Route::name('admin.storedebt')->post('admin/storedebt','AdminController@storedebt');
+    Route::name('admin.storeevent')->post('admin/storeevent','AdminController@storeevent');
+
+    Route::name('admin.deleteclient')->post('admin/deleteclient','AdminController@deleteclient');
+    Route::name('admin.updateclient')->post('admin/updateclient','AdminController@updateclient');
+    Route::name('admin.deletesale')->post('admin/deletesale','AdminController@deletesale');
+    Route::name('admin.updatesale')->post('admin/updatesale','AdminController@updatesale');
+    Route::name('admin.deletearray')->post('admin/deletearray','AdminController@deletearray');
+    Route::name('admin.updatearray')->post('admin/updatearray','AdminController@updatearray');
+    Route::name('admin.deleteuser')->post('admin/deleteuser','AdminController@deleteuser');
+    Route::name('admin.deletegasto')->post('admin/deletegasto','AdminController@deletegasto');
+    Route::name('admin.updateexpense')->post('admin/updateexpense','AdminController@updateexpense');
+    Route::name('admin.deletedebt')->post('admin/deletedebt','AdminController@deletedebt');
+    Route::name('admin.updatedebt')->post('admin/updatedebt','AdminController@updatedebt');
+    Route::name('admin.deleteevent')->post('admin/deleteevent','AdminController@deleteevent');
+    Route::name('admin.updateevent')->post('admin/updateevent','AdminController@updateevent');
+
     //General routes of CRUD
     Route::resource('/','HomeController');
     Route::resource('client','ClientController');

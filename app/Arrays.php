@@ -23,6 +23,6 @@ class Arrays extends Model
    * @var array
    */
   protected $hidden = [
-      'id','id_user','id_cli'
+      'id_user','id_cli'
   ];
 }
