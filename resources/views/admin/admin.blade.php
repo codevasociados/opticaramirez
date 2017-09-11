@@ -3,26 +3,20 @@
   Modulo de administrador (Solo personal autorizado)- Optica Ramirez
 @endsection
 @section('css')
-  {!! Html::style('dynatable/jquery.dynatable.css')!!}
+    {!! Html::style('dynatable/jquery.dynatable.css')!!}
     {!! Html::style('css/menuadmin.css')!!}
 @endsection
 @section('content')
-<style media="screen">
-
-</style>
-<section style="background:#efefe9;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="board">
+                <div class="well">
                     <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
                     <div class="board-inner">
-                    <ul class="nav nav-tabs" id="myTab">
-                    <div class="liner"></div>
+                    <ul class="nav nav-tabs" id="myTab" style="background-color:#fafafa; ">
                      <li class="active">
                      <a href="#cliente" data-toggle="tab" title="clientes">
                       <span class="round-tabs one">
-                        <p>  <i class="glyphicon glyphicon-user"></i> Clientes</p>
-
+                        <p><i class="glyphicon glyphicon-user"></i> Clientes</p>
                       </span>
                   </a></li>
 
@@ -64,13 +58,10 @@
 
                      <div class="tab-content">
                       <div class="tab-pane fade in active" id="cliente">
-
-
                           <p class="narrow text-center">
                             <div class="panel">
                               <!--desde aqui el codigo de la tabla!-->
                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modcliente">Registro</button>
-
                               <!-- Modal -->
                           <div id="modcliente" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -1297,16 +1288,9 @@
 
                   <div class="clearfix"></div>
                   </div>
-
                   </div>
                   </div>
                   </div>
-        </section>
-
-
-
-
-
 @endsection
 @section('scripts')
 {!! Html::script('dynatable/jquery.dynatable.js')!!}

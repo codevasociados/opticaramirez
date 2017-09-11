@@ -4,7 +4,7 @@
   padding: 20px;
 }
 .board{
-  width: 95%;
+width: 95%;
 margin: 60px auto;
 height: 500px;
 background: #fff;
@@ -21,7 +21,7 @@ background: #fff;
 }
 
 .board > div.board-inner{
-  background: #fafafa
+  background: #fafafa;
   background-size: 30%;
 }
 
@@ -45,13 +45,13 @@ p.narrow{
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #555555;
-  cursor: default;
+  cursor: pointer;
   /* background-color: #ffffff; */
   border: 0;
   border-bottom-color: transparent;
-  -webkit-transform: scale(2);
+  -webkit-transform: scale(1);
 -ms-transform: scale(0.4);
-transform: scale(1.4);
+transform: scale(1.1);
 }
 
 span.round-tabs{
@@ -219,7 +219,7 @@ padding-top: 0px;
 
 @media( max-width : 585px ){
 
-  .board {
+.board {
 width: 90%;
 height:auto !important;
 
