@@ -25,10 +25,17 @@
 </div>
 <div class="container-fluid row">
   <div class="well eventos col-md-8" >
-    <div class="text">Eventos</div>
+    <div class="text">
+      <fieldset>
+        <legend>Lista de eventos para el dia de hoy</legend>
+           @foreach ($event as $ev)
+             <p style="font-size:20px;"><label style="background-color:{{$ev->color}}" class="label"> {{$ev->title}}</label> De: {{$ev->start}} hasta hrs {{$ev->start}}</p>
+           @endforeach
+      </fieldset>
+    </div>
   </div>
   <a href="{{ route('ticket.index') }}"><div class="well pendientes col-md-3" style="background-color: #C0392B">
-    <div class="text">Registro manual de boletas</div>
+    <div class="text">Registro rapido</div>
   </div></a>
 </div>
 @stop

@@ -5,6 +5,8 @@ namespace optica\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use optica\Profile;
+use optica\Event;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -21,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.dashboard');
+        $event=Event::whereDate('start', '=', Carbon::now()->format('Y-m-d'))->get();
+        return view('home.dashboard')->with('event',$event);
     }
 }
