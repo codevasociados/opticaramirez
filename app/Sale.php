@@ -1,5 +1,4 @@
 <?php
-
 namespace optica;
 
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +13,7 @@ class Sale extends Model
    * @var array
    */
   protected $fillable = [
-      'fec_sale'
+      'fec_sale','id_cli','id_user'
   ];
 
   /**

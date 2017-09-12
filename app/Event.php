@@ -23,6 +23,6 @@ class Event extends Model
    * @var array
    */
   protected $hidden = [
-      'id','id_user'
+      'id_user'
   ];
 }

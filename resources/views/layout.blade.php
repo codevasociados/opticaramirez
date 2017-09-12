@@ -16,9 +16,9 @@
 {!! Html::style('css/fonts-google.css') !!}
 {{ Html::style('css/login.css') }}
 {{ Html::style('bower_components/bootstrap/css/bootstrap.min.css') }}
+{{ Html::style('dynatable/jquery.dynatable.css') }}
 {{ Html::style('bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css') }}
 {{ Html::style('bower_components/bootstrap-material-design/dist/css/ripples.min.css') }}
-{{ Html::style('dynatable/jquery.dynatable.css') }}
 	@yield('css')
 </head>
 <body style="background-image: url('{{ url('imagen/layout2.png') }}'); background-size: 110px;">
@@ -45,7 +45,7 @@
 		@endphp
 		<div class="alert alert-danger alerta" id="wrong" style=" border-radius: 7px; ">
 			<button type="button" class="close" data-dismiss="alert">x</button>
-			<strong>Error! </strong>
+			<strong>Cuidado! </strong>
 			{{ Session::get('mensaje2')}}
 		</div>
 		@php
@@ -53,9 +53,9 @@
 		@endphp
 
 		<!-- Menu vertical !-->
-<div class="container-fuild">
+<div class="container-fluid">
 
-<div id="page" class="container-fuild"  style="position:relative;  display: none;">
+<div id="page" class="container-fluid"  style="position:relative;  display: none;">
 
 	<div class="navbar navbar-warning">
   <div class="container-fluid">

@@ -14,6 +14,7 @@ class ClientController extends Controller
    {
      $clients= Client::get();
    	  return view('clients.client')->with('clients',$clients);
+
    }
    public function store(Request $request){
      //Controller of store user Created by: Developer Luis Quisbert
