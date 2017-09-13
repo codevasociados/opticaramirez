@@ -19,23 +19,5 @@
 </div>
 </a>
 </div>
-<div class="row container-fluid row1">
-  <a href="{{route('sold.report')}}">
-  <div class="well col-md-5 repsold" style="background-color:#5C004D">
-<div class="text">Reportes</div>
-  </div>
-</a>
-<a href="{{route('sold.graphic')}}">
-  <div class="well col-md-5 aresold" style="background-color:#5C1200">
-<div class="text">Graficos estadisticos</div>
-  </div>
-</a>
-</div>
-<div class="row container-fluid row1">
-<a href="{{route('sold.inventory')}}">
-  <div class="well col-md-10 invsold" style="background-color:#005C54">
-    <div class="text">Inventario general</div>
-  </div>
-</a>
-</div>
+
 @endsection

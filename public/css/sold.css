@@ -1,7 +1,7 @@
 .minsold{
   margin-left: 6%;
   margin-right: 4%;
-  height: 14vw;
+  height: 44vw;
   background: #DB6504;
   cursor: pointer;
   padding: 0px;
@@ -18,7 +18,7 @@
 .minsold .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 50%;
   color: #D4E6F1;
   display: block;
   text-align: center;
@@ -134,7 +134,7 @@
   opacity: 1;
 }
 .arraysold{
-  height: 14vw;
+  height: 44vw;
   cursor: pointer;
   padding: 0px;
   transform: scale(1);
@@ -160,7 +160,7 @@
 .arraysold .text{
   font-family: 'Roboto';
   font-size: 30px;
-  padding-top: 10%;
+  padding-top: 50%;
   color: #D4E6F1;
   display: block;
   text-align: center;

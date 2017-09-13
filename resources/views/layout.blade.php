@@ -23,8 +23,6 @@
 </head>
 <body style="background-image: url('{{ url('imagen/layout2.png') }}'); background-size: 110px;">
 <!-- Animacion de cargar pagina, usar en los modulos que son necesarios!-->
-
-
 		<div id="imgLOAD" style="text-align:center; position:absolute; cursor: wait;">
 
 			<b>Cargando...</b>
@@ -34,7 +32,7 @@
 		@php
 			if(Session::has('mensaje')):
 		@endphp
-		<div class="alert alert-success alerta" id="good" style="background-color:#3DC129; border-radius: 7px; ">
+		<div class="alert alert-success alerta" id="good" style=" border-radius: 7px; ">
 			<button type="button" class="close" data-dismiss="alert">x</button>
 			<strong>Exito! </strong>
 			{{ Session::get('mensaje')}}
@@ -45,7 +43,7 @@
 		@endphp
 		<div class="alert alert-danger alerta" id="wrong" style=" border-radius: 7px; ">
 			<button type="button" class="close" data-dismiss="alert">x</button>
-			<strong>Cuidado! </strong>
+			<strong>Alerta! </strong>
 			{{ Session::get('mensaje2')}}
 		</div>
 		@php
@@ -96,6 +94,7 @@
          $level='USUARIO COMUN';
        endif;
       ?> {{ $level }}</a></li>
+        <li><a title="Bloquear pantalla" href="#" onclick="launchFullScreen(document.documentElement);"><i class="material-icons">fullscreen</i></a> </li>
         <li><a href="{{ route('logouttemp') }}" title="Bloquear pantalla"><i class="material-icons">lock</i></a> </li>
         <li class="dropdown">
           <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown" title="Configuraciones generales"><i class="material-icons">settings</i>
@@ -198,8 +197,8 @@
     <!--  Elementos de javascript
     *   Bootstrap, material-design
      -->
-		 {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
-		 {{ Html::script('bower_components/moment/min/moment.min.js') }}
+	 {{ Html::script('bower_components/jquery/dist/jquery.min.js') }}
+	 {{ Html::script('bower_components/moment/min/moment.min.js') }}
 	 {{ Html::script('bower_components/fullcalendar/dist/fullcalendar.js') }}
 	 {{ Html::script('bower_components/bootstrap/js/bootstrap.min.js') }}
 	 {{ Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') }}
@@ -220,6 +219,15 @@
 			setTimeout(function(){
 				$(".alerta").fadeOut(2500); },5000);
 			});
+			function launchFullScreen(element) {
+  			if(element.requestFullScreen) {
+    			element.requestFullScreen();
+  			} else if(element.mozRequestFullScreen) {
+    			element.mozRequestFullScreen();
+  			} else if(element.webkitRequestFullScreen) {
+    			element.webkitRequestFullScreen();
+  			}
+			}
 		</script>
 </body>
 

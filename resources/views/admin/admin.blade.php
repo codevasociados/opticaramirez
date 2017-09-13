@@ -10,7 +10,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="well">
-                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
                     <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab" style="background-color:#fafafa; ">
                      <li class="active">
@@ -61,7 +60,7 @@
                           <p class="narrow text-center">
                             <div class="panel">
                               <!--desde aqui el codigo de la tabla!-->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modcliente">Registro</button>
+                              <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#modcliente">Registro</button>
                               <!-- Modal -->
                           <div id="modcliente" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -142,7 +141,7 @@
 
 
                                     <div class="center-block">
-                                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#cliente">Registrar</button>
+                                      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#cliente">Registrar</button>
                                     </div>
                                   </form>
 
@@ -234,7 +233,7 @@
 
 
                                     <div class="center-block">
-                                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#cliente">Registrar</button>
+                                      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#cliente">Registrar</button>
                                     </div>
                                   </form>
 
@@ -271,13 +270,10 @@
                             </div>
                           </div
                           <!--fin del Modal content-->
-
-
                               <div class="table-responsive">
-
                                 <table class="table" id="clients">
                                   <thead>
-                                    <tr>
+                                    <tr class="warning" style="font-size:18px;">
                                       <td>ID</td><td data-dynatable-column="nam_cli">NOMBRE</td>
                                       <td data-dynatable-column="lpa_cli">PATERNO</td>
                                       <td data-dynatable-column="lma_cli">MATERNO</td>
@@ -285,8 +281,8 @@
                                       <td data-dynatable-column="ci_cli">C.I.</td>
                                       <td data-dynatable-column="add_cli">TELEFONO</td>
                                       <td data-dynatable-column="pho_cli">NIVEL</td>
-                                      <td data-dynatable-column="boton">ELIMINAR</td>
-                                      <td data-dynatable-column="boton2">MODIFICAR</td>
+                                      <td data-dynatable-column="boton">ACCIONES</td>
+
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -308,7 +304,7 @@
                           <p class="narrow text-center">
                             <div class="panel">
                               <!--desde aqui el codigo de la tabla!-->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modsale">Registro</button>
+                              <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#modsale">Registro</button>
 
                               <!-- Modal -->
                           <div id="modsale" class="modal fade" role="dialog">
@@ -330,7 +326,7 @@
                                       </div>
                                     </div>
                                     <div class="center-block">
-                                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sale">Registrar</button>
+                                      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
                                     </div>
                                   </form>
 
@@ -363,7 +359,7 @@
                                       </div>
                                     </div>
                                     <div class="center-block">
-                                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sale">Registrar</button>
+                                      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
                                     </div>
                                   </form>
 
@@ -405,10 +401,10 @@
                               <div class="table-responsive">
                                 <table class="table" id="sales">
                                   <thead>
-                                    <tr>
+                                    <tr class="warning" style="font-size:18px;">
                                       <td>ID</td><td data-dynatable-column="fec_sale">FECHA</td>
-                                      <td data-dynatable-column="boton">ELIMINAR</td>
-                                      <td data-dynatable-column="boton2">MODIFICAR</td>
+                                      <td data-dynatable-column="boton">ACCIONES</td>
+
 
 
                                     </tr>
@@ -432,7 +428,7 @@
                           <p class="narrow text-center">
                             <div class="panel">
                               <!--desde aqui el codigo de la tabla!-->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modarray">Registro</button>
+                              <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#modarray">Registro</button>
 
                               <!-- Modal -->
                           <div id="modarray" class="modal fade" role="dialog">
@@ -474,7 +470,7 @@
                                       </div>
                                     </div>
                                     <div class="center-block">
-                                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sale">Registrar</button>
+                                      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
                                     </div>
                                   </form>
 
@@ -528,7 +524,7 @@
                                   </div>
                                 </div>
                                 <div class="center-block">
-                                  <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sale">Registrar</button>
+                                  <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
                                 </div>
                               </form>
 
@@ -570,13 +566,13 @@
                               <div class="table-responsive">
                                 <table class="table" id="array">
                                   <thead>
-                                    <tr>
+                                    <tr class="warning" style="font-size:18px;">
                                       <td>ID</td><td data-dynatable-column="dat_rec">DAT_REC</td>
                                       <td data-dynatable-column="dat_ent">FECHA ENTREGA</td>
                                       <td data-dynatable-column="des_array">DESCRIPCION</td>
                                       <td data-dynatable-column="num_bol">NUM BOL</td>
-                                      <td data-dynatable-column="boton">ELIMINAR</td>
-                                      <td data-dynatable-column="boton2">MODIFICAR</td>
+                                      <td data-dynatable-column="boton">ACCIONES</td>
+
 
                                     </tr>
                                   </thead>
@@ -598,7 +594,7 @@
                           <p class="narrow text-center">
                             <div class="panel">
                               <!--desde aqui el codigo de la tabla!-->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#moduser">Registro</button>
+                              <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#moduser">Registro</button>
 
                               <!-- Modal -->
                           <div id="moduser" class="modal fade" role="dialog">
@@ -663,7 +659,7 @@
                                       </div>
                                     </div>
                                     <div class="center-block">
-                                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sale">Registrar</button>
+                                      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
                                     </div>
                                   </form>
 
@@ -704,17 +700,15 @@
                               <div class="table-responsive">
                                 <table class="table" id="users">
                                   <thead>
-                                    <tr>
-                                      <td>ID</td><td data-dynatable-column="nam_user">NOMBRE</td>
+                                    <tr class="warning" style="font-size:18px; color:#d53502">
+                                      <td style="color:#d53502">ID</td><td data-dynatable-column="nam_user">NOMBRE</td>
                                       <td data-dynatable-column="lpa_user">PATERNO</td>
                                       <td data-dynatable-column="lma_user">MATERNO</td>
                                       <td data-dynatable-column="ci_user">C.I.:</td>
                                       <td data-dynatable-column="add_user">DIRECCION:</td>
                                       <td data-dynatable-column="pho_user">TELEFONO:</td>
                                       <td data-dynatable-column="nic_user">NICK:</td>
-                                      <td data-dynatable-column="boton">ELIMINAR</td>
-                                      <td data-dynatable-column="boton2">MODIFICAR:</td>
-
+                                      <td data-dynatable-column="boton">ACCIONES</td>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -738,7 +732,7 @@
                         <p class="narrow text-center">
                           <div class="panel">
                             <!--desde aqui el codigo de la tabla!-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modexpense">Registro</button>
+                            <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#modexpense">Registro</button>
 
                                       <!-- Modal -->
                                   <div id="modexpense" class="modal fade" role="dialog">
@@ -774,7 +768,7 @@
                                               </div>
                                             </div>
                                             <div class="center-block">
-                                              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#expense">Registrar</button>
+                                              <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#expense">Registrar</button>
                                             </div>
                                           </form>
 
@@ -822,7 +816,7 @@
                                           </div>
                                         </div>
                                         <div class="center-block">
-                                          <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#expense">Registrar</button>
+                                          <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#expense">Registrar</button>
                                         </div>
                                       </form>
 
@@ -865,14 +859,11 @@
                                       <div class="table-responsive">
                                         <table class="table" id="expenses">
                                           <thead>
-                                            <tr>
+                                            <tr class="warning" style="font-size:18px;">
                                               <td>ID</td><td data-dynatable-column="des_exp">DESCRIPCION</td>
                                               <td data-dynatable-column="mon_exp">MONTO</td>
                                               <td data-dynatable-column="fec_exp">FECHA</td>
-                                              <td data-dynatable-column="boton">ELIMINAR</td>
-                                              <td data-dynatable-column="boton2">MODIFICAR</td>
-
-
+                                              <td data-dynatable-column="boton">ACCIONES</td>
                                             </tr>
                                           </thead>
                                           <tbody>
@@ -894,7 +885,7 @@
                   <p class="narrow text-center">
                     <div class="panel">
                       <!--desde aqui el codigo de la tabla!-->
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#moddeb">Registro</button>
+                      <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#moddeb">Registro</button>
 
                                 <!-- Modal -->
                             <div id="moddeb" class="modal fade" role="dialog">
@@ -945,7 +936,7 @@
 
 
                                       <div class="center-block">
-                                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#expense">Registrar</button>
+                                        <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#expense">Registrar</button>
                                       </div>
                                     </form>
 
@@ -1008,7 +999,7 @@
 
 
                                   <div class="center-block">
-                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#expense">Registrar</button>
+                                    <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#expense">Registrar</button>
                                   </div>
                                 </form>
 
@@ -1049,14 +1040,14 @@
                                 <div class="table-responsive">
                                   <table class="table" id="debts">
                                     <thead>
-                                      <tr>
+                                      <tr class="warning" style="font-size:18px">
                                         <td>ID</td><td data-dynatable-column="nom_deb">NOMBRE</td>
                                         <td data-dynatable-column="con_deb">CON_DEB</td>
                                         <td data-dynatable-column="mon_deb">MONTO</td>
                                         <td data-dynatable-column="fec_deb">FECHA</td>
                                         <td data-dynatable-column="fin_deb">FIN_DEV</td>
-                                        <td data-dynatable-column="boton">ELIMINAR</td>
-                                        <td data-dynatable-column="boton2">MODIFICAR</td>
+                                        <td data-dynatable-column="boton">ACCIONES</td>
+
 
                                       </tr>
                                     </thead>
@@ -1078,7 +1069,7 @@
               </div>
               <p class="narrow text-center">
                 <div class="panel">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modevent">Registro</button>
+                  <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#modevent">Registro</button>
 
                             <!-- Modal -->
                         <div id="modevent" class="modal fade" role="dialog">
@@ -1143,7 +1134,7 @@
                                     </div>
                                   </div>
                                   <div class="center-block">
-                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#expense">Registrar</button>
+                                    <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#expense">Registrar</button>
                                   </div>
                                 </form>
                               </div>
@@ -1219,7 +1210,7 @@
                                 </div>
                               </div>
                               <div class="center-block">
-                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#expense">Registrar</button>
+                                <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#expense">Registrar</button>
                               </div>
                             </form>
                           </div>
@@ -1256,20 +1247,20 @@
 
                           </div>
                         </div
-                        <!--fin del Modal content-->
+                        <!-- fin del Modal content -->
                             <div class="table-responsive">
                               <table class="table" id="events">
                                 <thead>
-                                  <tr>
+                                  <tr class="warning" style="font-size:18px;">
                                     <td>ID</td><td data-dynatable-column="title">TITULO</td>
                                     <td data-dynatable-column="body">TEMA</td>
-                                    <td data-dynatable-column="url">URL</td>
+                                    
                                     <td data-dynatable-column="class">CLASS</td>
                                     <td data-dynatable-column="start">INICIO</td>
                                     <td data-dynatable-column="end">FIN</td>
                                     <td data-dynatable-column="color">COLOR</td>
-                                    <td data-dynatable-column="boton">ELIMINAR</td>
-                                    <td data-dynatable-column="boton2">MODIFICAR</td>
+                                    <td data-dynatable-column="boton">ACCIONES</td>
+
 
                                   </tr>
                                 </thead>
@@ -1324,8 +1315,8 @@
         var pho=clients[i].pho_cli;
         var b="'"+id+"','"+nom+"','"+pat+"','"+mat+"','"+old+"','"+ci+"','"+add+"','"+pho+"'";
 
-        clients[i].boton='<a onclick="javascript:envioclie('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminamodclient" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a>';
-        clients[i].boton2='<a onclick="javascript:enviodatosclie('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#modclientemodi" style="background-color:#143ded; color: #fff;">M</a>';
+        clients[i].boton='<a onclick="javascript:envioclie('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminamodclient" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosclie('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modclientemodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
+
       }
       //for sales
       for (var i = 0; i < sales.length; i++) {
@@ -1333,9 +1324,7 @@
         var id=sales[i].id;
         var fec=sales[i].fec_sale;
         var b="'"+id+"','"+fec+"'";
-        sales[i].boton='<a onclick="javascript:enviosale('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminaMod" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a>';
-        sales[i].boton2='<a onclick="javascript:enviodatossale('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#modsalemodi" style="background-color:#143ded; color: #fff;">M</a>';
-
+        sales[i].boton='<a onclick="javascript:enviosale('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaMod" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatossale('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modsalemodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
       }
       //for array
       for (var i = 0; i < arrays.length; i++) {
@@ -1346,18 +1335,16 @@
         var des=arrays[i].des_array;
         var num=arrays[i].num_bol;
         var b="'"+id+"','"+datrec+"','"+datent+"','"+des+"','"+num+"'";
-        arrays[i].boton='<a onclick="javascript:envioarray('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModArray" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a>';
-        arrays[i].boton2='<a onclick="javascript:enviodatosarray('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" style="background-color:#143ded; color: #fff;">M</a>';
+        arrays[i].boton='<a onclick="javascript:envioarray('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModArray" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosarray('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
 
       }
       //for user
       for (var i = 0; i < users.length; i++) {
         var a='{{route("admin.admin")}}';
-        var id=arrays[i].id;
-        var datrec=arrays[i].dat_rec;
-        var datent=arrays[i].dat_ent;
-        users[i].boton='<a onclick="javascript:enviouser('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminaMod" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a>';
-        users[i].boton2='<a onclick="javascript:enviodatosuser('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" style="background-color:#143ded; color: #fff;">M</a>';
+        var id=users[i].id;
+        var datrec=users[i].dat_rec;
+        var datent=users[i].dat_ent;
+        users[i].boton='<a onclick="javascript:enviouser('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaMod" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosuser('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
 
       }
       //for expense
@@ -1368,8 +1355,7 @@
         var mon=expenses[i].mon_exp;
         var fec=expenses[i].fec_exp;
         var b="'"+id+"','"+des+"','"+mon+"','"+fec+"'";
-        expenses[i].boton='<a onclick="javascript:envioexpense('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModgasto" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a>';
-        expenses[i].boton2='<a onclick="javascript:enviodatosexpense('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#modexpensemodi" style="background-color:#143ded; color: #fff;">M</a>';
+        expenses[i].boton='<a onclick="javascript:envioexpense('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModgasto" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosexpense('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modexpensemodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
       }
       //for debts
       for (var i = 0; i < debts.length; i++) {
@@ -1381,8 +1367,7 @@
         var fec_deb=debts[i].fec_deb;
         var fin_deb=debts[i].fin_deb;
         var b="'"+id+"','"+nom_deb+"','"+con_deb+"','"+mon_deb+"','"+fec_deb+"','"+fin_deb+"'";
-        debts[i].boton='<a onclick="javascript:enviodebts('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModdebt" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a>';
-        debts[i].boton2='<a onclick="javascript:enviodatosdebts('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#moddebmodi" style="background-color:#143ded; color: #fff;">M</a>';
+        debts[i].boton='<a onclick="javascript:enviodebts('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModdebt" style="background-color:#ed1414; color: #fff;"><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosdebts('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#moddebmodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
 
       }
       //for events
@@ -1396,9 +1381,7 @@
         var start=events[i].start;
         var end_ev=events[i].end;
         var color=events[i].color;
-        events[i].boton='<a onclick="javascript:envioevents('+id+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModevent" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a>';
-        events[i].boton2='<a onclick="javascript:enviodatosevents('+b+');" class="btn btn-primary btn-lg active" role="button" data-toggle="modal" data-target="#modeventmodi" style="background-color:#143ded; color: #fff;">M</a>';
-
+        events[i].boton='<a onclick="javascript:envioevents('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModevent" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosevents('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modeventmodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
       }
 
       //console clientes
