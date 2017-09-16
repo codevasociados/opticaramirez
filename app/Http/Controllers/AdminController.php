@@ -9,11 +9,24 @@ use optica\Expense;
 use optica\Client;
 use optica\Sale;
 use optica\Arrays;
+use optica\Profile;
 use optica\User;
 use Illuminate\Support\Facades\Auth; //component of autentication data
 
 class AdminController extends Controller
 {
+
+    public function __construct(){
+      $this->middleware(function ($request, $next) {
+        $id = Auth::user()->id;
+        $lvl= Profile::where('profile.id_user','=',$id)->select('lvl_pro')->first();
+        if($lvl->lvl_pro== 0):
+           return $next($request);
+        else:
+          abort(503);
+        endif;
+        });
+    }
     public function index(){
       return view('admin.index');
     }

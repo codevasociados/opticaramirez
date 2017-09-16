@@ -11,10 +11,10 @@
     <table class="table table-striped table-hover" id="sales">
       <thead>
         <tr>
-          <td data-dynatable-column="fec_sale">Fecha de venta</td>
-          <td data-dynatable-column="nam_cli">Cliente</td>
-          <td data-dynatable-column="nam_user">Usuario</td>
-          <td data-dynatable-column="button">Acciones</td>
+          <th data-dynatable-column="fec_sale">Fecha de venta</th>
+          <th data-dynatable-column="nam_cli">Cliente</th>
+          <th data-dynatable-column="nam_user">Usuario</th>
+          <th data-dynatable-column="button">Acciones</th>
         </tr>
       </thead>
     </table>

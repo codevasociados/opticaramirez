@@ -63,6 +63,7 @@
 </style>
 @endsection
 @section('content')
+
   <div class="container-fluid">
     <div class="well">
     <div class="row">
@@ -79,10 +80,10 @@
                 <div class="mg_zone"></div>
               </div>
               <div class = "element_to_magnify">
-                @if (count($photo)>=1)
+                @if (count($photo)>=1 && $photo[0]->id_pho!=0)
                   <img src="{{url($photo[0]->url_pho)}}"/>
                 @else
-                  <img src="{{url('storage/null.jpg')}}"/>
+                  <img src="{{url('imagen/null.jpg')}}"/>
                 @endif
               </div>
             </div>
@@ -96,10 +97,10 @@
                     <div class="mg_zone"></div>
                   </div>
                   <div class = "element_to_magnify">
-                    @if (count($photo)>=2)
+                    @if (count($photo)>=2 && $photo[1]->id_pho!=0)
                       <img src="{{url($photo[1]->url_pho)}}"/>
                     @else
-                      <img src="{{url('storage/null.jpg')}}"/>
+                      <img src="{{url('imagen/null.jpg')}}"/>
                     @endif
                   </div>
                 </div>
@@ -113,10 +114,10 @@
                     <div class="mg_zone"></div>
                   </div>
                   <div class = "element_to_magnify">
-                    @if (count($photo)==3)
+                    @if (count($photo)>=3 && $photo[1]->id_pho!=0)
                       <img src="{{url($photo[2]->url_pho)}}"/>
                     @else
-                      <img src="{{url('storage/null.jpg')}}"/>
+                      <img src="{{url('imagen/null.jpg')}}"/>
                     @endif
                   </div>
                 </div>
@@ -129,8 +130,11 @@
           <h3>DATOS DEL PACIENTE</h3>
         </div>
         <div class="panel-body">
-          {!! Form::open(['route' => 'recipe.store']) !!}
-                    <h4><label for="" class="label label-danger">Datos personales</label></h4>
+          <form action="{{route('recipe.end')}}" method="post" name="formid" id="formid">
+            {{ csrf_field() }}
+          </form>
+            <form action="{{route('recipe.store')}}" method="post" target='_blank'>
+              {{ csrf_field() }}                    <h4><label for="" class="label label-danger">Datos personales</label></h4>
                     <input type="hidden" name="clie" value="{{$client->id}}">
                     <p><b>Nombre del paciente: </b>{{$client->nam_cli.' '.$client->lpa_cli.' '.$client->lma_cli}}</p>
                     <p><b>Edad del paciente: </b>{{$client->old_cli}}</p>
@@ -238,7 +242,7 @@
                   <div class="col-lg-12 container-fluid" style="padding-left: 2vw">
                    <button type="button" class="btn btn-danger btn-raised active"><i class="material-icons">delete</i> LIMPIAR</button>
                    <button type="submit" class="btn btn-success btn-raised active"><i class="material-icons">delete</i> GUARDAR E IMPRIMIR</button>
-                    <button type="button" class="btn btn-info btn-raised active"><i class="material-icons">done</i> FINALIZAR</button>
+                    <a href="javascript:void(0);" onclick="document.formid.submit()" class="btn btn-info btn-raised active"><i class="material-icons">done</i> FINALIZAR</a>
                  </div>
                  {!! Form::close() !!}
         </div>

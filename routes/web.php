@@ -34,8 +34,11 @@
     Route::name('admin.admin')->get('admin/admin','AdminController@admin');
     Route::name('admin.expenses')->get('admin/expense','AdminController@expense');
     Route::name('admin.debts')->get('admin/debt','AdminController@debt');
-    Route::name('recipe.getter')->post('recipe/get','RecipeController@getter');
-    Route::name('pdf')->get('pdf','PdfController@pdf');
+    Route::name('recipe.getter')->get('recipe/get','RecipeController@getter');
+    Route::name('recipe.setter')->get('recipe/set/{id}','RecipeController@setter');
+    Route::name('recipe.end')->post('recipe/end','RecipeController@endrecipe');
+    Route::name('pdf')->post('pdf','PdfController@pdf');
+    Route::name('pdf.end')->post('pdf/end','PdfController@end');
     Route::name('admin.storeclient')->post('admin/storeclient','AdminController@storeclient');
     Route::name('admin.adminsale')->post('admin/adminsale','AdminController@adminsale');
     Route::name('admin.storesale')->post('admin/storesale','AdminController@storesale');
@@ -59,6 +62,7 @@
     Route::name('admin.deleteevent')->post('admin/deleteevent','AdminController@deleteevent');
     Route::name('admin.updateevent')->post('admin/updateevent','AdminController@updateevent');
 
+    Route::name('ticketfast.store')->post('fast/store','TicketsController@fast');
     //General routes of CRUD
     Route::resource('/','HomeController');
     Route::resource('client','ClientController');

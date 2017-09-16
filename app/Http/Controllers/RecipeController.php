@@ -18,21 +18,21 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getter(Request $request)
+    public function getter()
+    {   $client= Client::get();
+        return view('clients.list')->with('clients',$client);
+    }
+    public function setter($id)
     {
-      if(isset($request->cliente)):
-        $photo= Photography::join('ticket','photography.id','=','ticket.id_pho')->join('history','history.id','=','ticket.id_hist')->where('history.id_cli','=',$request->cliente)->orderBy('fec_tic','DESC')->get();
+      if(isset($id)):
+        $photo= Photography::join('ticket','photography.id','=','ticket.id_pho')->join('history','history.id','=','ticket.id_hist')->where('history.id_cli','=',$id)->orderBy('fec_tic','DESC')->get();
 //      dd($photo);
-        if(count($photo)==1):
-        $photo[2]->url_pho='storage/null.jpg';
-        elseif(count($photo)==1):
-          $photo[3]->url_pho='storage/null.jpg';
-        endif;
-        $client=Client::find($request->cliente);
+
+        $client=Client::find($id);
         return view('recipe.index')->with('client',$client)->with('photo',$photo);
       else:
         $mensaje2= 'Asigne un cliente primeramente!';
-        return redirect()->route('client.index')->with('mensaje2',$mensaje2);
+        return redirect()->route('client.list')->with('mensaje2',$mensaje2);
       endif;
     }
 
@@ -54,7 +54,12 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
+        $rep= Recipe::orderBy('id','DESC')->first();
+        if($rep->imp_rec==1):
         $recipe = new Recipe;
+        else:
+        $recipe= Recipe::find($rep->id);
+        endif;
         $recipe->dat_rec= Carbon::now()->toDateString();
         $recipe->lde_rec= $request->lde_rec;
         $recipe->ldc_rec= $request->ldc_rec;
@@ -78,11 +83,20 @@ class RecipeController extends Controller
         $recipe->use_rec= $request->use_rec;
         $recipe->con_rec= $request->con_rec;
         $recipe->obs_rec= $request->obs_rec;
+        $recipe->imp_rec=0;
         $recipe->id_cli= $request->clie;
         $recipe->id_user= Auth::user()->id;
         $recipe->save();
+        $cli= Client::find($request->clie);
+        return view('pdf.recipe')->with('recipe',$recipe)->with('cli',$cli);
+      }
+      public function endrecipe()
+      {
+        $rep= Recipe::orderBy('id','DESC')->first();
+        $rep->imp_rec=1;
+        $rep->save();
         $mensaje= 'Receta registrada exitosamente';
-        return redirect()->route('client.index')->with('mensaje',$mensaje);
+        return redirect()->route('recipe.getter')->with('mensaje',$mensaje);
       }
     /**
      * Display the specified resource.

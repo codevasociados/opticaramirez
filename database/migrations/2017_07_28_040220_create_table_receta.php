@@ -42,6 +42,7 @@ class CreateTableReceta extends Migration
           $table->string('use_rec');    //uso
           $table->string('con_rec');    //control
           $table->string('obs_rec');    //observaciones
+          $table->integer('imp_rec');    //Impreso
           $table->integer('id_cli')->unsigned();  //id del cliente al cual pertenece la receta
           $table->foreign('id_cli')->references('id')->on('client');
           $table->integer('id_user')->unsigned(); //id del usuario que registro la receta

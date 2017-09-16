@@ -4,6 +4,7 @@ namespace optica\Http\Controllers;
 
 use Illuminate\Http\Request;
 use optica\Client;
+use optica\Ticket;
 use Illuminate\Support\Facades\Auth; //component of autentication data
 use DB;
 
@@ -12,8 +13,8 @@ class ClientController extends Controller
 
    public function index()
    {
-     $clients= Client::get();
-   	  return view('clients.client')->with('clients',$clients);
+     $tickets= Ticket::join('client','client.id','=','ticket.id_cli')->where('id_pho','==',0)->select('cri_tic','arm_tic','med_tic','mat_tic','sal_tic','tot_tic','nro_tic','fec_tic','hor_tic','imp_tic','ticket.id','nam_cli','lpa_cli', 'lma_cli','old_cli','ci_cli','add_cli','pho_cli')->get();
+   	  return view('clients.client')->with('tickets',$tickets);
 
    }
    public function store(Request $request){

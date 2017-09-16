@@ -23,6 +23,6 @@ class Photography extends Model
    * @var array
    */
   protected $hidden = [
-      'id','id_hist'
+      'id_hist'
   ];
 }

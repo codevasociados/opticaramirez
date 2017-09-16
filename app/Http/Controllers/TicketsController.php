@@ -17,56 +17,84 @@ class TicketsController extends Controller
       return view('tickets.manually')->with('clients',$client);
     }
     public function store(Request $request){
-      if(isset($request->cliente)):
-      $ticket= new Ticket;
+      if (isset($request->img)) {
+      $ticket=Ticket::find($request->tic);
       $photo= new Photography;
-
-      if(isset($request->img)):
       $base=$request->img;
       $base_php=explode(',',$base);
       $data= base64_decode($base_php[1]);
-      $nombre=Carbon::now()->toDateString().$request->nro_tic.'.jpg';
+      $nombre=Carbon::now()->toDateString().$ticket->nro_tic.'.jpg';
       \Storage::disk('local')->put($nombre, $data);
 
       $photo->url_pho='storage'.'/'.$nombre;
       $photo->des_pho='Fotografia';
       $photo->save();
-      endif;
-      $hist= History::find($request->cli);
-      if(isset($hist)){
-      }
-      else{
-        $hist= new History;
-      }
-      //First save History
-      $hist->ini_hist= Carbon::now();
-      $hist->id_cli=$request->cliente;
-      $hist->id_user=Auth::user()->id;
-      $hist->save();
-
-      $ticket->cri_tic= $request->cri_tic;
-      $ticket->arm_tic= $request->arm_tic;
-      $ticket->med_tic= $request->med_tic;
-      $ticket->mat_tic= $request->mat_tic;
-      $ticket->sal_tic= $request->sal_tic;
-      $ticket->tot_tic= $request->tot_tic;
-      $ticket->nro_tic= $request->nro_tic;
-      $ticket->fec_tic= $request->fec_tic;
-      $ticket->hor_tic= $request->hor_tic;
-      $ticket->id_cli= $request->cliente;
-      if(isset($request->img)):
+      //dd($photo->id);
       $ticket->id_pho= $photo->id;
-      else:
-        $ticket->id_pho= 0;
-      endif;
-      $ticket->id_hist= $hist->id;
-      $ticket->id_user= Auth::user()->id;
       $ticket->save();
       $mensaje=' Boleta registrada correctamente!';
       return redirect()->route('client.index')->with('mensaje',$mensaje);
-      else:
-        $mensaje=' Asigne un usuario primeramente!';
+      }
+      else {
+        $mensaje=' Por favor tome una foto!';
         return redirect()->route('client.index')->with('mensaje2',$mensaje);
-      endif;
+      }
+
+    }
+    public function fast(Request $request)
+    {
+      if (isset($request->img)) {
+
+      $photo= new Photography;
+      $base=$request->img;
+      $base_php=explode(',',$base);
+      $data= base64_decode($base_php[1]);
+      $nombre=Carbon::now()->toDateString().Carbon::now()->toDateString().'.jpg';
+      \Storage::disk('local')->put($nombre, $data);
+
+      $photo->url_pho='storage'.'/'.$nombre;
+      $photo->des_pho='Fotografia';
+      $photo->save();
+      $client = new Client;
+      $client->nam_cli= $request->nam_cli;
+      $client->lpa_cli= $request->lpa_cli;
+      $client->lma_cli= $request->lma_cli;
+      $client->ci_cli= '';
+      $client->add_cli= '';
+      $client->pho_cli= '0';
+      $client->old_cli= '';
+      $client->id_user= Auth::user()->id;
+      $client->save();
+      //First save History
+      $hist= new History;
+      $hist->ini_hist= Carbon::now();
+      $hist->id_cli=$client->id;
+      $hist->id_user=Auth::user()->id;
+      $hist->save();
+      //dd($photo->id);
+      $tic= new Ticket;
+      $tic->cri_tic= '0';
+      $tic->arm_tic= '0';
+      $tic->med_tic= '0';
+      $tic->mat_tic= '0';
+      $tic->sal_tic= '0';
+      $tic->tot_tic='0';
+      $tic->nro_tic= '0';
+      $tic->fec_tic= Carbon::now()->toDateString();
+      $tic->hor_tic= '0';
+      $tic->id_cli= $client->id;
+      $tic->imp_tic= 1;
+      $tic->id_pho= $photo->id;
+      $tic->id_hist= $hist->id;
+      $tic->id_user= Auth::user()->id;
+      $tic->save();
+      $mensaje=' Boleta registrada correctamente!';
+      return redirect()->route('ticket.index')->with('mensaje',$mensaje);
+      }
+      else {
+        $mensaje=' Por favor tome una foto!';
+        return redirect()->route('ticket.index')->with('mensaje2',$mensaje);
+      }
+
     }
 }

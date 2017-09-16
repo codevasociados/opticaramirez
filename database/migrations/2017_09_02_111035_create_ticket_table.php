@@ -24,6 +24,7 @@ class CreateTicketTable extends Migration
           $table->biginteger('nro_tic');
           $table->date('fec_tic');
           $table->time('hor_tic');
+          $table->integer('imp_tic');
           $table->integer('id_cli')->unsigned();  //id del historial al cual pertenece esta fotografia
           $table->foreign('id_cli')->references('id')->on('client');
           $table->integer('id_pho')->unsigned();  //id del historial al cual pertenece esta fotografia

@@ -14,7 +14,7 @@ class Ticket extends Model
    * @var array
    */
   protected $fillable = [
-      'cri_tic','arm_tic','med_tic','mat_tic','sal_tic','tot_tic','nro_tic','fec_tic','hor_tic'
+      'cri_tic','arm_tic','med_tic','mat_tic','sal_tic','tot_tic','nro_tic','fec_tic','hor_tic','imp_tic','id'
   ];
 
   /**
@@ -23,6 +23,6 @@ class Ticket extends Model
    * @var array
    */
   protected $hidden = [
-      
+
   ];
 }

@@ -104,7 +104,7 @@
             <li><a class="" data-toggle="modal" data-target="#myModal" >Ver perfil</a></li>
           </ul>
         </li>
-				<li><a href="logout" title="Cerrar sesion"><i class="material-icons">power_settings_new</i></a> </li>
+				<li><a href="{{ url('logout')}}" title="Cerrar sesion"><i class="material-icons">power_settings_new</i></a> </li>
       </ul>
     </div>
   </div>
