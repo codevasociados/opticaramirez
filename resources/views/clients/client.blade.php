@@ -255,16 +255,12 @@ jQuery(document).ready(function(){
 
 			oCamara = jQuery('#camara');
 			oFoto = jQuery('#foto');
-			oFoto2 = jQuery('#foto2');
 			w = oCamara.width();
 			h = oCamara.height();
 			oFoto.attr({'width': w, 'height': h});
-			oFoto2.attr({'width': w, 'height': h});
 			oContexto = oFoto[0].getContext('2d');
-			oContexto2 = oFoto2[0].getContext('2d');
 			oContexto.drawImage(oCamara[0], 0, 0, w, h);
-			oContexto2.drawImage(oCamara[0], 0, 0, w, h);
-			foto= document.getElementById('foto2')
+			foto= document.getElementById('foto')
 			img=foto.toDataURL();
 			$('#img').val(img);
 

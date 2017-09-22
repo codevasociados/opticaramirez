@@ -103,7 +103,7 @@ class AdminController extends Controller
       $user->add_user= $request->add_user;
       $user->pho_user= $request->pho_user;
       $user->nic_user= $request->nic_user;
-
+      $user->password= bcrypt($request->password);
       $user->save();
       $mensaje=" Usuario registrado exitosamente!";
       return redirect()->route('admin.admin')->with('mensaje',$mensaje);

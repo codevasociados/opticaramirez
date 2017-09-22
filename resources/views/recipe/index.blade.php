@@ -253,7 +253,7 @@
 </div>
 @endsection
 @section('scripts')
-  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  {!! Html::script('js/jquery-ui.js') !!}
   {!! Html::script('js/jquery.jfMagnify.min.js') !!}
   <script type="text/javascript">
     $(document).ready(function() {
