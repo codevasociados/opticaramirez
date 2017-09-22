@@ -599,7 +599,6 @@
                               <!-- Modal -->
                           <div id="moduser" class="modal fade" role="dialog">
                             <div class="modal-dialog">
-
                               <!-- Modal content-->
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -652,10 +651,27 @@
                                       </div>
                                     </div>
                                     <div class="form-group">
-                                      <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Alias: </label>
+                                      <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Nombre de usuario: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="mat_cli"  name="nic_user"
-                                               placeholder="alias">
+                                               placeholder="nombre de usuario">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Password: </label>
+                                      <div class="col-lg-8">
+                                        <input type="password" class="form-control" id="mat_cli"  name="password"
+                                               placeholder="Contraseña">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Nivel: </label>
+                                      <div class="col-lg-8">
+                                        <select class="" name="niv_usu" required>
+                                          <option value="">SELECCIONE</option>
+                                          <option value="0">ADMINISTRADOR</option>
+                                          <option value="1">USUARIO</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="center-block">
@@ -673,7 +689,7 @@
                           </div>
                           <!--fin del Modal content-->
                           <!-- Modal -->
-                          <div id="eliminaMod" class="modal fade" role="dialog">
+                          <div id="eliminamoduser" class="modal fade" role="dialog">
                             <div class="modal-dialog">
 
                               <!-- Modal content-->
@@ -682,7 +698,7 @@
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                                   <form class="" action="{{route('admin.deleteuser')}}" method="post">
                                       {{csrf_field()}}
-                                      <input type="hidden" class="form-control" id="id_user_del" name="id" value="">
+                                      <input type="hidden" class="form-control" id="iduser" name="id" value="">
                                   <h4 class="modal-title">ELIMINAR USUARIO</h4>
                                 </div>
                                 <div class="modal-body">
@@ -1254,7 +1270,7 @@
                                   <tr class="warning" style="font-size:18px;">
                                     <td>ID</td><td data-dynatable-column="title">TITULO</td>
                                     <td data-dynatable-column="body">TEMA</td>
-                                    
+
                                     <td data-dynatable-column="class">CLASS</td>
                                     <td data-dynatable-column="start">INICIO</td>
                                     <td data-dynatable-column="end">FIN</td>
@@ -1344,7 +1360,7 @@
         var id=users[i].id;
         var datrec=users[i].dat_rec;
         var datent=users[i].dat_ent;
-        users[i].boton='<a onclick="javascript:enviouser('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaMod" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosuser('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
+        users[i].boton='<a onclick="javascript:enviouser('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminamoduser" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosuser('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
 
       }
       //for expense
@@ -1431,6 +1447,9 @@
     });
   </script>
 <script type="text/javascript">
+function enviouser(id){
+    $('#iduser').val(id);
+  }
 function envioclie(id){
     $('#id').val(id);
   }
