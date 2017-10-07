@@ -33,57 +33,27 @@
       <div class="modal-body">
 				{!! Form::open(['route' => 'sales.store']) !!}
         <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Nombres</label>
+          <label class="col-md-4 control-label">Fecha:</label>
         <div class="col-md-8" >
-          <input type="text" name="nam_cli" class="form-control" required>
+          <input type="text" name="fec_sale" class="form-control" required>
         </div></div>
         <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Apellido paterno</label>
-        <div class="col-md-8" >
-          <input type="text" name="lpa_cli" class="form-control" required>
-        </div></div>
-        <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Apellido materno</label>
-        <div class="col-md-8" >
-          <input type="text" name="lma_cli" class="form-control" required>
-        </div></div>
-        <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Carnet de identidad</label>
-        <div class="col-md-8">
-          <input type="number" name="ci_cli" class="form-control" required>
-				</div></div>
-				<div class="form-group has-danger">
-					<label class="col-md-4 control-label">Expedido</label>
-				<div class="col-md-8">
-					<select class="form-control" name="xp_cli" required>
-						<option value="">Seleccionar</option>
-						<option value="LP">LP</option>
-						<option value="OR">OR</option>
-						<option value="PT">PT</option>
-						<option value="CB">CB</option>
-						<option value="CH">CH</option>
-						<option value="TJ">TJ</option>
-						<option value="BE">BE</option>
-						<option value="PA">PA</option>
-						<option value="SC">SC</option>
-					</select>
-        </div></div>
-        <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Telefono</label>
-        <div class="col-md-8" >
-          <input type="number" name="pho_cli" min=6000000  class="form-control" required>
-        </div></div>
-        <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Direccion</label>
-        <div class="col-md-8" >
-          <textarea name="add_cli" class="form-control" rows="3" required></textarea>
-        </div></div>
-        <div class="form-group has-danger">
-          <label class="col-md-4 control-label">Edad</label>
-        <div class="col-md-8" >
-          <input type="number" step="1" min="1" name="old_cli" class="form-control" required>
-        </div>
+          <div class="col-md-12" >
+          <fieldset id="fiel">
+            <button type="button" class="btn btn-raised btn-info" onclick="crear(this)" >Agregar producto</button>
+          <table class="table table-hovered">
+            <th>
+              <td>Producto</td>
+              <td>Precio</td>
+              <td>Cantidad</td>
+              <td>Total</td>
+              <td></td>
+            </th>
+          </table>
 
+          </fieldset>
+          </div>
+        </div>
         </div>
      <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
@@ -130,4 +100,47 @@
     $('#cli2').val(id);
   }
   </script>
+  <script type="text/javascript">
+<!--
+num=0;
+function crear(obj) {
+  num++;
+  fi = document.getElementById('fiel'); // 1
+  contenedor = document.createElement('div'); // 2
+  contenedor.id = 'div'+num; // 3
+  contenedor.class = 'form-group';
+  fi.appendChild(contenedor); // 4
+
+  ele = document.createElement('input'); // 5
+  ele.setAttribute("class", "form-control"); // 6
+  ele.type = 'text'; // 6
+  ele.name = 'pro'+num; // 6
+  contenedor.appendChild(ele); // 7
+
+  ele = document.createElement('input'); // 5
+  ele.setAttribute("class", "form-control"); // 6
+  ele.type = 'text'; // 6
+  ele.name = 'pre'+num; // 6
+  contenedor.appendChild(ele); // 7
+
+  ele = document.createElement('input'); // 5
+  ele.type = 'text'; // 6
+  ele.name = 'fil'+num; // 6
+  ele.setAttribute("class", "form-control"); // 6
+  contenedor.appendChild(ele); // 7
+
+  ele = document.createElement('input'); // 5
+  ele.type = 'button'; // 6
+  ele.value = '-'; // 8
+  ele.setAttribute("class", "btn btn-danger btn-raised"); // 6
+  ele.name = 'div'+num; // 8
+  ele.onclick = function () {borrar(this.name)} // 9
+  contenedor.appendChild(ele); // 7
+}
+function borrar(obj) {
+  fi = document.getElementById('fiel'); // 1
+  fi.removeChild(document.getElementById(obj)); // 10
+}
+-->
+</script>
 @endsection

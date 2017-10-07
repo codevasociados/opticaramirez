@@ -90,13 +90,18 @@ class RecipeController extends Controller
         $cli= Client::find($request->clie);
         return view('pdf.recipe')->with('recipe',$recipe)->with('cli',$cli);
       }
-      public function endrecipe()
+      public function endrecipe(Request $request)
       {
         $rep= Recipe::orderBy('id','DESC')->first();
+        if($rep->imp_rec==1):
+          $mensaje= 'No se lleno ningun dato';
+          return redirect()->route('recipe.getter')->with('mensaje2',$mensaje);
+        else:
         $rep->imp_rec=1;
         $rep->save();
         $mensaje= 'Receta registrada exitosamente';
         return redirect()->route('recipe.getter')->with('mensaje',$mensaje);
+        endif;
       }
     /**
      * Display the specified resource.
