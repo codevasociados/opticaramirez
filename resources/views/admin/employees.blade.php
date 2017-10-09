@@ -162,7 +162,9 @@
           <h4 class="modal-title">Registro de usuario</h4>
         </div>
         <div class="modal-body">
-
+          <div class="form-group">
+            <label for=""></label>
+          </div>
         </div>
        <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
