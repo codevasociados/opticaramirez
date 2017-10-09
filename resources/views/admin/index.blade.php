@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 <div class="row container-fluid row1">
-<a href="#">
+<a href="{{route('admin.employees')}}">
 <div class="well pan1 col-lg-4" style="background-color: #5C0003;">
   <div class="text"> Personal
   </div>

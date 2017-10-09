@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
+	<link rel="shortcut icon" href="{{{ asset('imagen/optica_ramirez.png') }}}">
 	<title>@yield('title')</title>
 <!--
 		/** Elementos de hojas de estilo

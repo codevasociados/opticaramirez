@@ -75,7 +75,7 @@
               <div class="content">
                 <div class="title">Acceso denegado!</div>
                 <div class="paragraph">Usted no tiene acceso a este modulo.</div>
-                <div class="paragraph2">Sistema cristiano de comunicaciones 2017 - Sistema de ventas y programación</div>
+                <div class="paragraph2">Codev 2017 - Optica Ramirez Contacte con un administrador en caso que fuera un error.</div>
               </div>
         </div>
         <script>

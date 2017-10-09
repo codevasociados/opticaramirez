@@ -612,49 +612,49 @@
                                       <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Nombre: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="nom_clie" name="nam_user"
-                                               placeholder="nombre">
+                                               placeholder="Nombre de usuario">
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label name="pat_adm" for="pat_cli" class="col-lg-4 control-label">Paterno: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="pat_cli"  name="lpa_user"
-                                               placeholder="paterno">
+                                               placeholder="Apellido paterno Usuario">
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Materno: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="mat_cli"  name="lma_user"
-                                               placeholder="Materno">
+                                               placeholder="Apellido materno usuario">
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">C.I.: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="mat_cli"  name="ci_user"
-                                               placeholder="Cedula">
+                                               placeholder="Cedula de identidad">
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Direccion: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="mat_cli"  name="add_user"
-                                               placeholder="direccion">
+                                               placeholder="Direccion del usuario">
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Telefono: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="mat_cli"  name="pho_user"
-                                               placeholder="telefono">
+                                               placeholder="Telefono del usuario">
                                       </div>
                                     </div>
                                     <div class="form-group">
                                       <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Nombre de usuario: </label>
                                       <div class="col-lg-8">
                                         <input type="text" class="form-control" id="mat_cli"  name="nic_user"
-                                               placeholder="nombre de usuario">
+                                               placeholder="Nombre de usuario">
                                       </div>
                                     </div>
                                     <div class="form-group">
@@ -667,7 +667,7 @@
                                     <div class="form-group">
                                       <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Nivel: </label>
                                       <div class="col-lg-8">
-                                        <select class="" name="niv_usu" required>
+                                        <select class="form-control" name="niv_user" required>
                                           <option value="">SELECCIONE</option>
                                           <option value="0">ADMINISTRADOR</option>
                                           <option value="1">USUARIO</option>
@@ -1450,6 +1450,16 @@
 function enviouser(id){
     $('#iduser').val(id);
   }
+function enviodatosuser(id,nom,pat,mat,old,ci,add,pho){
+    $('#idu').val(id);
+        $('#nom').val(nom);
+        $('#pat').val(pat);
+        $('#mat').val(mat);
+        $('#old').val(old);
+        $('#ci').val(ci);
+        $('#addres').val(add);
+        $('#pho').val(pho);
+}
 function envioclie(id){
     $('#id').val(id);
   }

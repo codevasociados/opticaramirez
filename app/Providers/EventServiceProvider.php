@@ -13,9 +13,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'optica\Events\Event' => [
-            'optica\Listeners\EventListener',
-        ],
+          'Illuminate\Auth\Events\Login' => [
+          'optica\Listeners\SuccessfulLogin',
+      ],
     ];
 
     /**

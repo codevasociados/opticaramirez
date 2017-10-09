@@ -34,6 +34,8 @@
     Route::name('admin.admin')->get('admin/admin','AdminController@admin');
     Route::name('admin.expenses')->get('admin/expense','AdminController@expense');
     Route::name('admin.debts')->get('admin/debt','AdminController@debt');
+    Route::name('admin.employees')->get('admin/employees','AdminController@employees');
+    Route::name('admuser.store')->post('admin/employees/store','AdminController@storeemployees');
     Route::name('recipe.getter')->get('recipe/get','RecipeController@getter');
     Route::name('recipe.setter')->get('recipe/set/{id}','RecipeController@setter');
     Route::name('recipe.end')->post('recipe/end','RecipeController@endrecipe');
@@ -61,6 +63,9 @@
     Route::name('admin.updatedebt')->post('admin/updatedebt','AdminController@updatedebt');
     Route::name('admin.deleteevent')->post('admin/deleteevent','AdminController@deleteevent');
     Route::name('admin.updateevent')->post('admin/updateevent','AdminController@updateevent');
+
+    //ajax
+    Route::post('admin/getTime','AdminController@getTime');
 
     Route::name('ticketfast.store')->post('fast/store','TicketsController@fast');
     //General routes of CRUD

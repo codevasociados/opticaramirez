@@ -9,6 +9,8 @@
 <!--		/**Elementos de cabecera*/ !-->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-compatible" content="IE-edge">
+		<link rel="shortcut icon" href="{{{ asset('imagen/optica_ramirez.png') }}}">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optica Ramirez - Bienvenido</title>
 		<!-- Material Design fonts -->

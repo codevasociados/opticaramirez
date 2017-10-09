@@ -11,6 +11,10 @@ use optica\Sale;
 use optica\Arrays;
 use optica\Profile;
 use optica\User;
+use Carbon\Carbon;
+use optica\Log;
+use DB;
+use Response;
 use Illuminate\Support\Facades\Auth; //component of autentication data
 
 class AdminController extends Controller
@@ -44,17 +48,7 @@ class AdminController extends Controller
       $events=Event::get();
       return view('admin.admin')->with('clients',$clients)->with('sales',$sales)->with('arrays',$arrays)->with('users',$users)->with('expenses',$expenses)->with('debts',$debts)->with('events',$events);
     }
-    public function adminsale(){
-    }
-    public function adminarray(){
-    }
-    public function adminuser(){
-    }
-    public function adminexpense(){
-    }
-    public function admindebt(){
 
-    }
     public function storeclient(Request $request)
     {
       $client= new Client;
@@ -105,6 +99,12 @@ class AdminController extends Controller
       $user->nic_user= $request->nic_user;
       $user->password= bcrypt($request->password);
       $user->save();
+      $profile= new Profile;
+      $profile->lvl_pro=$request->niv_user;
+      $profile->ini_pro= Carbon::now();
+      $profile->end_pro= '2017-12-31 23:59:59';
+      $profile->id_user= $user->id;
+      $profile->save();
       $mensaje=" Usuario registrado exitosamente!";
       return redirect()->route('admin.admin')->with('mensaje',$mensaje);
     }
@@ -293,5 +293,36 @@ class AdminController extends Controller
     public function debt(){
       $debt= Debt::get();
       return view('admin.debts')->with('debts',$debt);
+    }
+    public function employees(){
+      $user= User::get();
+      return view('admin.employees')->with('users',$user);
+    }
+    public function storeemployees(Request $request){
+      //Controller of store user Created by: Developer Luis Quisbert
+      $user= new User;
+      $user->nam_user= $request->nam_user;
+      $user->lpa_user= $request->lpa_user;
+      $user->lma_user= $request->lma_user;
+      $user->ci_user= $request->ci_user;
+      $user->add_user= $request->add_user;
+      $user->pho_user= $request->pho_user;
+      $user->nic_user= $request->nic_user;
+      $user->password= bcrypt($request->password);
+      $user->save();
+      $profile= new Profile;
+      $profile->lvl_pro=$request->niv_user;
+      $profile->ini_pro= Carbon::now();
+      $profile->end_pro= '2017-12-31 23:59:59';
+      $profile->id_user= $user->id;
+      $profile->save();
+      $mensaje=" Usuario registrado exitosamente!";
+      return redirect()->route('admin.employees')->with('mensaje',$mensaje);
+    }
+    public function getTime(){
+      $log= Log::where('id_user','=',$_POST['id'])->groupBy(DB::raw('DATE(last_time)'))->select(DB::raw('min(last_time) as time'))->get();
+      return Response::json( array(
+      		'datos' => $log,
+      		));
     }
 }
