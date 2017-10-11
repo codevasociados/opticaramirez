@@ -150,8 +150,32 @@ class PdfController extends Controller
       $pdf->SetXY(70, 200);
       $pdf->Write(0,'RECIBI CONFORME','','',false);
       $pdf->Line ( 68, 198,105,198 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $pdf->SetXY(8, 70);
+      $pdf->SetFont('','','9');
 
+      $html='
+      <style>
+      .head{
+        background-color: #fb8213;
+      }
+      </style>
+      <table border="1" cellpadding="4" >
+       <thead>
+         <tr class="head">
+            <td width="70%"><b>CONCEPTO</b></td>
+            <td width="30%"><b>MONTO</b></td>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+          <td width="70%">SUELDO TOTAL</td>
+          <td width="30%"> Bs. 1800</td>
+         </tr>
+       </tbody>
+      </table>
+      ';
 
+      $pdf->writeHTML($html, true, false, true, false, '');
 
       $pdf->write2DBarcode ( 'Usuario :'.$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 186, 20, 20, '','','');
 

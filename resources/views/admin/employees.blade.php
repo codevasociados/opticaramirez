@@ -159,16 +159,35 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title">Registro de usuario</h4>
+          <h4 class="modal-title">Registro de descuentos/adelantos</h4>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label for=""></label>
+            <label for="">Concepto</label>
+            <div class="form-group">
+              <select class="form-control" name="tipo" required>
+                <option value="">SELECCIONE</option>
+                <option value="Descuentos">DESCUENTO</option>
+                <option value="Adelantos">ADELANTO</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Monto</label>
+            <div class="form-group">
+              <input type="number" step="0.01" name="monto" class="form-control" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Descripcion</label>
+            <div class="form-group">
+              <textarea name="desc" rows="8" cols="80" class="form-control"></textarea>
+            </div>
           </div>
         </div>
        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
-          <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Guardar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cancelar</button>
+          <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Registrar</button>
         </div>
       </div>
   		{!! Form::close() !!}
@@ -185,7 +204,7 @@
       for (var i = 0; i < users.length; i++) {
         users[i].button='<a class="btn btn-raised btn-success" onclick="llegada('+"'"+users[i].id+"','"+users[i].nam_user+"','"+users[i].lpa_user+"','"+users[i].lma_user+"'"+')" data-toggle="modal" data-target="#miModal2"><i class="material-icons" title="Hora de llegada">alarm_on</i></a>';
         users[i].button2='<a class="btn btn-raised btn-danger" data-toggle="modal" data-target="#miModal3"><i class="material-icons">remove_circle_outline</i></a>';
-        users[i].button3='<a href="employees/pdf/'+users[i].id+'" class="btn btn-raised btn-info" ><i class="material-icons" title="Imprimir boleta de pago">print</i></a>';
+        users[i].button3='<a target="_blank" href="employees/pdf/'+users[i].id+'" class="btn btn-raised btn-info" ><i class="material-icons" title="Imprimir boleta de pago">print</i></a>';
       }
       $('#users').dynatable({
         dataset: {
