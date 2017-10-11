@@ -41,6 +41,7 @@
     Route::name('recipe.end')->post('recipe/end','RecipeController@endrecipe');
     Route::name('pdf')->post('pdf','PdfController@pdf');
     Route::name('pdf.end')->post('pdf/end','PdfController@end');
+    Route::get('admin/employees/pdf/{id}','PdfController@employees');
     Route::name('admin.storeclient')->post('admin/storeclient','AdminController@storeclient');
     Route::name('admin.adminsale')->post('admin/adminsale','AdminController@adminsale');
     Route::name('admin.storesale')->post('admin/storesale','AdminController@storesale');

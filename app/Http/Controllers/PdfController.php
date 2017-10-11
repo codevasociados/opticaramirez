@@ -8,6 +8,8 @@ use optica\Client;
 use optica\History;
 use Illuminate\Support\Facades\Auth; //component of autentication data
 use Carbon\Carbon;
+use PDF; // at the top of the file
+
 
 class PdfController extends Controller
 {
@@ -70,5 +72,11 @@ class PdfController extends Controller
       $ticket->save();
       $mensaje=" Boleta registrada correctamente!";
     	 return redirect()->route('client.index')->with('mensaje',$mensaje);
+    }
+    public function employees(){
+        PDF::SetTitle('Boleta de salarios - Optica Ramirez');
+      	PDF::AddPage();
+      	PDF::Write(0, 'Hello World');
+      	PDF::Output('hello_world.pdf');
     }
 }

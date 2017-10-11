@@ -185,7 +185,7 @@
       for (var i = 0; i < users.length; i++) {
         users[i].button='<a class="btn btn-raised btn-success" onclick="llegada('+"'"+users[i].id+"','"+users[i].nam_user+"','"+users[i].lpa_user+"','"+users[i].lma_user+"'"+')" data-toggle="modal" data-target="#miModal2"><i class="material-icons" title="Hora de llegada">alarm_on</i></a>';
         users[i].button2='<a class="btn btn-raised btn-danger" data-toggle="modal" data-target="#miModal3"><i class="material-icons">remove_circle_outline</i></a>';
-        users[i].button3='<a class="btn btn-raised btn-info" ><i class="material-icons" title="Imprimir boleta de pago">print</i></a>';
+        users[i].button3='<a href="employees/pdf/'+users[i].id+'" class="btn btn-raised btn-info" ><i class="material-icons" title="Imprimir boleta de pago">print</i></a>';
       }
       $('#users').dynatable({
         dataset: {
