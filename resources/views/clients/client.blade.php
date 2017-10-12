@@ -267,21 +267,5 @@ jQuery(document).ready(function(){
 	});
 });
 	</script>
-	<script type="text/javascript">
-var nosalir=false;
-var mensajealerta = ' no te vayas!!! ';
-var mensaje = 'Si te quedas te regalo un cromo';
-function DisplayExitSplash() {
-    if (nosalir == false) {
-        window.scrollTo(0, 0);
-        window.alert(mensajealerta);
-	   if(confirm("¿Quieres abandonar este Sitio?. Pulsa Aceptar o Cancelar"))
-		{
-	   die();
-		}
-        return mensaje;
-    }
-}
-window.onbeforeunload=DisplayExitSplash;
-</script>
+
 @endsection

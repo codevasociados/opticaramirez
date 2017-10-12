@@ -11,6 +11,10 @@ use optica\Sale;
 use optica\Arrays;
 use optica\Profile;
 use optica\User;
+use optica\Canceled;
+use optica\Ticket;
+use optica\Sold;
+use optica\Discount;
 use Carbon\Carbon;
 use optica\Log;
 use DB;
@@ -287,8 +291,37 @@ class AdminController extends Controller
       return redirect()->route('admin.admin')->with('mensaje',$mensaje);
     }
     public function expense(){
-      $expenses=Expense::get();
-      return view('admin.admin')->with('expenses',$expenses);
+      $expenses=Expense::join('users','expenses.id_user','=','users.id')->select('expenses.id','des_exp','mon_exp','fec_exp','nam_user','lpa_user','lma_user')->get();
+      return view('admin.expenses')->with('expense',$expenses);
+    }
+    public function expensestore(Request $request){
+      //Controller of store user Created by: Developer Luis Quisbert
+      $expense= new Expense;
+      $expense->des_exp= $request->des_exp;
+      $expense->mon_exp= $request->mon_exp;
+      $expense->fec_exp= Carbon::now();
+      $expense->id_user= Auth::user()->id;
+      $expense->save();
+      $mensaje=" ¡Gasto registrado exitosamente!";
+      return redirect()->route('admin.expenses')->with('mensaje',$mensaje);
+    }
+    public function deleteexpense(Request $request)
+    {
+        $id=$request->id;
+        $expense=Expense::find($id);
+        $expense->delete();
+        $mensaje2='Gasto eliminado exitosamente';
+        return redirect()->route('admin.expenses')->with('mensaje2',$mensaje2);
+    }
+    public function expenseupdate(Request $request){
+      $id=$request->idexp;
+      $expense=Expense::find($id);
+      $expense->des_exp= $request->des_exp;
+      $expense->mon_exp= $request->mon_exp;
+      $expense->id_user= Auth::user()->id;
+      $expense->save();
+      $mensaje=" Gasto actualizado exitosamente!";
+      return redirect()->route('admin.expenses')->with('mensaje',$mensaje);
     }
     public function debt(){
       $debt= Debt::get();
@@ -297,6 +330,29 @@ class AdminController extends Controller
     public function employees(){
       $user= User::get();
       return view('admin.employees')->with('users',$user);
+    }
+    public function diary(){
+      $tickets= Ticket::join('client','client.id','=','ticket.id_cli')->where('sal_tic','!=',0)->select('ticket.id','sal_tic','nam_cli','lpa_cli','lma_cli','fec_tic')->get();
+      $tics=Ticket::whereRaw('tot_tic-sal_tic != 0')->whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $solds=Sold::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $cancels= Canceled::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $gastos= Expense::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $discs= Discount::where('tip_dis','=','Adelantos')->whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $debts= Debt::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      return view('admin.diary')->with('tickets',$tickets)->with('tics',$tics)->with('solds',$solds)->with('cancels',$cancels)->with('gastos',$gastos)->with('discs',$discs)->with('debts',$debts);
+    }
+    public function canceled(Request $request){
+      $cancel= new Canceled;
+      $ticket= Ticket::find($request->idtic);
+
+      $cancel->mon_can=$ticket->sal_tic;
+      $cancel->id_tic=$ticket->id;
+      $ticket->sal_tic=0;
+      $ticket->save();
+
+      $cancel->save();
+      $mensaje='¡Saldo cancelado!';
+      return redirect()->route('admin.diary')->with('mensaje',$mensaje);
     }
     public function storeemployees(Request $request){
       //Controller of store user Created by: Developer Luis Quisbert
