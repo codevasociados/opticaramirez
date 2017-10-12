@@ -224,12 +224,12 @@ class PdfController extends Controller
     public function diary(){
       $emp=User::find(Auth::user()->id);
       $tickets= Ticket::join('client','client.id','=','ticket.id_cli')->where('sal_tic','!=',0)->select('ticket.id','sal_tic','nam_cli','lpa_cli','lma_cli','fec_tic')->get();
-      $tics=Ticket::whereRaw('tot_tic-sal_tic != 0')->get();
-      $solds=Sold::get();
-      $cancels= Canceled::get();
-      $gastos= Expense::get();
-      $discs= Discount::where('tip_dis','=','Adelantos')->get();
-      $debts= Debt::get();
+      $tics=Ticket::whereRaw('tot_tic-sal_tic != 0')->whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $solds=Sold::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $cancels= Canceled::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $gastos= Expense::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $discs= Discount::where('tip_dis','=','Adelantos')->whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $debts= Debt::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
       $profile= Profile::where('id_user','=',$emp->id)->first();
       if ($profile->lvl_pro==0) {
         $cargo='Administrador';
@@ -262,12 +262,169 @@ class PdfController extends Controller
       $pdf->SetFont('','','8');
       $pdf->SetXY(27, 17);
       $pdf->Write(0,'73740856 - 72555435','','',false);
+      $pdf->Line ( 5, 25,170,25 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+
+      //CABECERA
+      $pdf->SetFont('','B','11');
+      $pdf->SetXY(92, 30);
+      $pdf->Write(0,'LIBRO DIARIO','','',false);
+      $pdf->SetFont('','B','11');
+      $pdf->SetXY(88, 37);
+      $pdf->Write(0,'FECHA:','','',false);
+      $pdf->SetFont('','','11');
+      $pdf->SetXY(103, 37);
+      $pdf->Write(0,Carbon::now()->format('d-m-Y'),'','',false);
+
+      $pdf->SetXY(8, 45);
+      $pdf->SetFont('','','10');
+      $html='
+      <center><h3>ENTRADAS</h3></center>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><b>Concepto</b></th>
+            <th><b>Monto</b></th>
+          </tr>
+        </thead>
+        <tbody>';
+        $totalent=0;
+        foreach ($tics as $tic):
+        $html=$html.'
+            <tr>
+              <td class="info">Boletas - A cuenta</td>
+              <td>Bs.'.$tic->acu_tic.'</td>
+            </tr>';
+            $totalent+=$tic->acu_tic;
+        endforeach;
+        foreach ($solds as $sold):
+        $html=$html.'
+            <tr>
+              <td class="primary">Ventas menores</td>
+              <td>Bs.'.$sold->pre_sold.'</td>
+            </tr>';
+        $totalent+=$sold->pre_sold;
+      endforeach;
+      foreach ($cancels as $cancel):
+        $html=$html.'
+            <tr>
+              <td class="success">Boletas - Saldos</td>
+              <td>Bs.'.$cancel->mon_can.'</td>
+            </tr>';
+        $totalent+=$cancel->mon_can;
+      endforeach;
+        $html=$html.'
+        </tbody>
+      </table>
+
+      <center><h3>SALIDAS</h3></center>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><b>Concepto</b></th>
+            <th><b>Monto</b></th>
+          </tr>
+        </thead>
+        <tbody>';
+        $totalsal=0;
+        foreach ($gastos as $gasto):
+        $html=$html.'
+            <tr>
+              <td class="info">Boletas - A cuenta</td>
+              <td>Bs.'.$gasto->mon_exp.'</td>
+            </tr>';
+            $totalsal+=$gasto->mon_exp;
+        endforeach;
+        foreach ($discs as $disc):
+        $html=$html.'
+            <tr>
+              <td class="primary">Ventas menores</td>
+              <td>Bs.'.$disc->mon_dis.'</td>
+            </tr>';
+        $totalsal+=$disc->mon_dis;
+      endforeach;
+      foreach ($debts as $debt):
+        $html=$html.'
+            <tr>
+              <td class="success">Boletas - Saldos</td>
+              <td>Bs.'.$debt->mon_deb.'</td>
+            </tr>';
+        $totalsal+=$debt->mon_deb;
+      endforeach;
+        $html=$html.'
+        </tbody>
+      </table>
+      <h3>RESUMEN</h3>
+      <table class="table table-hover">
+          <tr>
+            <td class="success"><b>ENTRADAS</b></td>
+            <td>Bs. '.$totalent.'</td>
+          </tr>
+          <tr>
+            <td class="danger"><b>SALIDAS</b></td>
+            <td>Bs. '.$totalsal.'</td>
+          </tr>
+          <tr>
+            <td class="warning"><b>TOTAL</b></td>
+            <td>Bs. ';
+            $total=$totalent-$totalsal;
+          $html=$html.$total.'</td>
+          </tr>
+
+      </table>';
+      $pdf->writeHTML($html, true, false, true, false, '');
+
+
+      //Firmas
+      $pdf->Line ( 8, 265,205,265 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $pdf->SetFont('','B','7');
+      $pdf->SetXY(8, 266);
+      $pdf->Write(0,' Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(),'','',false);
+      $pdf->write2DBarcode ( 'Usuario :'.$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 180, 230, 30, 30, '','','');
+
+      $pdf->Output('Boleta de pago.pdf');
+
+    }
+    public function ticket_array($id){
+      $emp=User::find($id);
+      $profile= Profile::where('id_user','=',$emp->id)->first();
+      if ($profile->lvl_pro==0) {
+        $cargo='Administrador';
+      }else{
+        $cargo='Atendedor';
+      }
+      $pagelayout = array('216', '140');
+      $pdf = new TCPDF('P','mm',$pagelayout, true, 'UTF-8', false);
+      $pdf->SetTitle('BOLETA DE ARREGLO - OPTICA RAMIREZ');
+      $pdf->setPrintHeader(false);
+      $pdf->setPrintFooter(false);
+      $pdf->SetAutoPageBreak(TRUE, 10);
+      $pdf->SetMargins(15, 15, 10);
+      $pdf->AddPage();
+      $pdf->Image('imagen/optica_ramirez.png', 95, 5, 40, 25, 'PNG', '', '', true, 250, '', false, false, false, false, false, false);
+      $pdf->Image('imagen/optica_ramirez.png', 95, 108, 40, 25, 'PNG', '', '', true, 250, '', false, false, false, false, false, false);
+
+      //DATOS
+      $pdf->SetFont('','B','8');
+      $pdf->SetXY(8, 8);
+      $pdf->Write(0,'Direccion:','','',false);
+      $pdf->SetFont('','','8');
+      $pdf->SetXY(27, 8);
+      $pdf->Write(0,'AV. BUENOS AIRES N°919','','',false);
+      $pdf->SetFont('','','8');
+      $pdf->SetXY(27, 12);
+      $pdf->Write(0,'(LADO PUENTE AVAROA)','','',false);
+      $pdf->SetFont('','B','8');
+      $pdf->SetXY(8, 17);
+      $pdf->Write(0,'Telefono(s):','','',false);
+      $pdf->SetFont('','','8');
+      $pdf->SetXY(27, 17);
+      $pdf->Write(0,'73740856 - 72555435','','',false);
       $pdf->Line ( 5, 25,95,25 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
 
       //CABECERA
       $pdf->SetFont('','B','11');
-      $pdf->SetXY(52, 30);
-      $pdf->Write(0,'BOLETA DE PAGO','','',false);
+      $pdf->SetXY(48, 30);
+      $pdf->Write(0,'BOLETA DE ARREGLO','','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 45);
       $pdf->Write(0,'Nombre completo:','','',false);
@@ -275,25 +432,131 @@ class PdfController extends Controller
       $pdf->SetXY(41, 45);
       $pdf->Write(0,$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user,'','',false);
       $pdf->SetFont('','B','10');
-      $pdf->SetXY(8, 40);
-      $pdf->Write(0,'Nro de cedula de identidad:','','',false);
+      $pdf->SetXY(90, 45);
+      $pdf->Write(0,'Hora:','','',false);
       $pdf->SetFont('','','10');
-      $pdf->SetXY(56, 40);
+      $pdf->SetXY(100, 45);
+      $pdf->Write(0,$emp->nam_user,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(8, 40);
+      $pdf->Write(0,'Nro de boleta:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(36, 40);
+      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(60, 40);
+      $pdf->Write(0,'Fecha de entrega:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(92, 40);
       $pdf->Write(0,$emp->ci_user,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 50);
-      $pdf->Write(0,'Cargo:','','',false);
+      $pdf->Write(0,'Montura:','','',false);
       $pdf->SetFont('','','10');
-      $pdf->SetXY(21, 50);
+      $pdf->SetXY(24, 50);
+      $pdf->Write(0,$cargo,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(52, 50);
+      $pdf->Write(0,'Material:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(68, 50);
+      $pdf->Write(0,$cargo,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(92, 50);
+      $pdf->Write(0,'Saldo:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(103, 50);
+      $pdf->Write(0,$cargo,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(8, 55);
+      $pdf->Write(0,'Descripcion:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(30, 55);
+      $pdf->Write(0,$cargo,'','',false);
+      //DATOS
+      $pdf->SetFont('','B','8');
+      $pdf->SetXY(8, 111);
+      $pdf->Write(0,'Direccion:','','',false);
+      $pdf->SetFont('','','8');
+      $pdf->SetXY(27, 111);
+      $pdf->Write(0,'AV. BUENOS AIRES N°919','','',false);
+      $pdf->SetFont('','','8');
+      $pdf->SetXY(27, 115);
+      $pdf->Write(0,'(LADO PUENTE AVAROA)','','',false);
+      $pdf->SetFont('','B','8');
+      $pdf->SetXY(8, 120);
+      $pdf->Write(0,'Telefono(s):','','',false);
+      $pdf->SetFont('','','8');
+      $pdf->SetXY(27, 120);
+      $pdf->Write(0,'73740856 - 72555435','','',false);
+      $pdf->Line ( 5, 128,95,128 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+
+      //CABECERA
+      $pdf->SetFont('','B','11');
+      $pdf->SetXY(48, 135);
+      $pdf->Write(0,'BOLETA DE ARREGLO','','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(8, 150);
+      $pdf->Write(0,'Nombre completo:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(41, 150);
+      $pdf->Write(0,$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(90, 150);
+      $pdf->Write(0,'Hora:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(100, 150);
+      $pdf->Write(0,$emp->nam_user,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(8, 145);
+      $pdf->Write(0,'Nro de boleta:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(36, 145);
+      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(60, 145);
+      $pdf->Write(0,'Fecha de entrega:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(92, 145);
+      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(8, 155);
+      $pdf->Write(0,'Montura:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(24, 155);
+      $pdf->Write(0,$cargo,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(52, 155);
+      $pdf->Write(0,'Material:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(68, 155);
+      $pdf->Write(0,$cargo,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(92, 155);
+      $pdf->Write(0,'Saldo:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(103, 155);
+      $pdf->Write(0,$cargo,'','',false);
+      $pdf->SetFont('','B','10');
+      $pdf->SetXY(8, 160);
+      $pdf->Write(0,'Descripcion:','','',false);
+      $pdf->SetFont('','','10');
+      $pdf->SetXY(30, 160);
       $pdf->Write(0,$cargo,'','',false);
 
-      //DETALLE
-      $pdf->SetFont('','B','10');
-      $pdf->SetXY(60, 60);
-      $pdf->Write(0,'DETALLE','','',false);
 
 
       //Firmas
+      $pdf->SetFont('','B','9');
+      $pdf->SetXY(15, 100);
+      $pdf->Write(0,'ENTREGUE CONFORME','','',false);
+      $pdf->Line ( 8, 98,60,98 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $pdf->SetFont('','B','9');
+      $pdf->SetXY(70, 100);
+      $pdf->Write(0,'RECIBI CONFORME','','',false);
+      $pdf->Line ( 68, 98,105,98 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
+      $pdf->write2DBarcode ( 'Usuario :'.$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 86, 20, 20, '','','');
+
       $pdf->SetFont('','B','9');
       $pdf->SetXY(15, 200);
       $pdf->Write(0,'ENTREGUE CONFORME','','',false);
@@ -304,9 +567,11 @@ class PdfController extends Controller
       $pdf->Line ( 68, 198,105,198 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
       $pdf->SetXY(8, 70);
       $pdf->SetFont('','','9');
+
+      $dis=Discount::where('id_emp','=',$emp->id)->whereRaw('MONTH(discount.created_at) = MONTH(CURRENT_DATE())')->whereRaw('YEAR(discount.created_at) = YEAR(CURRENT_DATE())')->get();
+
       $pdf->write2DBarcode ( 'Usuario :'.$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 186, 20, 20, '','','');
 
       $pdf->Output('Boleta de pago.pdf');
-
     }
 }

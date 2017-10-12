@@ -37,7 +37,7 @@
       console.log(arrays);
       for(var i=0; i<arrays.length; i++)
       {
-        arrays[i].button='<a class="btn btn-raised btn-warning" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Ver</a><a class="btn btn-raised btn-primary" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">print</i> Imprimir boleta</a>';
+        arrays[i].button='<a class="btn btn-raised btn-warning" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Ver</a><a class="btn btn-raised btn-primary" target="_blank" href="/ticket_print/'+arrays[i].id+'" style="margin-top:0px; padding: 8px;"><i class="material-icons">print</i> Imprimir boleta</a>';
         JSON.stringify(arrays);
         console.log(arrays);
       }

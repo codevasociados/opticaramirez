@@ -333,12 +333,12 @@ class AdminController extends Controller
     }
     public function diary(){
       $tickets= Ticket::join('client','client.id','=','ticket.id_cli')->where('sal_tic','!=',0)->select('ticket.id','sal_tic','nam_cli','lpa_cli','lma_cli','fec_tic')->get();
-      $tics=Ticket::whereRaw('tot_tic-sal_tic != 0')->get();
-      $solds=Sold::get();
-      $cancels= Canceled::get();
-      $gastos= Expense::get();
-      $discs= Discount::where('tip_dis','=','Adelantos')->get();
-      $debts= Debt::get();
+      $tics=Ticket::whereRaw('tot_tic-sal_tic != 0')->whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $solds=Sold::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $cancels= Canceled::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $gastos= Expense::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $discs= Discount::where('tip_dis','=','Adelantos')->whereRaw('DATE(created_at)=CURRENT_DATE')->get();
+      $debts= Debt::whereRaw('DATE(created_at)=CURRENT_DATE')->get();
       return view('admin.diary')->with('tickets',$tickets)->with('tics',$tics)->with('solds',$solds)->with('cancels',$cancels)->with('gastos',$gastos)->with('discs',$discs)->with('debts',$debts);
     }
     public function canceled(Request $request){

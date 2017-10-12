@@ -47,6 +47,7 @@
     Route::name('pdf')->post('pdf','PdfController@pdf');
     Route::name('pdf.end')->post('pdf/end','PdfController@end');
     Route::name('pdf.diary')->get('pdf/diary_book','PdfController@diary');
+    Route::get('ticket_print/{id}','PdfController@ticket_array');
     Route::get('admin/employees/pdf/{id}','PdfController@employees');
     Route::name('admin.storeclient')->post('admin/storeclient','AdminController@storeclient');
     Route::name('admin.adminsale')->post('admin/adminsale','AdminController@adminsale');
