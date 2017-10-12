@@ -33,14 +33,20 @@
     Route::name('admin.calendar')->get('admin/calendar','AdminController@calendar');
     Route::name('admin.admin')->get('admin/admin','AdminController@admin');
     Route::name('admin.expenses')->get('admin/expense','AdminController@expense');
+    Route::name('admin.expstore')->post('admin/expense/store','AdminController@expensestore');
+    Route::name('admin.expdelete')->post('admin/expense/delete','AdminController@deleteexpense');
+    Route::name('admin.expupdate')->post('admin/expense/update','AdminController@expenseupdate');
     Route::name('admin.debts')->get('admin/debt','AdminController@debt');
     Route::name('admin.employees')->get('admin/employees','AdminController@employees');
+    Route::name('admin.diary')->get('admin/diary_book','AdminController@diary');
+    Route::name('admin.canceled')->post('admin/diary_book/control/cancelled','AdminController@canceled');
     Route::name('admuser.store')->post('admin/employees/store','AdminController@storeemployees');
     Route::name('recipe.getter')->get('recipe/get','RecipeController@getter');
     Route::name('recipe.setter')->get('recipe/set/{id}','RecipeController@setter');
     Route::name('recipe.end')->post('recipe/end','RecipeController@endrecipe');
     Route::name('pdf')->post('pdf','PdfController@pdf');
     Route::name('pdf.end')->post('pdf/end','PdfController@end');
+    Route::name('pdf.diary')->get('pdf/diary_book','PdfController@diary');
     Route::get('admin/employees/pdf/{id}','PdfController@employees');
     Route::name('admin.storeclient')->post('admin/storeclient','AdminController@storeclient');
     Route::name('admin.adminsale')->post('admin/adminsale','AdminController@adminsale');
@@ -74,6 +80,7 @@
     Route::resource('client','ClientController');
     Route::resource('sold','SoldController');
     Route::resource('sales','SalesController');
+    Route::resource('discount','DiscountController');
     Route::resource('arrangement','ArrangementController');
     Route::resource('admin','AdminController');
     Route::resource('calendar','CalendarController');

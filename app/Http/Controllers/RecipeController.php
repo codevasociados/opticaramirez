@@ -20,7 +20,13 @@ class RecipeController extends Controller
      */
     public function getter()
     {   $client= Client::get();
+        $tic= Ticket::select('imp_tic')->orderBy('id','DESC')->first();
+        if($tic->imp_tic==0):
+          $mensaje2='Debe FINALIZAR antes de continuar, presione finalizar';
+          return redirect()->route('client.index')->with('mensaje2',$mensaje2);
+        else:
         return view('clients.list')->with('clients',$client);
+        endif;
     }
     public function setter($id)
     {

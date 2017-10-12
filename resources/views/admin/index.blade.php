@@ -25,7 +25,7 @@
 </div></a>
 </div>
 <div class="row container-fluid row1">
-  <a href="#">
+  <a href="{{ route('admin.diary')}}">
   <div class="well pan4 col-lg-4" style="background-color: #555C00;">
     <div class="text">Boletas/Libro diario
     </div>

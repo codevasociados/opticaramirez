@@ -156,6 +156,7 @@
 
     <div class="modal fade" id="miModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+      <form class="" action="{{route('discount.store')}}" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -163,6 +164,7 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
+            <input type="hidden" id="idemp" name="id" value="">
             <label for="">Concepto</label>
             <div class="form-group">
               <select class="form-control" name="tipo" required>
@@ -189,8 +191,8 @@
           <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cancelar</button>
           <button type="submit" class="btn btn-primary"><i class="material-icons">check</i>Registrar</button>
         </div>
+      </form>
       </div>
-  		{!! Form::close() !!}
     </div>
   </div>
 
@@ -203,7 +205,7 @@
       var users ={!! json_encode($users->toArray()) !!};
       for (var i = 0; i < users.length; i++) {
         users[i].button='<a class="btn btn-raised btn-success" onclick="llegada('+"'"+users[i].id+"','"+users[i].nam_user+"','"+users[i].lpa_user+"','"+users[i].lma_user+"'"+')" data-toggle="modal" data-target="#miModal2"><i class="material-icons" title="Hora de llegada">alarm_on</i></a>';
-        users[i].button2='<a class="btn btn-raised btn-danger" data-toggle="modal" data-target="#miModal3"><i class="material-icons">remove_circle_outline</i></a>';
+        users[i].button2='<a onclick="pasarid('+"'"+users[i].id+"'"+')" class="btn btn-raised btn-danger" data-toggle="modal" data-target="#miModal3"><i class="material-icons">remove_circle_outline</i></a>';
         users[i].button3='<a target="_blank" href="employees/pdf/'+users[i].id+'" class="btn btn-raised btn-info" ><i class="material-icons" title="Imprimir boleta de pago">print</i></a>';
       }
       $('#users').dynatable({
@@ -262,6 +264,11 @@
                     $("#resultado").html(dhtml);
                 }
         });
+    }
+  </script>
+  <script type="text/javascript">
+    function pasarid(var1){
+      $('#idemp').val(var1);
     }
   </script>
 @endsection
