@@ -13,7 +13,7 @@ class Sale extends Model
    * @var array
    */
   protected $fillable = [
-      'fec_sale','id_cli','id_user'
+      'fec_sale','id_user'
   ];
 
   /**

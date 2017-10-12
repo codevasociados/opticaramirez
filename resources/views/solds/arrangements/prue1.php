@@ -24,7 +24,7 @@
         <h4 class="modal-title">Registro de arreglos</h4>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{route('arrangement.store')}}">
+        <form class="form-horizontal" role="form" method="POST" action="{{route('admin.storearray')}}">
           {{csrf_field()}}
           <div class="form-group">
             <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Fecha recibo: </label>
@@ -45,40 +45,10 @@
                      placeholder="descripcion">
             </div>
           </div>
-
-
           <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cliente: </label>
+            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Num bol: </label>
             <div class="col-lg-8">
-              <input type="text" class="form-control" id="mat_cli"  name="nam_cli"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Monto: </label>
-            <div class="col-lg-8">
-              <input type="number" class="form-control" id="mat_cli"  name="mon_arr"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Material: </label>
-            <div class="col-lg-8">
-              <input type="text" class="form-control" id="mat_cli"  name="mat_arr"
-                     placeholder="material">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cuenta: </label>
-            <div class="col-lg-8">
-              <input type="number" class="form-control" id="mat_cli"  name="cue_arr"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Saldo: </label>
-            <div class="col-lg-8">
-              <input type="number" class="form-control" id="mat_cli"  name="sal_arr"
+              <input type="number" class="form-control" id="mat_cli"  name="num_bol"
                      placeholder="num_bol">
             </div>
           </div>
@@ -181,13 +151,17 @@
         <thead>
           <tr class="warning" style="font-size:18px;">
             <th>ID</th>
-            <th data-dynatable-column="nam_cli">NOMBRE</th>
+            <th data-dynatable-column="dat_rec">NOMBRE</th>
             <th data-dynatable-column="dat_ent">FECHA ENTREGA</th>
+            <th data-dynatable-column="des_array">DESCRIPCION</th>
             <th data-dynatable-column="num_bol">BOLETA</th>
+            <th data-dynatable-column="id_user">USUARIO</th>
+            <th data-dynatable-column="nam_cli">CLIENTE</th>
+            <th data-dynatable-column="mon_arr">MONTO</th>
+            <th data-dynatable-column="mat_arr">MATERIAL</th>
             <th data-dynatable-column="cue_arr">A CUENTA</th>
             <th data-dynatable-column="sal_arr">SALDO</th>
-            <th data-dynatable-column="button">ACCIONES</th>
-
+            <th data-dynatable-column="boton">ACCIONES</th>
 
 
           </tr>
@@ -208,29 +182,10 @@
 @section('scripts')
   <script type="text/javascript">
     $(document).on('ready', function(){
-
       var arrays ={!! json_encode($arrays->toArray()) !!};
       console.log(arrays);
       for(var i=0; i<arrays.length; i++)
       {
-        var a='{{route("admin.admin")}}';
-        var id=arrays[i].id;
-        var datrec=arrays[i].dat_rec;
-        var datent=arrays[i].dat_ent;
-        var des=arrays[i].des_array;
-        var num=arrays[i].num_bol;
-        var iduser=arrays[i].id_user;
-        var namcli=arrays[i].nam_cli;
-        var mon=arrays[i].mon_arr;
-        var mat=arrays[i].mat_arr;
-        var cue=arrays[i].cue_arr;
-        var sal=arrays[i].sal_arr;
-
-        var b="'"+id+"','"+datrec+"','"+datent+"','"+des+"','"+num+"','"+iduser+"','"+namcli+"','"+mon+"','"+mat+"','"+cue+"','"+sal+"'";
-        arrays[i].boton='<a onclick="javascript:envioarray('+id+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#eliminaModArray" style="background-color:#ed1414; color: #fff;" ><i class="glyphicon glyphicon-trash"></i></a><a onclick="javascript:enviodatosarray('+b+');" class="btn btn-warning btn-raised btn-lg active" role="button" data-toggle="modal" data-target="#modarraymodi" color: #fff;"><i class="material-icons">mode_edit</i></a>';
-
-
-
         arrays[i].button='<a class="btn btn-raised btn-warning" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Ver</a><a class="btn btn-raised btn-primary" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">print</i> Imprimir boleta</a>';
         JSON.stringify(arrays);
         console.log(arrays);
@@ -247,3 +202,35 @@
     });
   </script>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function storearray(Request $request){
+  //Controller of store user Created by: Developer Luis Quisbert
+  $array= new Arrays;
+  $array->dat_rec= $request->dat_rec;
+  $array->dat_ent= $request->dat_ent;
+  $array->des_array= $request->des_array;
+  $array->num_bol= $request->num_bol;
+  $array->id_user= Auth::user()->id;
+  $array->nam_cli= $request->nam_cli;
+  $array->mon_arr= $request->mon_arr;
+  $array->mat_arr= $request->mat_arr;
+  $array->cue_arr= $request->cue_arr;
+  $array->sal_arr= $request->sal_arr;
+  $array->save();
+  $mensaje=" Arreglo registrado exitosamente!";
+  return redirect()->route('arrangements.arrangements')->with('mensaje',$mensaje);
+}

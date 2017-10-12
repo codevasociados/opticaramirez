@@ -24,7 +24,7 @@ class SoldController extends Controller
       return view('solds.inventory')->with('product', $product);
     }
     public function smaller(){
-      $sale= Sale::join('users','sale.id_user','=','users.id')->join('client','sale.id_cli','=','client.id')->get();
+      $sale= Sale::join('users','sale.id_user','=','users.id')->get();
       return view('solds.smaller')->with('sale', $sale);
     }
 }

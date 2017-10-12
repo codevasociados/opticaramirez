@@ -23,6 +23,6 @@ class Debt extends Model
    * @var array
    */
   protected $hidden = [
-      
+
   ];
 }

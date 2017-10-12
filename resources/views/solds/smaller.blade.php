@@ -3,6 +3,9 @@
   Ventas menores - Optica Ramirez
 @endsection
 @section('content')
+<style media="screen">
+  .caja:focus {box-shadow: 0 0 5px rgba(0, 148, 255, 1);border:1px solid rgba(0, 148, 255, 1);}
+</style>
 <div class="container-fluid">
   <div class="well">
     <fieldset>
@@ -24,7 +27,7 @@
 <!-- Modal !-->
 
   <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -35,7 +38,7 @@
         <div class="form-group has-danger">
           <label class="col-md-4 control-label">Fecha:</label>
         <div class="col-md-8" >
-          <input type="text" name="fec_sale" class="form-control" required>
+          <input type="date" value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" name="fec_sale" class="form-control" required>
         </div></div>
         <div class="form-group has-danger">
           <div class="col-md-12" >
@@ -45,12 +48,15 @@
             <th>
               <td>Producto</td>
               <td>Precio</td>
-              <td>Cantidad</td>
+              <td >Cantidad</td>
               <td>Total</td>
               <td></td>
             </th>
           </table>
-
+          <input type="hidden" name="num" id="num" value="0">
+          <div class="form-group has-danger">
+          <label for="total_total">Total de venta: </label>    <input type="text" name="total_total" id="total_total" class="total_t" value="0">
+          </div>
           </fieldset>
           </div>
         </div>
@@ -103,6 +109,7 @@
   <script type="text/javascript">
 <!--
 num=0;
+var add2=0;
 function crear(obj) {
   num++;
   fi = document.getElementById('fiel'); // 1
@@ -112,22 +119,45 @@ function crear(obj) {
   fi.appendChild(contenedor); // 4
 
   ele = document.createElement('input'); // 5
-  ele.setAttribute("class", "form-control"); // 6
+  ele.setAttribute("class", "caja2"+num); // 6
   ele.type = 'text'; // 6
+  ele.class = 'form-control'; // 6
   ele.name = 'pro'+num; // 6
+  ele.style='width:22%; margin-right:5px; border-radius:5px;}';
   contenedor.appendChild(ele); // 7
 
   ele = document.createElement('input'); // 5
-  ele.setAttribute("class", "form-control"); // 6
+  ele.setAttribute("class", "caja"+num); // 6
   ele.type = 'text'; // 6
   ele.name = 'pre'+num; // 6
+  ele.setAttribute("onchange", "suma();");
+  ele.style='width:20%; margin-right:5px; border-radius:5px;';
   contenedor.appendChild(ele); // 7
 
   ele = document.createElement('input'); // 5
   ele.type = 'text'; // 6
   ele.name = 'fil'+num; // 6
-  ele.setAttribute("class", "form-control"); // 6
+  ele.setAttribute("class", "caja"+num); // 6
+  ele.setAttribute("onchange", "suma();");
+  ele.style='width:25%; margin-right:5px; border-radius:5px;';
   contenedor.appendChild(ele); // 7
+
+  ele = document.createElement('input'); // 5
+  ele.type = 'text'; // 6
+  ele.setAttribute("readonly", "readonly");
+  ele.setAttribute("onchange", "sumat();");
+  ele.name = 'tot'+num; // 6
+  ele.id = 'tot'+num; // 6
+  ele.value='0';
+  ele.style='width:20%; margin-right:5px; border-radius:5px;';
+  ele.setAttribute("class", "total_t"); // 6
+  contenedor.appendChild(ele); // 7
+
+
+
+
+
+$('#num').val(num);
 
   ele = document.createElement('input'); // 5
   ele.type = 'button'; // 6
@@ -136,10 +166,48 @@ function crear(obj) {
   ele.name = 'div'+num; // 8
   ele.onclick = function () {borrar(this.name)} // 9
   contenedor.appendChild(ele); // 7
+
+
+
+  $('.total_t').each(function() {
+      if (!isNaN($(this).val())) {
+          add2 += Number($(this).val());
+          console.log(add2);
+      }
+  });
+  $('#total_total').val(add2);
+
 }
+
+
+function suma() {
+      var add = 0;
+      $('.caja'+num).each(function() {
+          if (!isNaN($(this).val())) {
+              add += Number($(this).val());
+          }
+      });
+      $('#tot'+num).val(add);
+
+
+      $('.caja').each(function() {
+          if (!isNaN($(this).val())) {
+              add2 += Number($(this).val());
+              console.log(add2);
+          }
+      });
+      $('#total_total').val(add);
+      add=0;
+
+};
+
+
 function borrar(obj) {
+  num--;
   fi = document.getElementById('fiel'); // 1
   fi.removeChild(document.getElementById(obj)); // 10
+  $('#num').val(num);
+
 }
 -->
 </script>
