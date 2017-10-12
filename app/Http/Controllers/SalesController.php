@@ -5,6 +5,7 @@ namespace optica\Http\Controllers;
 use Illuminate\Http\Request;
 use optica\Sale;
 use optica\Sold;
+use Illuminate\Support\Facades\Auth;
 class SalesController extends Controller
 {
   public function index()
@@ -19,14 +20,24 @@ class SalesController extends Controller
     $sale->fec_sale= $request->fec_sale;
     $sale->id_user= Auth::user()->id;
     $sale->save();
-    if ($request->num==0) {
-      for ($i=0; $i <num ; $i++) {
+    if ($request->num!=0) {
+      for ($i=1; $i<=$request->num ; $i++) {
         $sold=new Sold;
-
+        $sold->des_pro=$request->pro.$i;
+        $sold->pre_sold=$request->pre.$i;
+        $sold->can_pro=$request->fil.$i;
+        $sold->tot_pro=$request->tot.$i;
+        $sold->id_user= Auth::user()->id;
+        $sold->id_sale= $sale->id;
         $sold->save();
+        dd($sold);
+        $mensaje=" Venta registrada exitosamente!";
+        return redirect()->route('sold.smaller')->with('mensaje',$mensaje);
       }
+    }else{
+      $mensaje2=" No hay productos en la lista!";
+      return redirect()->route('sold.smaller')->with('mensaje2',$mensaje2);
+
     }
-    $mensaje=" Venta registrada exitosamente!";
-    return redirect()->route('admin.admin')->with('mensaje',$mensaje);
   }
 }
