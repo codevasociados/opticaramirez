@@ -159,11 +159,28 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title">Registro de usuario</h4>
+          <h4 class="modal-title">Registro descuentos - adelantos</h4>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label for=""></label>
+            <label for="" >Tipo: </label>
+            <div class="form-group">
+              <select class="form-control" name="tipo" required>
+                <option value="">SELECCIONE</option>
+                <option value="Descuento">Descuento</option>
+                <option value="Adelanto">Adelanto</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="" >Monto: </label>
+            <div class="form-group">
+              <input class="form-control" type="text"  />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Concepto (No es necesario en caso de adelantos)</label>
+              <textarea name="concepto" rows="8" cols="70"></textarea>
           </div>
         </div>
        <div class="modal-footer">
