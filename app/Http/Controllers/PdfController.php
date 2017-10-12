@@ -17,6 +17,7 @@ use optica\Canceled;
 use optica\Expense;
 use optica\Debt;
 use optica\Discount;
+use optica\Arrays;
 
 
 class PdfController extends Controller
@@ -385,13 +386,7 @@ class PdfController extends Controller
 
     }
     public function ticket_array($id){
-      $emp=User::find($id);
-      $profile= Profile::where('id_user','=',$emp->id)->first();
-      if ($profile->lvl_pro==0) {
-        $cargo='Administrador';
-      }else{
-        $cargo='Atendedor';
-      }
+      $arr=Arrays::find($id);
       $pagelayout = array('216', '140');
       $pdf = new TCPDF('P','mm',$pagelayout, true, 'UTF-8', false);
       $pdf->SetTitle('BOLETA DE ARREGLO - OPTICA RAMIREZ');
@@ -430,49 +425,49 @@ class PdfController extends Controller
       $pdf->Write(0,'Nombre completo:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(41, 45);
-      $pdf->Write(0,$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user,'','',false);
+      $pdf->Write(0,$arr->nam_cli,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(90, 45);
       $pdf->Write(0,'Hora:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(100, 45);
-      $pdf->Write(0,$emp->nam_user,'','',false);
+      $pdf->Write(0,$arr->dat_ent,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 40);
       $pdf->Write(0,'Nro de boleta:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(36, 40);
-      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->Write(0,$arr->num_bol,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(60, 40);
       $pdf->Write(0,'Fecha de entrega:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(92, 40);
-      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->Write(0,$arr->dat_ent,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 50);
       $pdf->Write(0,'Montura:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(24, 50);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->mon_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(52, 50);
       $pdf->Write(0,'Material:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(68, 50);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->mat_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(92, 50);
       $pdf->Write(0,'Saldo:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(103, 50);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->sal_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 55);
       $pdf->Write(0,'Descripcion:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(30, 55);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->des_array,'','',false);
       //DATOS
       $pdf->SetFont('','B','8');
       $pdf->SetXY(8, 111);
@@ -500,49 +495,49 @@ class PdfController extends Controller
       $pdf->Write(0,'Nombre completo:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(41, 150);
-      $pdf->Write(0,$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user,'','',false);
+      $pdf->Write(0,$arr->nam_cli,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(90, 150);
       $pdf->Write(0,'Hora:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(100, 150);
-      $pdf->Write(0,$emp->nam_user,'','',false);
+      $pdf->Write(0,$arr->dat_ent,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 145);
       $pdf->Write(0,'Nro de boleta:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(36, 145);
-      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->Write(0,$arr->num_bol,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(60, 145);
       $pdf->Write(0,'Fecha de entrega:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(92, 145);
-      $pdf->Write(0,$emp->ci_user,'','',false);
+      $pdf->Write(0,$arr->fec_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 155);
       $pdf->Write(0,'Montura:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(24, 155);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->mon_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(52, 155);
       $pdf->Write(0,'Material:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(68, 155);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->mat_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(92, 155);
       $pdf->Write(0,'Saldo:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(103, 155);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->sal_arr,'','',false);
       $pdf->SetFont('','B','10');
       $pdf->SetXY(8, 160);
       $pdf->Write(0,'Descripcion:','','',false);
       $pdf->SetFont('','','10');
       $pdf->SetXY(30, 160);
-      $pdf->Write(0,$cargo,'','',false);
+      $pdf->Write(0,$arr->des_array,'','',false);
 
 
 
@@ -555,7 +550,7 @@ class PdfController extends Controller
       $pdf->SetXY(70, 100);
       $pdf->Write(0,'RECIBI CONFORME','','',false);
       $pdf->Line ( 68, 98,105,98 ,array('width' => 0.3,'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0)));
-      $pdf->write2DBarcode ( 'Usuario :'.$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 86, 20, 20, '','','');
+      $pdf->write2DBarcode ( 'Cliente :'.$arr->nam_cli.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 86, 20, 20, '','','');
 
       $pdf->SetFont('','B','9');
       $pdf->SetXY(15, 200);
@@ -568,9 +563,9 @@ class PdfController extends Controller
       $pdf->SetXY(8, 70);
       $pdf->SetFont('','','9');
 
-      $dis=Discount::where('id_emp','=',$emp->id)->whereRaw('MONTH(discount.created_at) = MONTH(CURRENT_DATE())')->whereRaw('YEAR(discount.created_at) = YEAR(CURRENT_DATE())')->get();
 
-      $pdf->write2DBarcode ( 'Usuario :'.$emp->nam_user.' '.$emp->lpa_user.' '.$emp->lma_user.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 186, 20, 20, '','','');
+
+      $pdf->write2DBarcode ( 'Cliente :'.$arr->nam_cli.' | Elaborado por: '.Auth::user()->nam_user.' '.Auth::user()->lpa_user.' '.Auth::user()->lma_user.' | Fecha:'.Carbon::now(), 'QRCODE,M', 110, 186, 20, 20, '','','');
 
       $pdf->Output('Boleta de pago.pdf');
     }

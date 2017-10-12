@@ -8,178 +8,15 @@
 @section('content')
 <div class="container-fluid">
   <div class="well col-lg-11" style="margin-left:4%;">
-
-
+    <fieldset>
+      <legend>Areglos - Optica Ramirez</legend>
     <!--desde aqui el codigo de la tabla!-->
-    <button type="button" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#modarray">Registro</button>
+    <button type="button" class="btn btn-danger btn-raised" data-toggle="modal" data-target="#modarray"><i class="material-icons">edit</i> Registro</button>
 
-    <!-- Modal -->
-  <div id="modarray" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Registro de arreglos</h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{route('arrangement.store')}}">
-          {{csrf_field()}}
-          <div class="form-group">
-            <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Fecha recibo: </label>
-            <div class="col-lg-8">
-              <input type="date" class="form-control" id="nom_clie" name="dat_rec">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="pat_adm" for="pat_cli" class="col-lg-4 control-label">Fecha entrega: </label>
-            <div class="col-lg-8">
-              <input type="date" class="form-control" id="pat_cli"  name="dat_ent">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Descripcion: </label>
-            <div class="col-lg-8">
-              <input type="text" class="form-control" id="mat_cli"  name="des_array"
-                     placeholder="descripcion">
-            </div>
-          </div>
-
-
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cliente: </label>
-            <div class="col-lg-8">
-              <input type="text" class="form-control" id="mat_cli"  name="nam_cli"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Monto: </label>
-            <div class="col-lg-8">
-              <input type="number" class="form-control" id="mat_cli"  name="mon_arr"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Material: </label>
-            <div class="col-lg-8">
-              <input type="text" class="form-control" id="mat_cli"  name="mat_arr"
-                     placeholder="material">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cuenta: </label>
-            <div class="col-lg-8">
-              <input type="number" class="form-control" id="mat_cli"  name="cue_arr"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="form-group">
-            <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Saldo: </label>
-            <div class="col-lg-8">
-              <input type="number" class="form-control" id="mat_cli"  name="sal_arr"
-                     placeholder="num_bol">
-            </div>
-          </div>
-          <div class="center-block">
-            <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
-          </div>
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-  </div>
-  <!--fin del Modal content-->
-  <!-- Modal -->
-  <div id="modarraymodi" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-  <!-- Modal content-->
-  <div class="modal-content">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Registro de arreglos</h4>
-  </div>
-  <div class="modal-body">
-    <form class="form-horizontal" role="form" method="POST" action="{{route('admin.updatearray')}}">
-      {{csrf_field()}}
-      <div class="form-group">
-        <input type="hidden" class="form-control" id="id_array_up" name="id" value="">
-        <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Fecha recibo: </label>
-        <div class="col-lg-8">
-          <input type="datetime" class="form-control" id="datrec" name="dat_rec">
-        </div>
-      </div>
-      <div class="form-group">
-        <label name="pat_adm" for="pat_cli" class="col-lg-4 control-label">Fecha entrega: </label>
-        <div class="col-lg-8">
-          <input type="datetime" class="form-control" id="datent"  name="dat_ent">
-        </div>
-      </div>
-      <div class="form-group">
-        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Descripcion: </label>
-        <div class="col-lg-8">
-          <input type="text" class="form-control" id="des"  name="des_array"
-                 placeholder="descripcion">
-        </div>
-      </div>
-      <div class="form-group">
-        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Num bol: </label>
-        <div class="col-lg-8">
-          <input type="number" class="form-control" id="num"  name="num_bol"
-                 placeholder="num_bol">
-        </div>
-      </div>
-      <div class="center-block">
-        <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
-      </div>
-    </form>
-
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  </div>
-  </div>
-
-  </div>
-  </div>
-  <!--fin del Modal content-->
-  <!-- Modal -->
-  <div id="eliminaModArray" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <form class="" action="{{route('admin.deletearray')}}" method="post">
-          {{csrf_field()}}
-        <input type="hidden" class="form-control" id="id_array_del" name="id" value="">
-        <h4 class="modal-title">ELIMINAR ARREGLO</h4>
-      </div>
-      <div class="modal-body">
-        <p>Esta seguro de eliminar el arreglo?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">ELIMINAR</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-      </form>
-    </div>
-
-  </div>
-  </div
-  <!--fin del Modal content-->
     <div class="table-responsive">
       <table class="table" id="array">
         <thead>
-          <tr class="warning" style="font-size:18px;">
+          <tr class="warning" >
             <th>ID</th>
             <th data-dynatable-column="nam_cli">NOMBRE</th>
             <th data-dynatable-column="dat_ent">FECHA ENTREGA</th>
@@ -187,9 +24,6 @@
             <th data-dynatable-column="cue_arr">A CUENTA</th>
             <th data-dynatable-column="sal_arr">SALDO</th>
             <th data-dynatable-column="button">ACCIONES</th>
-
-
-
           </tr>
         </thead>
         <tbody>
@@ -199,11 +33,173 @@
       </table>
   </div>
 
+</fieldset>
       <!--hasta aqui las tablas!-->
 
 
 </div>
 </div>
+
+
+<!-- Modal -->
+<div id="modarray" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Registro de arreglos</h4>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal" role="form" method="POST" action="{{route('arrangement.store')}}">
+      {{csrf_field()}}
+      <div class="form-group">
+        <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Fecha recibo: </label>
+        <div class="col-lg-8">
+          <input type="date" class="form-control" id="nom_clie" name="dat_rec">
+        </div>
+      </div>
+      <div class="form-group">
+        <label name="pat_adm" for="pat_cli" class="col-lg-4 control-label">Fecha entrega: </label>
+        <div class="col-lg-8">
+          <input type="date" class="form-control" id="pat_cli"  name="dat_ent">
+        </div>
+      </div>
+      <div class="form-group">
+        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Descripcion: </label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="mat_cli"  name="des_array"
+                 placeholder="Descripcion">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cliente: </label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="mat_cli"  name="nam_cli"
+                 placeholder="Nombre cliente">
+        </div>
+      </div>
+      <div class="form-group">
+        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Montura: </label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="mat_cli"  name="mon_arr"
+                 placeholder="Montura">
+        </div>
+      </div>
+      <div class="form-group">
+        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Material: </label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control" id="mat_cli"  name="mat_arr"
+                 placeholder="Material">
+        </div>
+      </div>
+      <div class="form-group">
+        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cuenta: </label>
+        <div class="col-lg-8">
+          <input type="number" class="form-control" id="mat_cli"  name="cue_arr"
+                 placeholder="A cuenta">
+        </div>
+      </div>
+      <div class="form-group">
+        <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Saldo: </label>
+        <div class="col-lg-8">
+          <input type="number" class="form-control" id="mat_cli"  name="sal_arr"
+                 placeholder="Saldo">
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
+    <button type="button" class="btn btn-raised btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
+  </div>
+</div>
+</form>
+</div>
+</div>
+<!--fin del Modal content-->
+<!-- Modal -->
+<div id="modarraymodi" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Registro de arreglos</h4>
+</div>
+<div class="modal-body">
+<form class="form-horizontal" role="form" method="POST" action="{{route('admin.updatearray')}}">
+  {{csrf_field()}}
+  <div class="form-group">
+    <input type="hidden" class="form-control" id="id_array_up" name="id" value="">
+    <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Fecha recibo: </label>
+    <div class="col-lg-8">
+      <input type="datetime" class="form-control" id="datrec" name="dat_rec">
+    </div>
+  </div>
+  <div class="form-group">
+    <label name="pat_adm" for="pat_cli" class="col-lg-4 control-label">Fecha entrega: </label>
+    <div class="col-lg-8">
+      <input type="datetime" class="form-control" id="datent"  name="dat_ent">
+    </div>
+  </div>
+  <div class="form-group">
+    <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Descripcion: </label>
+    <div class="col-lg-8">
+      <input type="text" class="form-control" id="des"  name="des_array"
+             placeholder="descripcion">
+    </div>
+  </div>
+  <div class="form-group">
+    <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Num bol: </label>
+    <div class="col-lg-8">
+      <input type="number" class="form-control" id="num"  name="num_bol"
+             placeholder="num_bol">
+    </div>
+  </div>
+  <div class="center-block">
+    <button type="submit" class="btn btn-warning btn-raised" data-toggle="modal" data-target="#sale">Registrar</button>
+  </div>
+</form>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
+<!--fin del Modal content-->
+<!-- Modal -->
+<div id="eliminaModArray" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <form class="" action="{{route('admin.deletearray')}}" method="post">
+      {{csrf_field()}}
+    <input type="hidden" class="form-control" id="id_array_del" name="id" value="">
+    <h4 class="modal-title">ELIMINAR ARREGLO</h4>
+  </div>
+  <div class="modal-body">
+    <p>Esta seguro de eliminar el arreglo?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-danger">ELIMINAR</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+  </form>
+</div>
+
+</div>
+</div>
+<!--fin del Modal content-->
 @endsection
 @section('scripts')
   <script type="text/javascript">
