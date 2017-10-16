@@ -273,15 +273,15 @@
                               <div class="table-responsive">
                                 <table class="table" id="clients">
                                   <thead>
-                                    <tr class="warning" style="font-size:18px;">
-                                      <td>ID</td><td data-dynatable-column="nam_cli">NOMBRE</td>
-                                      <td data-dynatable-column="lpa_cli">PATERNO</td>
-                                      <td data-dynatable-column="lma_cli">MATERNO</td>
-                                      <td data-dynatable-column="old_cli">DIRECCION</td>
-                                      <td data-dynatable-column="ci_cli">C.I.</td>
-                                      <td data-dynatable-column="add_cli">TELEFONO</td>
-                                      <td data-dynatable-column="pho_cli">NIVEL</td>
-                                      <td data-dynatable-column="boton">ACCIONES</td>
+                                    <tr class="warning">
+                                      <th>ID</th><th data-dynatable-column="nam_cli">NOMBRE</th>
+                                      <th data-dynatable-column="lpa_cli">PATERNO</th>
+                                      <th data-dynatable-column="lma_cli">MATERNO</th>
+                                      <th data-dynatable-column="old_cli">DIRECCION</th>
+                                      <th data-dynatable-column="ci_cli">C.I.</th>
+                                      <th data-dynatable-column="add_cli">TELEFONO</th>
+                                      <th data-dynatable-column="pho_cli">NIVEL</th>
+                                      <th data-dynatable-column="boton">ACCIONES</th>
 
                                     </tr>
                                   </thead>
@@ -401,7 +401,7 @@
                               <div class="table-responsive">
                                 <table class="table" id="sales">
                                   <thead>
-                                    <tr class="warning" style="font-size:18px;">
+                                    <tr class="warning">
                                       <td>ID</td><td data-dynatable-column="fec_sale">FECHA</td>
                                       <td data-dynatable-column="boton">ACCIONES</td>
 
@@ -566,12 +566,12 @@
                               <div class="table-responsive">
                                 <table class="table" id="array">
                                   <thead>
-                                    <tr class="warning" style="font-size:18px;">
-                                      <td>ID</td><td data-dynatable-column="dat_rec">DAT_REC</td>
-                                      <td data-dynatable-column="dat_ent">FECHA ENTREGA</td>
-                                      <td data-dynatable-column="des_array">DESCRIPCION</td>
-                                      <td data-dynatable-column="num_bol">NUM BOL</td>
-                                      <td data-dynatable-column="boton">ACCIONES</td>
+                                    <tr class="warning">
+                                      <th>ID</th><th data-dynatable-column="dat_rec">DAT_REC</th>
+                                      <th data-dynatable-column="dat_ent">FECHA ENTREGA</th>
+                                      <th data-dynatable-column="des_array">DESCRIPCION</th>
+                                      <th data-dynatable-column="num_bol">NUM BOL</th>
+                                      <th data-dynatable-column="boton">ACCIONES</th>
 
 
                                     </tr>
@@ -716,15 +716,15 @@
                               <div class="table-responsive">
                                 <table class="table" id="users">
                                   <thead>
-                                    <tr class="warning" style="font-size:18px; color:#d53502">
-                                      <td style="color:#d53502">ID</td><td data-dynatable-column="nam_user">NOMBRE</td>
-                                      <td data-dynatable-column="lpa_user">PATERNO</td>
-                                      <td data-dynatable-column="lma_user">MATERNO</td>
-                                      <td data-dynatable-column="ci_user">C.I.:</td>
-                                      <td data-dynatable-column="add_user">DIRECCION:</td>
-                                      <td data-dynatable-column="pho_user">TELEFONO:</td>
-                                      <td data-dynatable-column="nic_user">NICK:</td>
-                                      <td data-dynatable-column="boton">ACCIONES</td>
+                                    <tr class="warning">
+                                      <th>ID</th><th data-dynatable-column="nam_user">NOMBRE</th>
+                                      <th data-dynatable-column="lpa_user">PATERNO</th>
+                                      <th data-dynatable-column="lma_user">MATERNO</th>
+                                      <th data-dynatable-column="ci_user">C.I.:</th>
+                                      <th data-dynatable-column="add_user">DIRECCION:</th>
+                                      <th data-dynatable-column="pho_user">TELEFONO:</th>
+                                      <th data-dynatable-column="nic_user">NICK:</th>
+                                      <th data-dynatable-column="boton">ACCIONES</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -875,11 +875,11 @@
                                       <div class="table-responsive">
                                         <table class="table" id="expenses">
                                           <thead>
-                                            <tr class="warning" style="font-size:18px;">
-                                              <td>ID</td><td data-dynatable-column="des_exp">DESCRIPCION</td>
-                                              <td data-dynatable-column="mon_exp">MONTO</td>
-                                              <td data-dynatable-column="fec_exp">FECHA</td>
-                                              <td data-dynatable-column="boton">ACCIONES</td>
+                                            <tr class="warning">
+                                              <th>ID</th><th data-dynatable-column="des_exp">DESCRIPCION</th>
+                                              <th data-dynatable-column="mon_exp">MONTO</th>
+                                              <th data-dynatable-column="fec_exp">FECHA</th>
+                                              <th data-dynatable-column="boton">ACCIONES</th>
                                             </tr>
                                           </thead>
                                           <tbody>
@@ -1056,13 +1056,13 @@
                                 <div class="table-responsive">
                                   <table class="table" id="debts">
                                     <thead>
-                                      <tr class="warning" style="font-size:18px">
-                                        <td>ID</td><td data-dynatable-column="nom_deb">NOMBRE</td>
-                                        <td data-dynatable-column="con_deb">CON_DEB</td>
-                                        <td data-dynatable-column="mon_deb">MONTO</td>
-                                        <td data-dynatable-column="fec_deb">FECHA</td>
-                                        <td data-dynatable-column="fin_deb">FIN_DEV</td>
-                                        <td data-dynatable-column="boton">ACCIONES</td>
+                                      <tr class="warning">
+                                        <th>ID</th><th data-dynatable-column="nom_deb">NOMBRE</th>
+                                        <th data-dynatable-column="con_deb">CON_DEB</th>
+                                        <th data-dynatable-column="mon_deb">MONTO</th>
+                                        <th data-dynatable-column="fec_deb">FECHA</th>
+                                        <th data-dynatable-column="fin_deb">FIN_DEV</th>
+                                        <th data-dynatable-column="boton">ACCIONES</th>
 
 
                                       </tr>
@@ -1267,15 +1267,15 @@
                             <div class="table-responsive">
                               <table class="table" id="events">
                                 <thead>
-                                  <tr class="warning" style="font-size:18px;">
-                                    <td>ID</td><td data-dynatable-column="title">TITULO</td>
-                                    <td data-dynatable-column="body">TEMA</td>
+                                  <tr class="warning">
+                                    <th>ID</th><th data-dynatable-column="title">TITULO</th>
+                                    <th data-dynatable-column="body">TEMA</th>
 
-                                    <td data-dynatable-column="class">CLASS</td>
-                                    <td data-dynatable-column="start">INICIO</td>
-                                    <td data-dynatable-column="end">FIN</td>
-                                    <td data-dynatable-column="color">COLOR</td>
-                                    <td data-dynatable-column="boton">ACCIONES</td>
+                                    <th data-dynatable-column="class">CLASS</th>
+                                    <th data-dynatable-column="start">INICIO</th>
+                                    <th data-dynatable-column="end">FIN</th>
+                                    <th data-dynatable-column="color">COLOR</th>
+                                    <th data-dynatable-column="boton">ACCIONES</th>
 
 
                                   </tr>

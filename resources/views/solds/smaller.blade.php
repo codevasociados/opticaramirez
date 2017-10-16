@@ -108,8 +108,8 @@
   </script>
   <script type="text/javascript">
 <!--
-num=0;
-var add2=0;
+var num=0;
+
 function crear(obj) {
   num++;
   fi = document.getElementById('fiel'); // 1
@@ -153,7 +153,7 @@ function crear(obj) {
   ele.setAttribute("class", "total_t"); // 6
   contenedor.appendChild(ele); // 7
 
-
+var add2=0;
 
 
 
@@ -168,14 +168,14 @@ $('#num').val(num);
   contenedor.appendChild(ele); // 7
 
 
-
-  $('.total_t').each(function() {
+  $('.total_total').each(function() {
       if (!isNaN($(this).val())) {
           add2 += Number($(this).val());
-          console.log(add2);
+
       }
   });
   $('#total_total').val(add2);
+
 
 }
 
@@ -199,6 +199,13 @@ function suma() {
       $('#total_total').val(add);
       add=0;
 
+      $('.total_t').each(function() {
+          if (!isNaN($(this).val())) {
+              add2 += Number($(this).val());
+
+          }
+      });
+      $('#total_total').val(add2);
 };
 
 

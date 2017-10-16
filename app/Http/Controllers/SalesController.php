@@ -21,19 +21,20 @@ class SalesController extends Controller
     $sale->id_user= Auth::user()->id;
     $sale->save();
     if ($request->num!=0) {
-      for ($i=1; $i<=$request->num ; $i++) {
+      for ($i=1; $i<=$request->input('num') ; $i++) {
         $sold=new Sold;
-        $sold->des_pro=$request->pro.$i;
-        $sold->pre_sold=$request->pre.$i;
-        $sold->can_pro=$request->fil.$i;
-        $sold->tot_pro=$request->tot.$i;
+        $sold->des_pro=$request->input('pro'.$i);
+        $sold->pre_sold=$request->input('pre'.$i);
+        $sold->can_pro=$request->input('fil'.$i);
+        $sold->tot_pro=$request->input('tot'.$i);
         $sold->id_user= Auth::user()->id;
         $sold->id_sale= $sale->id;
         $sold->save();
-        dd($sold);
-        $mensaje=" Venta registrada exitosamente!";
-        return redirect()->route('sold.smaller')->with('mensaje',$mensaje);
+
+
       }
+      $mensaje=" Venta registrada exitosamente!";
+      return redirect()->route('sold.smaller')->with('mensaje',$mensaje);
     }else{
       $mensaje2=" No hay productos en la lista!";
       return redirect()->route('sold.smaller')->with('mensaje2',$mensaje2);
