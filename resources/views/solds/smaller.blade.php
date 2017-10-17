@@ -39,7 +39,14 @@
           <label class="col-md-4 control-label">Fecha:</label>
         <div class="col-md-8" >
           <input type="date" value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" name="fec_sale" class="form-control" required>
-        </div></div>
+        </div>
+      </div>
+      <div class="form-group has-danger">
+        <label class="col-md-4 control-label">Nombre:</label>
+      <div class="col-md-8" >
+        <input type="text" value="" name="nam_sale" class="form-control" required placeholder="ingrese nombre">
+      </div>
+    </div>
         <div class="form-group has-danger">
           <div class="col-md-12" >
           <fieldset id="fiel">
@@ -54,10 +61,11 @@
             </th>
           </table>
           <input type="hidden" name="num" id="num" value="0">
+
+          </fieldset>
           <div class="form-group has-danger">
           <label for="total_total">Total de venta: </label>    <input type="text" name="total_total" id="total_total" class="total_t" value="0">
           </div>
-          </fieldset>
           </div>
         </div>
         </div>
@@ -127,28 +135,28 @@ function crear(obj) {
   contenedor.appendChild(ele); // 7
 
   ele = document.createElement('input'); // 5
-  ele.setAttribute("class", "caja"+num); // 6
   ele.type = 'text'; // 6
+  ele.id = 'cajamuno'+num;
   ele.name = 'pre'+num; // 6
-  ele.setAttribute("onchange", "suma();");
+  ele.setAttribute("onkeyup", "multiplicar();");
   ele.style='width:20%; margin-right:5px; border-radius:5px;';
   contenedor.appendChild(ele); // 7
 
   ele = document.createElement('input'); // 5
   ele.type = 'text'; // 6
   ele.name = 'fil'+num; // 6
-  ele.setAttribute("class", "caja"+num); // 6
-  ele.setAttribute("onchange", "suma();");
+  ele.id = 'cajamdos'+num;
+  ele.setAttribute("onkeyup", "multiplicar();");
   ele.style='width:25%; margin-right:5px; border-radius:5px;';
   contenedor.appendChild(ele); // 7
 
   ele = document.createElement('input'); // 5
   ele.type = 'text'; // 6
   ele.setAttribute("readonly", "readonly");
-  ele.setAttribute("onchange", "sumat();");
+  ele.setAttribute("onchange", "su();");
   ele.name = 'tot'+num; // 6
   ele.id = 'tot'+num; // 6
-  ele.value='0';
+  ele.value='';
   ele.style='width:20%; margin-right:5px; border-radius:5px;';
   ele.setAttribute("class", "total_t"); // 6
   contenedor.appendChild(ele); // 7
@@ -171,20 +179,27 @@ $('#num').val(num);
   $('.total_total').each(function() {
       if (!isNaN($(this).val())) {
           add2 += Number($(this).val());
-
       }
   });
   $('#total_total').val(add2);
 
-
 }
 
+function multiplicar(){
+  var total = 0;
+  var valor1 = document.getElementById("cajamuno"+num).value;
+  var valor2 = document.getElementById("cajamdos"+num).value;
+  total = (valor1 * valor2);
+  var Display = document.getElementById("tot"+num).value;
+
+  $('#tot'+num).val(total);
+}
 
 function suma() {
       var add = 0;
       $('.caja'+num).each(function() {
           if (!isNaN($(this).val())) {
-              add += Number($(this).val());
+              add = add*Number($(this).val());
           }
       });
       $('#tot'+num).val(add);

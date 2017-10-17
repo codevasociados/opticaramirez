@@ -18,6 +18,7 @@ class SalesController extends Controller
     //Controller of store user Created by: Developer Luis Quisbert
     $sale= new Sale;
     $sale->fec_sale= $request->fec_sale;
+    $sale->nam_sale= $request->nam_sale;
     $sale->id_user= Auth::user()->id;
     $sale->save();
     if ($request->num!=0) {
