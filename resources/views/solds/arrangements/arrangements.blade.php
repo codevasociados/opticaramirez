@@ -9,7 +9,7 @@
 <div class="container-fluid">
   <div class="well col-lg-11" style="margin-left:4%;">
     <fieldset>
-      <legend>Areglos - Optica Ramirez</legend>
+      <legend>Arreglos - Optica Ramirez</legend>
     <!--desde aqui el codigo de la tabla!-->
     <button type="button" class="btn btn-danger btn-raised" data-toggle="modal" data-target="#modarray"><i class="material-icons">edit</i> Registro</button>
 
@@ -39,6 +39,76 @@
 
 </div>
 </div>
+<!-- Modal -->
+<div id="see" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label name="nom_adm" for="nom_clie" class="col-lg-4 control-label">Fecha recibo: </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="dat_rec" name="dat_rec" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="pat_adm" for="pat_cli" class="col-lg-4 control-label">Fecha entrega: </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="dat_ent"  name="dat_ent" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Descripcion: </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="des_array"  name="des_array" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cliente: </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="nam_cli"  name="nam_cli" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Montura: </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="mon_arr"  name="mon_arr" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Material: </label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="mat_arr"  name="mat_arr" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Cuenta: </label>
+          <div class="col-lg-8">
+            <input type="number" class="form-control" id="cue_arr"  name="cue_arr" readonly="readonly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="mat_adm" for="mat_cli" class="col-lg-4 control-label">Saldo: </label>
+          <div class="col-lg-8">
+            <input type="number" class="form-control" id="sal_arr"  name="sal_arr" readonly="readonly">
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="material-icons">close</i>Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal !-->
 
 
 <!-- Modal -->
@@ -227,7 +297,7 @@
 
 
 
-        arrays[i].button='<a class="btn btn-raised btn-warning" href="#" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Ver</a><a class="btn btn-raised btn-primary" target="_blank" href="/ticket_print/'+arrays[i].id+'" style="margin-top:0px; padding: 8px;"><i class="material-icons">print</i> Imprimir boleta</a>';
+        arrays[i].button='<a class="btn btn-raised btn-warning" onclick="javascript:pasadatos('+b+');" data-toggle="modal" data-target="#see" style="margin-top:0px; padding: 8px;"><i class="material-icons">supervisor_account</i> Ver</a><a class="btn btn-raised btn-primary" target="_blank" href="/ticket_print/'+arrays[i].id+'" style="margin-top:0px; padding: 8px;"><i class="material-icons">print</i> Imprimir boleta</a>';
         JSON.stringify(arrays);
         console.log(arrays);
       }
@@ -241,5 +311,18 @@
         }
       });
     });
+    function pasadatos(id,datrec,datent,des,num,iduser,namcli,mon,mat,cue,sal){
+      $('#id').val(id);
+      $('#dat_rec').val(datrec);
+      $('#dat_ent').val(datent);
+      $('#des_array').val(des);
+      $('#num_bol').val(num);
+      $('#id_user').val(iduser);
+      $('#nam_cli').val(namcli);
+      $('#mon_arr').val(mon);
+      $('#mat_arr').val(mat);
+      $('#cue_arr').val(cue);
+      $('#sal_arr').val(sal);
+    }
   </script>
 @endsection

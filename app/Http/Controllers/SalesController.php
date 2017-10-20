@@ -16,12 +16,15 @@ class SalesController extends Controller
   }
   public function store(Request $request){
     //Controller of store user Created by: Developer Luis Quisbert
-    $sale= new Sale;
-    $sale->fec_sale= $request->fec_sale;
-    $sale->nam_sale= $request->nam_sale;
-    $sale->id_user= Auth::user()->id;
-    $sale->save();
+
     if ($request->num!=0) {
+      $sale= new Sale;
+      $sale->fec_sale= $request->fec_sale;
+      $sale->nam_sale= $request->nam_sale;
+      $sale->id_user= Auth::user()->id;
+      $sale->save();
+
+
       for ($i=1; $i<=$request->input('num') ; $i++) {
         $sold=new Sold;
         $sold->des_pro=$request->input('pro'.$i);
